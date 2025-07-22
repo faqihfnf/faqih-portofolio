@@ -1,5 +1,24 @@
-import Image from "next/image";
+"use client";
+
+import HeroSection from "@/components/sections/home/HeroSection";
 
 export default function Home() {
-  return <h1>Home</h1>;
+  return (
+    <div className="relative dark:bg-black-100  justify-center items-center overflow-clip flex-col mx-auto ">
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* My Services Section */}
+      {/* <MyServices /> */}
+
+      {/* Tech Stack Section */}
+      {/* <TechStack /> */}
+
+      {/* About Me Section */}
+      {/* <AboutMe /> */}
+
+      {/* CTA Section */}
+      {/* <CallToAction /> */}
+    </div>
+  );
 }

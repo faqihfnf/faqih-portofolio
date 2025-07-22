@@ -4,6 +4,7 @@ import { Inter, Poppins } from "next/font/google";
 import ReduxProvider from "../components/providers/ReduxProvider";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
@@ -29,7 +30,7 @@ export default function RootLayout({
         <ReduxProvider>
           <Navbar />
           <main className="min-h-screen">{children}</main>
-          {/* <Toaster /> */}
+          <Toaster />
           <Footer />
         </ReduxProvider>
       </body>
