@@ -13,7 +13,7 @@ export default function AboutMe() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}>
-          What About Me
+          Who I Am
         </motion.h2>
         {/* Profile & Text */}
         <motion.div

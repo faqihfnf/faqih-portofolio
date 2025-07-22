@@ -21,8 +21,8 @@ export default function Navbar() {
       icon: <Home className="h-4 w-4 " />,
     },
     {
-      name: "Experience",
-      link: "/experience",
+      name: "Experiences",
+      link: "/experiences",
       icon: <User className="h-4 w-4 " />,
     },
     {
