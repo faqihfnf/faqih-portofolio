@@ -1,5 +1,7 @@
 "use client";
 
+import AboutMe from "@/components/sections/home/AboutMe";
+import CallToAction from "@/components/sections/home/CallToAction";
 import HeroSection from "@/components/sections/home/HeroSection";
 import MyServices from "@/components/sections/home/MyServices";
 import TechStack from "@/components/sections/home/TechStack";
@@ -17,10 +19,10 @@ export default function Home() {
       <TechStack />
 
       {/* About Me Section */}
-      {/* <AboutMe /> */}
+      <AboutMe />
 
       {/* CTA Section */}
-      {/* <CallToAction /> */}
+      <CallToAction />
     </div>
   );
 }
