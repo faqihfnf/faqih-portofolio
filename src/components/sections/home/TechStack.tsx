@@ -1,7 +1,7 @@
 "use client";
 
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { techStackIcons } from "@/data/techstach";
+import { techStackIcons } from "@/data/techstack";
 import { motion } from "framer-motion";
 
 export default function TechStack() {
