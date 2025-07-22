@@ -2,6 +2,7 @@
 
 import HeroSection from "@/components/sections/home/HeroSection";
 import MyServices from "@/components/sections/home/MyServices";
+import TechStack from "@/components/sections/home/TechStack";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
       <MyServices />
 
       {/* Tech Stack Section */}
-      {/* <TechStack /> */}
+      <TechStack />
 
       {/* About Me Section */}
       {/* <AboutMe /> */}
