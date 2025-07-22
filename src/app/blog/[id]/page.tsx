@@ -7,7 +7,7 @@ interface PageProps {
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
-  const { id } = params;
+  const { id } = await params;
   const recordMap = await getPageRecordMap(id);
 
   // ambil judul & created_time dari recordMap.rootBlock
@@ -35,7 +35,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
       {createdTime && <p className="text-sm flex justify-center text-gray-500 mb-8">📅 {createdTime}</p>}
 
       {/* Konten dari Notion */}
-      <div className="notion-content">
+      <div className="prose dark:prose-invert">
         <NotionRenderer recordMap={recordMap} />
       </div>
     </div>

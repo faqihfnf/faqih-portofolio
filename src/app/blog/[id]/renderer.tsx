@@ -14,6 +14,7 @@ const Pdf = dynamic(() => import("react-notion-x/build/third-party/pdf").then((m
 const Modal = dynamic(() => import("react-notion-x/build/third-party/modal").then((m) => m.Modal), { ssr: false });
 
 import { NotionRenderer as Renderer } from "react-notion-x";
+import CustomCodeBlock from "@/components/sections/blog/CodeBlock";
 
 export function NotionRenderer({ recordMap }: { recordMap: any }) {
   return (

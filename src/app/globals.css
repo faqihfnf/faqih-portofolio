@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -170,4 +171,75 @@
 
 .notion-collection-page-properties {
   display: none !important;
+}
+
+.prose h2 {
+  color: red !important;
+}
+
+.prose p {
+  color: red !important;
+}
+
+/* Gaya untuk Notion Code Block */
+.notion-code {
+  background-color: #191a25 !important;
+  border-radius: 10px !important;
+  padding: 16px !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: #f8f8f2 !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important; /* Untuk Firefox */
+}
+
+.notion-code::-webkit-scrollbar {
+  display: none !important; /* Untuk Chrome/Safari */
+}
+
+.notion-code-copy:hover {
+  opacity: 1 !important;
+  background: transparent !important;
+}
+
+.notion-code-copy-button {
+  background-color: transparent !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+  color: #f8f8f2 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+}
+
+/* Posisikan tooltip di atas tombol */
+.notion-code-copy-tooltip {
+  top: -10px !important;
+  bottom: auto !important;
+  transform: translateX(-50%) !important;
+  /* left: 50% !important; */
+  /* right: 20px !important; */
+}
+
+/* Animasi dan styling tooltip */
+/* .notion-code-copy-tooltip::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 50% !important;
+  margin-left: -5px !important;
+  border-width: 5px !important;
+  border-style: solid !important;
+  border-color: #333 transparent transparent transparent !important;
+} */
+
+.notion-text {
+  color: indigo !important;
+}
+
+.medium-zoom-image {
+  /* margin: 0 !important; */
+  /* margin: 0 !important; */
+  border-radius: 10px !important;
 }
