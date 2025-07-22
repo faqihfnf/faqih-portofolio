@@ -1,6 +1,7 @@
 "use client";
 
 import HeroSection from "@/components/sections/home/HeroSection";
+import MyServices from "@/components/sections/home/MyServices";
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
       <HeroSection />
 
       {/* My Services Section */}
-      {/* <MyServices /> */}
+      <MyServices />
 
       {/* Tech Stack Section */}
       {/* <TechStack /> */}
