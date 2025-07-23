@@ -1,11 +1,14 @@
-// src/app/blog/[slug]/NotionContent.tsx
 "use client";
 
 import { NotionRenderer as Renderer } from "./renderer";
 
-export default function NotionContent({ recordMap }: { recordMap: any }) {
+interface NotionContentProps {
+  recordMap: any;
+}
+
+export default function NotionContent({ recordMap }: NotionContentProps) {
   return (
-    <div className="prose dark:prose-invert">
+    <div className="prose dark:prose-invert max-w-none">
       <Renderer recordMap={recordMap} />
     </div>
   );
