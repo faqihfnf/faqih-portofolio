@@ -14,13 +14,9 @@ export default async function BlogList() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <BlogHeader />
-        <BlogListClient posts={posts} siteUrl={siteUrl} />
+
         {/* Blog Cards */}
-        {/* <div className="space-y-10">
-          {posts.map((post) => (
-            <BlogCard key={post.id} post={post} siteUrl={siteUrl} />
-          ))}
-        </div> */}
+        <BlogListClient posts={posts} siteUrl={siteUrl} />
       </div>
     </div>
   );

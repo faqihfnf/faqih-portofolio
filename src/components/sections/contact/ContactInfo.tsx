@@ -4,11 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export function ContactInfo() {
   return (
-    <motion.div
-      className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg shadow-indigo-500"
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}>
+    <motion.div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md shadow-indigo-500" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
       <h2 className="text-2xl font-bold mb-6">Contact Info</h2>
       <div className="space-y-4">
         <div className="flex items-center">
