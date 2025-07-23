@@ -49,7 +49,7 @@ export default function CallToAction() {
           viewport={{ once: true }}>
           <Link href="/contact">
             <TouchButton
-              otherClasses="hover:text-pink-500 dark:hover:text-pink-500 hover:bg-indigo-200 text-indigo-700 dark:text-indigo-100 font-semibold text-lg"
+              otherClasses="hover:text-pink-500 dark:hover:text-pink-500 hover:bg-indigo-200 text-indigo-900 dark:text-indigo-100 font-semibold text-lg"
               title="Let's get in touch"
               icon={<SendIcon className="w-4 h-4" />}
               position="right"></TouchButton>

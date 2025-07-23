@@ -24,8 +24,8 @@ export default function AboutMe() {
           viewport={{ once: true }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Profile Image */}
-            <div className="mx-auto flex justify-end mb-4 md:mx-0 order-1 md:order-2">
-              <div className="relative group">
+            <div className="mx-auto flex justify-center md:justify-end mb-4 md:mx-0 order-1 md:order-2">
+              <div className="">
                 <div
                   className="w-[475px] h-[475px] bg-gradient-to-tl from-blue-600 via-teal-500 to-pink-500 p-0.5"
                   style={{

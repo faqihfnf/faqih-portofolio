@@ -174,21 +174,125 @@
   background-size: 50px 50px;
 }
 
+/* --------------------------------------------------
+   Override gaya bawaan react-notion-x & typography
+   -------------------------------------------------- */
+
+/* Hapus properti Notion yang tidak perlu */
 .notion-collection-page-properties {
   display: none !important;
 }
 
+/* Wrapper prose umum */
+.prose {
+  max-width: 65ch; /* seperti medium */
+  line-height: 1.8;
+  font-size: 1.125rem; /* setara prose-lg */
+  /* color: rgb(31 41 55);  */
+}
+
+/* Dark mode */
+.dark .prose {
+  color: rgb(243 244 246); /* gray-100 */
+}
+
+/* Heading 1 */
+.prose h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+/* Heading 2 */
 .prose h2 {
-  color: red !important;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
 }
 
-.prose p {
-  color: red !important;
+/* Heading 3 */
+.prose h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Gaya untuk Notion Code Block */
+/* Link */
+.prose a {
+  color: rgb(37 99 235); /* blue-600 */
+  text-decoration: none;
+  font-weight: 500;
+}
+.prose a:hover {
+  text-decoration: underline;
+}
+.dark .prose a {
+  color: rgb(96 165 250); /* blue-400 */
+}
+
+/* Blockquote */
+.prose blockquote {
+  border-left: 4px solid rgb(209 213 219);
+  padding-left: 1rem;
+  font-style: italic;
+  color: rgb(75 85 99);
+}
+.dark .prose blockquote {
+  border-color: rgb(107 114 128);
+  color: rgb(209 213 219);
+}
+
+/* Inline code */
+.prose code {
+  background-color: rgb(243 244 246);
+  border-radius: 0.3rem;
+  font-size: 0.85rem;
+}
+.dark .prose code {
+  background-color: rgb(31 41 55);
+  color: rgb(243 244 246);
+}
+
+/* Preformatted code blocks */
+.prose pre {
+  background-color: rgb(17 24 39);
+  color: rgb(243 244 246);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+.dark .prose pre {
+  background-color: rgb(31 41 55);
+}
+
+/* Image */
+.prose img {
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* List */
+.prose ul {
+  padding-left: 1.4rem;
+  list-style-type: disc;
+}
+.prose ol {
+  padding-left: 1.4rem;
+  list-style-type: decimal;
+}
+
+/* --------------------------------------------------
+   Notion-specific code blocks (react-notion-x)
+   -------------------------------------------------- */
 .notion-code {
-  background-color: #191a25 !important;
+  background-color: rgb(17 24 39) !important;
   border-radius: 6px !important;
   padding: 16px !important;
   font-family: "JetBrains Mono", monospace !important;
@@ -196,18 +300,21 @@
   line-height: 1.5 !important;
   color: #f8f8f2 !important;
   overflow-x: auto !important;
-  scrollbar-width: none !important; /* Untuk Firefox */
+  scrollbar-width: none !important;
+}
+.dark .notion-code {
+  background-color: rgb(31 41 55) !important;
+  color: #f8f8f2 !important;
 }
 
 .notion-code::-webkit-scrollbar {
-  display: none !important; /* Untuk Chrome/Safari */
+  display: none !important;
 }
 
 .notion-code-copy:hover {
   opacity: 1 !important;
   background: transparent !important;
 }
-
 .notion-code-copy-button {
   background-color: transparent !important;
   border-radius: 4px !important;
@@ -217,22 +324,30 @@
   font-weight: 500 !important;
   cursor: pointer !important;
 }
-
-/* Posisikan tooltip di atas tombol */
 .notion-code-copy-tooltip {
   top: -10px !important;
   bottom: auto !important;
   transform: translateX(-50%) !important;
 }
 
-.notion-text {
-  color: indigo !important;
-}
-
 .medium-zoom-image {
   border-radius: 6px !important;
 }
 
-.notion-simple-table-row {
-  border: red 1px solid !important;
+.dark .notion-text,
+.dark .notion-list li,
+.dark .notion-simple-table-cell {
+  color: rgb(243 244 246) !important;
+}
+
+.notion-simple-table th,
+.notion-simple-table td {
+  border: 1px solid #dedddd !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.dark .notion-simple-table th,
+.dark .notion-simple-table td {
+  border: 1px solid #1c1f23 !important;
 }

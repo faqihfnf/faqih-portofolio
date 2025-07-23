@@ -30,7 +30,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
   const recordMap = await getPageRecordMap(pageId);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 mt-20">
+    <div className="max-w-6xl mx-auto px-10 py-20">
       <Link
         href="/blog"
         className="inline-block text-sm text-blue-500 hover:underline mb-6">
