@@ -7,9 +7,14 @@ export default function AboutMe() {
   return (
     <section className="py-20">
       <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <motion.h2 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-          Who I Am
-        </motion.h2>
+        <div className="text-center mb-4">
+          <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
+            Who I Am
+          </motion.h2>
+          <motion.p className="text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+            This is a brief introduction about myself and my background.
+          </motion.p>
+        </div>
         {/* Profile & Text */}
         <motion.div className="" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-8 items-center">

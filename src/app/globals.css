@@ -124,8 +124,7 @@
 
 @layer utilities {
   .animate-scroll {
-    animation: scroll var(--animation-duration, 40s)
-      var(--animation-direction, forwards) linear infinite;
+    animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
   }
 
   @keyframes scroll {
@@ -166,11 +165,7 @@
 }
 
 .bg-grid-white\/\[0\.02\] {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
@@ -350,4 +345,10 @@
 .dark .notion-simple-table th,
 .dark .notion-simple-table td {
   border: 1px solid #1c1f23 !important;
+}
+
+.react-activity-calendar {
+  color: white !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
 }
