@@ -1,4 +1,5 @@
 import { Briefcase, Code, Layers, Rocket } from "lucide-react";
+import { color } from "motion";
 
 export const ExperienceItem = [
   {
@@ -9,6 +10,7 @@ export const ExperienceItem = [
     description:
       "Leading the development of scalable web applications using modern technologies. Mentoring junior developers and architecting solutions for complex business requirements.",
     icon: Rocket,
+    color: "indigo",
     technologies: [
       "React",
       "Next.js",
@@ -26,6 +28,7 @@ export const ExperienceItem = [
     description:
       "Developed and maintained multiple client projects, focusing on responsive design and performance optimization. Collaborated with design teams to implement pixel-perfect interfaces.",
     icon: Layers,
+    color: "pink",
     technologies: ["React", "Vue.js", "Express.js", "MongoDB", "Docker"],
   },
   {
@@ -36,6 +39,7 @@ export const ExperienceItem = [
     description:
       "Built responsive web applications and implemented modern UI/UX designs. Worked in an agile environment with rapid prototyping and iterative development.",
     icon: Code,
+    color: "green",
     technologies: ["JavaScript", "React", "SASS", "Webpack", "Git"],
   },
   {
@@ -46,6 +50,7 @@ export const ExperienceItem = [
     description:
       "Started my professional journey developing websites and web applications. Learned best practices in coding, version control, and project management.",
     icon: Briefcase,
+    color: "red",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
   },
 ];
