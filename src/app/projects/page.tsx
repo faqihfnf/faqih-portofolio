@@ -80,7 +80,7 @@ export default function ProjectsPage() {
           <div className="mt-10 text-center">
             <button
               onClick={handleLoadMore}
-              className="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors shadow-md shadow-indigo-400">
+              className="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors shadow-sm shadow-indigo-400">
               Load More
             </button>
           </div>

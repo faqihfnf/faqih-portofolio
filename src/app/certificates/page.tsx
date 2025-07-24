@@ -42,11 +42,11 @@ export default function CertificatesPage() {
               key={cert.id}
               onClick={() => handleCardClick(cert.link)}
               whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="cursor-pointer rounded-xl overflow-hidden shadow-lg shadow-indigo-500 hover:shadow-indigo-600  border border-indigo-100 dark:border-indigo-900">
-              <div className="h-56 overflow-hidden">
+              className="cursor-pointer rounded-md overflow-hidden shadow-md shadow-indigo-200 hover:shadow-indigo-300 hover:border-1 hover:border-indigo-400 border">
+              <div className="h-64 overflow-hidden">
                 <img
                   src={cert.image}
                   alt={cert.title}
@@ -91,7 +91,7 @@ export default function CertificatesPage() {
             exit={{ opacity: 0 }}
             onClick={handleCloseModal}>
             <motion.div
-              className="bg-white dark:bg-slate-900 rounded-lg shadow-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative p-4"
+              className="bg-white dark:bg-slate-900 rounded-lg shadow-md max-w-4xl w-full max-h-[90vh] overflow-auto relative p-4"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}

@@ -304,7 +304,7 @@
 }
 .dark .notion-code {
   background-color: rgb(31 41 55) !important;
-  color: #f8f8f2 !important;
+  /* color: #f8f8f2 !important; */
 }
 
 .notion-code::-webkit-scrollbar {

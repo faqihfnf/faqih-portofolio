@@ -4,8 +4,14 @@ import { motion } from "framer-motion";
 
 export default function BusinessHours() {
   return (
-    <motion.div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md shadow-indigo-500" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-      <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">Business Hours</h2>
+    <motion.div
+      className="bg-white dark:bg-slate-800 p-8 hover:border-indigo-400 rounded-md shadow-md shadow-indigo-200 hover:shadow-indigo-300 transition-shadow duration-300"
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}>
+      <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+        Business Hours
+      </h2>
       <ul className="space-y-3">
         <li className="flex justify-between text-sm md:text-base">
           <span>Monday – Friday</span>

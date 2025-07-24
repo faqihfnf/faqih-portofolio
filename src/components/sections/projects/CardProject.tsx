@@ -26,9 +26,9 @@ export default function CardProject({
 }: CardProjectProps) {
   return (
     <motion.div
-      className="bg-white dark:bg-slate-800 rounded-lg shadow-lg shadow-indigo-500 hover:shadow-indigo-600 overflow-hidden transition-shadow duration-300 flex flex-col h-full"
+      className="bg-white dark:bg-slate-800 rounded-md shadow-md shadow-indigo-200 hover:shadow-indigo-300 hover:border-1 hover:border-indigo-400 overflow-hidden transition-shadow duration-300 flex flex-col h-full"
       whileHover={{ scale: 1.01 }}
-      transition={{ duration: 0.5, delay: 0.5 }}
+      transition={{ duration: 0.5, delay: 0.1 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}>
       {/* Gambar */}

@@ -45,7 +45,7 @@ export default function ExperienceTimeline({
 
               {/* Card */}
               <div
-                className={`mt-8 md:mt-0 md:w-[45%] bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg shadow-indigo-400 transition-shadow relative z-0 ${
+                className={`mt-8 md:mt-0 md:w-[45%] bg-white dark:bg-slate-800 p-6 rounded-md shadow-md shadow-indigo-200 hover:shadow-indigo-300 hover:border-1 hover:border-indigo-400 border relative z-0 ${
                   isLeft
                     ? "md:mr-auto md:text-right"
                     : "md:ml-auto md:text-left"

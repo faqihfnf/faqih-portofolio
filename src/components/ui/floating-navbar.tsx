@@ -154,10 +154,10 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
                 onClick={handleToggleTheme}
                 className={`p-2 rounded-full transition-colors ${
                   isScrolled
-                    ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100 dark:hover:bg-gray-700"
+                    ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
                     : pathname === "/"
                     ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-300 hover:bg-white/10 dark:hover:bg-gray-800/30"
-                    : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100 dark:hover:bg-gray-700"
+                    : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
                 }`}>
                 {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
               </button>
@@ -220,7 +220,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
                         animate={{ opacity: 1, scale: 1, x: 0 }}
                         exit={{ opacity: 0, scale: 0.8, x: 20 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-8 -top-1 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-full shadow-lg border border-slate-200 dark:border-gray-600 px-4 py-2">
+                        className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-full shadow-lg border border-slate-200 dark:border-gray-600 px-4 py-2">
                         <div className="flex items-center space-x-4">
                           {navItems.map((navItem, idx) => (
                             <Link
@@ -251,8 +251,8 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
                             onClick={handleToggleTheme}
                             className={`p-2 rounded-full transition-colors ${
                               pathname === "/"
-                                ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-300"
-                                : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
+                                ? " hover:text-indigo-400 dark:hover:text-indigo-300"
+                                : " hover:text-indigo-600 dark:hover:text-indigo-400"
                             }`}>
                             {theme === "dark" ? (
                               <Moon size={20} />

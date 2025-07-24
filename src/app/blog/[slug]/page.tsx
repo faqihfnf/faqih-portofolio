@@ -2,6 +2,7 @@ import { getData, getPageRecordMap } from "@/services/notionServices";
 import NotionContent from "./NotionContent";
 import TableOfContents from "./TableOfContents";
 import Link from "next/link";
+import { ChevronLeft, CircleArrowLeft, MoveLeftIcon } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -17,11 +18,22 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   if (!page) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8 mt-20">
-        <p className="text-red-500">❌ Blog not found.</p>
-        <Link href="/blog" className="text-blue-500 underline">
-          ← Back to Blog
+      <div className="max-w-6xl mx-auto px-10 py-20">
+        <Link
+          href="/blog"
+          className="flex text-md hover:text-indigo-500 font-medium mb-6">
+          <ChevronLeft className="inline-block mr-1" />
+          <span className="">Back to Blog</span>
         </Link>
+        <div className="text-center flex flex-col items-center justify-center mt-40">
+          <h2 className="text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+            ❌ Oops! Blog tidak ditemukan
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
+            Sepertinya artikel yang Anda cari sudah tidak tersedia atau telah
+            dipindahkan.
+          </p>
+        </div>
       </div>
     );
   }
@@ -33,8 +45,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
     <div className="max-w-6xl mx-auto px-10 py-20">
       <Link
         href="/blog"
-        className="inline-block text-sm text-blue-500 hover:underline mb-6">
-        ← Back to Blog
+        className="flex text-md hover:text-indigo-500 font-medium mb-6">
+        <ChevronLeft className="inline-block mr-1" />
+        <span className="">Back to Blog</span>
       </Link>
 
       <h1 className="text-4xl font-bold mb-2 text-center">{page.title}</h1>
