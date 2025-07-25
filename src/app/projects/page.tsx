@@ -3,6 +3,7 @@
 import CardProject from "@/components/sections/projects/CardProject";
 import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
+import { LoaderPinwheel } from "lucide-react";
 import { useState } from "react";
 
 const categories = ["All", "React", "Next.js", "Node.js", "Mobile", "MongoDb"];
@@ -77,10 +78,11 @@ export default function ProjectsPage() {
 
         {/* Load More */}
         {visibleCount < filteredProjects.length && (
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center">
             <button
               onClick={handleLoadMore}
-              className="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors shadow-sm shadow-indigo-400">
+              className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#5907e8,55%,#000103)] bg-[length:200%_100%] px-6 text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:text-slate-100 font-semibold">
+              <LoaderPinwheel className="mr-2 h-4 w-4" />
               Load More
             </button>
           </div>

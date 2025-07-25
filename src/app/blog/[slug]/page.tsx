@@ -11,7 +11,7 @@ interface PageProps {
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const posts = await getData();
   const page = posts.find((p) => p.slug === slug);
@@ -73,7 +73,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
       {/* Layout dengan sidebar TOC dan content */}
       <div className="flex gap-8">
         {/* Content utama */}
-        <div className="flex-1 max-w-3xl">
+        <div className="flex-1 max-w-4xl">
           <NotionContent recordMap={recordMap} />
         </div>
 

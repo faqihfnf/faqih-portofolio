@@ -8,7 +8,7 @@ interface NotionContentProps {
 
 export default function NotionContent({ recordMap }: NotionContentProps) {
   return (
-    <div className="prose dark:prose-invert max-w-none">
+    <div className="prose dark:prose-invert">
       <Renderer recordMap={recordMap} />
     </div>
   );
