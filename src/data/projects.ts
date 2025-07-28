@@ -10,12 +10,11 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "Islamic Website",
     description:
-      "A full-featured e-commerce platform with product catalog, payment integration, inventory management, and user authentication.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Mobile"],
+      "A Islamic website that provides information about the Holy Quran, Hadith, Islamic knowledge and Free Islamic Ebook.",
+    image: "/projects/marifah.png",
+    technologies: ["React", "Node.js", "MongoDB", "Tailwind", "Vercel"],
     stackIcons: [
       "/stack/c.svg",
       "/stack/dock.svg",
@@ -23,8 +22,8 @@ export const projects: Project[] = [
       "/stack/tail.svg",
       "/stack/ts.svg",
     ],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/faqihfnf",
+    liveUrl: "https://marifah.id",
   },
   {
     title: "Task Management App",
