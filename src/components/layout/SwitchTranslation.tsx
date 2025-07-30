@@ -20,9 +20,11 @@ const SwitchTranslation: FC<SwitchTranslationProps> = ({}) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Globe className="" size={20} />
+      <DropdownMenuTrigger
+        asChild
+        className={`hover:bg-transparent dark:hover:bg-transparent cursor-pointer hover:text-indigo-500`}>
+        <Button variant="ghost" size="icon" className="font-semibold">
+          <Globe className="font-semibold" size={20} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
@@ -31,18 +33,14 @@ const SwitchTranslation: FC<SwitchTranslationProps> = ({}) => {
         <DropdownMenuItem
           onClick={() => changeLanguage("id")}
           className={
-            lang === "id"
-              ? "bg-primary text-white cursor-pointer"
-              : "cursor-pointer"
+            lang === "id" ? " text-indigo-500 cursor-pointer" : "cursor-pointer"
           }>
           Indonesia
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => changeLanguage("en")}
           className={
-            lang === "en"
-              ? "bg-primary text-white cursor-pointer"
-              : "cursor-pointer"
+            lang === "en" ? " text-indigo-500 cursor-pointer" : "cursor-pointer"
           }>
           Inggris
         </DropdownMenuItem>

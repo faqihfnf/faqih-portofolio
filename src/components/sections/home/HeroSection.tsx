@@ -14,19 +14,22 @@ import { Spotlight } from "@/components/ui/spotlight";
 import ColourfulText from "@/components/ui/colourful-text";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { useTranslation } from "react-i18next";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
   const { t } = useTranslation();
-  // const words = t("hero.description");
+  const words = t("hero.description");
 
   return (
-    <div className="h-screen w-full flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="white"
+    <div className="h-screen w-full flex md:items-center md:justify-center bg-black/[0.96] dark:bg-black/[0.96] antialiased  relative overflow-hidden">
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 [background-size:60px_60px] select-none",
+          "[background-image:linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]"
+        )}
       />
-      <Spotlight className="top-10 left-full h-[80vh] w-[50vw]" fill="blue" />
-      <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="indigo" />
+      <Spotlight />
       <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0">
         <motion.h1
           className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-indigo-500 to-pink-600 bg-opacity-50 mt-10 md:mt-28"
@@ -36,19 +39,25 @@ export default function HeroSection() {
           <ColourfulText text={t("hero.title")} />
         </motion.h1>
         <motion.h1
-          className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-indigo-500 to-pink-600 bg-opacity-50 mt-5"
+          className="flex items-center justify-center text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-indigo-500 to-pink-600 bg-opacity-50"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}>
-          Faqih Nur Fahmi
+          <TypewriterEffectSmooth words={[{ text: "Faqih Nur Fahmi" }]} />
         </motion.h1>
-
-        <TextGenerateEffect
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="font-normal text-white lg:max-w-2xl max-w-sm text-center mx-auto">
+          {t("hero.description")}
+        </motion.h2>
+        {/* <TextGenerateEffect
           words={t("hero.description")}
-          className="mt-6 font-normal text-white lg:max-w-2xl max-w-sm text-center mx-auto"
+          className="font-normal text-white lg:max-w-2xl max-w-sm text-center mx-auto"
           filter={true}
           duration={0.5}
-        />
+        /> */}
         <motion.div
           className="flex justify-center space-x-4 mt-8"
           initial={{ opacity: 0, y: 20 }}

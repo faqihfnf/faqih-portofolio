@@ -153,7 +153,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
               {/* ✅ Dark Mode Toggle - Desktop */}
               <button
                 onClick={handleToggleTheme}
-                className={`p-2 rounded-full transition-colors ${
+                className={`p-2 rounded-full transition-colors cursor-pointer ${
                   isScrolled
                     ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
                     : pathname === "/"
@@ -162,7 +162,16 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
                 }`}>
                 {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
               </button>
-              <SwitchTranslation />
+              <div
+                className={`rounded-full transition-colors ${
+                  isScrolled
+                    ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
+                    : pathname === "/"
+                    ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-300 hover:bg-white/10 dark:hover:bg-gray-800/30"
+                    : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
+                }`}>
+                <SwitchTranslation />
+              </div>
             </div>
 
             {/* Mobile Navigation */}
