@@ -87,7 +87,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
           } transition-all duration-300`}>
           <div
             className={`flex items-center ${
-              isScrolled ? "justify-center space-x-6" : "justify-between"
+              isScrolled ? "justify-center" : "justify-between"
             }`}>
             {!isScrolled && (
               <Link href="/" className="text-4xl font-bold text-indigo-700">
@@ -209,6 +209,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
                     className="p-2 rounded-full text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                     {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
                   </button>
+                  <SwitchTranslation />
                 </div>
               ) : (
                 // When not scrolled, show hamburger menu
@@ -271,6 +272,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
                               <Sun size={20} />
                             )}
                           </button>
+                          <SwitchTranslation />
                         </div>
                       </motion.div>
                     )}

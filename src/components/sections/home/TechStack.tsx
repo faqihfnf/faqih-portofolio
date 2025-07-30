@@ -31,13 +31,13 @@ export default function TechStack() {
           <InfiniteMovingCards
             items={techStackIcons}
             direction="left"
-            speed="normal"
+            speed="slow"
             className=" md:mb-6 lg:mb-10"
           />
           <InfiniteMovingCards
             items={techStackIcons}
             direction="right"
-            speed="normal"
+            speed="slow"
           />
         </div>
       </div>

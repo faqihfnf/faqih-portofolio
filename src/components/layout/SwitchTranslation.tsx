@@ -7,7 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Globe } from "lucide-react";
+import { Globe, Languages } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
 import useLang from "@/hooks/useLang";
@@ -22,12 +22,10 @@ const SwitchTranslation: FC<SwitchTranslationProps> = ({}) => {
     <DropdownMenu>
       <DropdownMenuTrigger
         asChild
-        className={`hover:bg-transparent dark:hover:bg-transparent cursor-pointer hover:text-indigo-500`}>
-        <Button variant="ghost" size="icon" className="font-semibold">
-          <Globe className="font-semibold" size={20} />
-        </Button>
+        className="hover:bg-transparent dark:hover:bg-transparent cursor-pointer hover:text-indigo-500">
+        <Languages className="" size={18} />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="mr-2 mt-3">
         <DropdownMenuLabel>{t("select-lang")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem
