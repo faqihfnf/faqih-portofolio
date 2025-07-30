@@ -1,0 +1,16 @@
+{
+  "test": "test bahasa inggris",
+  "select-lang": "Choose Language",
+  "navbar": {
+    "nav-item-1": "Home",
+    "nav-item-2": "Experiences",
+    "nav-item-3": "Projects",
+    "nav-item-4": "Certificates",
+    "nav-item-5": "Contact"
+  },
+  "hero": {
+    "title": "Hello, my name is",
+    "name": "I'm a Full Stack Developer",
+    "description": "I create beautiful and functional web applications using modern technologies to help and solve the problems. Passionate about user experience and innovative solutions."
+  }
+}

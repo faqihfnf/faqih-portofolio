@@ -1,10 +1,8 @@
-// components/ThemeProvider.tsx
-
 "use client";
 
+import { RootState } from "@/app/redux/store";
 import { ReactNode, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../app/redux/store";
 
 interface ThemeProviderProps {
   children: ReactNode;

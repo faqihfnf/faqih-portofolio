@@ -12,26 +12,28 @@ import {
   BriefcaseBusinessIcon,
 } from "lucide-react";
 import { FloatingNav } from "../ui/floating-navbar";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const navItems = [
     {
-      name: "Home",
+      name: t("navbar.nav-item-1"),
       link: "/",
       icon: <Home className="h-4 w-4 " />,
     },
     {
-      name: "Experiences",
+      name: t("navbar.nav-item-2"),
       link: "/experiences",
       icon: <User className="h-4 w-4 " />,
     },
     {
-      name: "Projects",
+      name: t("navbar.nav-item-3"),
       link: "/projects",
       icon: <BriefcaseBusinessIcon className="h-4 w-4 " />,
     },
     {
-      name: "Certificates",
+      name: t("navbar.nav-item-4"),
       link: "/certificates",
       icon: <ShieldCheckIcon className="h-4 w-4 " />,
     },
@@ -41,7 +43,7 @@ export default function Navbar() {
       icon: <BookOpen className="h-4 w-4 " />,
     },
     {
-      name: "Contact",
+      name: t("navbar.nav-item-5"),
       link: "/contact",
       icon: <Mail className="h-4 w-4 " />,
     },

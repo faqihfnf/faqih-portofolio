@@ -1,0 +1,16 @@
+{
+  "test": "test bahasa inggris",
+  "select-lang": "Pilih Bahasa",
+  "navbar": {
+    "nav-item-1": "Beranda",
+    "nav-item-2": "Pengalaman",
+    "nav-item-3": "Projek",
+    "nav-item-4": "Sertifikat",
+    "nav-item-5": "Kontak"
+  },
+  "hero": {
+    "title": "Halo, nama saya",
+    "name": "Saya adalah Full Stack Developer",
+    "description": "Saya membuat web yang indah dan fungsional menggunakan teknologi modern untuk membantu dan memecahkan masalah. Saya sangat tertarik dengan pengalaman pengguna dan solusi inovatif."
+  }
+}
