@@ -77,11 +77,11 @@ export default function AboutMe() {
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-indigo-500 hover:shadow-teal-500">
+                <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-lime-400 hover:shadow-teal-500">
                   <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">2+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Tahun Pengalaman</div>
                 </div>
-                <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-indigo-500 hover:shadow-pink-500">
+                <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-lime-400 hover:shadow-pink-500">
                   <div className="text-2xl font-bold text-green-600 dark:text-green-400">15+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Project Selesai</div>
                 </div>

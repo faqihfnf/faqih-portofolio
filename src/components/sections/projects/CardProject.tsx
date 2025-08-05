@@ -1,6 +1,5 @@
 "use client";
 
-import { techStackIcons } from "@/data/techstack";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
@@ -44,11 +43,11 @@ export default function CardProject({ title, description, image, technologies, s
         <div className="flex-grow"></div>
 
         {/* Icon stack - selalu di atas links */}
-        {techStackIcons.length > 0 && (
+        {stackIcons.length > 0 && (
           <div className="flex flex-wrap items-center mb-4">
-            {techStackIcons.map((icon, index) => (
-              <div key={index} className={`bg-slate-800 relative w-10 h-10 rounded-full border border-indigo-700 dark:border-indigo-400 overflow-hidden ${index !== 0 ? "-ml-2" : ""}`}>
-                <Image src={stackIcons[index]} alt="stack icon" fill className="object-contain p-1" />
+            {stackIcons.map((icon, index) => (
+              <div key={index} className={`bg-slate-700 relative w-10 h-10 rounded-full border border-indigo-400 dark:border-indigo-100 overflow-hidden ${index !== 0 ? "-ml-2" : ""}`}>
+                <Image src={icon} alt="stack icon" fill className="object-contain p-1" />
               </div>
             ))}
           </div>

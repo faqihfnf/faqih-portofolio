@@ -124,8 +124,7 @@
 
 @layer utilities {
   .animate-scroll {
-    animation: scroll var(--animation-duration, 40s)
-      var(--animation-direction, forwards) linear infinite;
+    animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
   }
 
   @keyframes scroll {
@@ -166,11 +165,7 @@
 }
 
 .bg-grid-white\/\[0\.02\] {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
@@ -316,7 +311,7 @@
   font-family: "JetBrains Mono", monospace !important;
   font-size: 14px !important;
   line-height: 1.5 !important;
-  color: #f8f8f2 !important;
+  /* color: #f8f8f2 !important; */
   overflow-x: auto !important;
   scrollbar-width: none !important;
 }
