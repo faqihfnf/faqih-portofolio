@@ -25,7 +25,7 @@ export default function CardProject({ title, description, image, technologies, s
     >
       {/* Gambar */}
       <div className="relative h-56 overflow-hidden">
-        <Image src={image} alt={title} fill className="object-cover transition-transform duration-300 hover:scale-105" />
+        <Image src={image} alt={title} fill className="object-fill transition-transform duration-300 hover:scale-105" />
       </div>
 
       {/* Konten */}
