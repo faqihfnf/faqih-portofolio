@@ -35,7 +35,7 @@ export const certificates: CertificateItem[] = [
   {
     id: 4,
     title: "Full Stack MERN Bootcamp",
-    organization: "FreeCodeCamp",
+    organization: "Devscale",
     date: "Mar 2024",
     image: "/certificates/mern.jpg",
     link: "/certificates/mern.jpg",

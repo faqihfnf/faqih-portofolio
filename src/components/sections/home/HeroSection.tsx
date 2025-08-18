@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { BriefcaseBusinessIcon, DownloadIcon, Github, Linkedin, Mail } from "lucide-react";
+import { BriefcaseBusinessIcon, DownloadIcon, Facebook, Github, Instagram, Linkedin, Mail, Youtube } from "lucide-react";
 import Link from "next/link";
 import { Spotlight } from "@/components/ui/spotlight";
 import ColourfulText from "@/components/ui/colourful-text";
@@ -63,14 +63,20 @@ export default function HeroSection() {
           </Link>
         </motion.div>
         <motion.div className="flex justify-center space-x-6 mt-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
-          <Link href="https://github.com/faqihfnf" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+          <Link href="https://github.com/faqihfnf" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-600 transition-colors">
             <Github className="w-6 h-6" />
           </Link>
-          <Link href="https://www.linkedin.com/in/faqih-nur-fahmi-b51bb1ab/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+          <Link href="https://www.linkedin.com/in/faqih-nur-fahmi-b51bb1ab/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-600 transition-colors">
             <Linkedin className="w-6 h-6" />
           </Link>
-          <Link href="mailto:faqih.fnf@gmail.com" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
-            <Mail className="w-6 h-6" />
+          <Link href="https://www.facebook.com/faqihnurfahmi" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-600 transition-colors">
+            <Facebook className="w-6 h-6" />
+          </Link>
+          <Link href="https://www.youtube.com/@marifahid" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-600 transition-colors">
+            <Youtube className="w-6 h-6" />
+          </Link>
+          <Link href="https://www.instagram.com/faqih.fnf" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-600 transition-colors">
+            <Instagram className="w-6 h-6" />
           </Link>
         </motion.div>
       </div>

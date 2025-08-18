@@ -35,29 +35,20 @@ export default function BlogCard({
   return (
     <Link
       href={`/blog/${post.slug ?? ""}`}
-      className="flex flex-col hover:border-1 hover:border-indigo-400 shadow-md shadow-indigo-200 hover:shadow-indigo-300 md:flex-row-reverse gap-6 p-6 hover:bg-gray-50 dark:hover:bg-slate-900/30 rounded-md transition-colors relative">
+      className="flex flex-col hover:border-1 hover:border-indigo-400 shadow-md shadow-indigo-200 hover:shadow-indigo-300 md:flex-row-reverse gap-6 p-6 hover:bg-gray-50 dark:hover:bg-slate-900/30 rounded-md transition-colors relative"
+    >
       {/* ✅ Image di kanan */}
       {post.cover && (
         <div className="md:w-1/3 flex-shrink-0">
-          <img
-            src={post.cover}
-            alt={post.title}
-            className="w-full h-40 md:h-full object-cover rounded-md shadow-sm shadow-indigo-200"
-          />
+          <img src={post.cover} alt={post.title} className="w-full h-40 md:h-full object-cover rounded-md shadow-sm shadow-indigo-200" />
         </div>
       )}
 
       {/* ✅ Content di kiri */}
       <div className="flex-1 flex flex-col justify-between">
         <div>
-          <h2 className="text-2xl font-semibold hover:underline mb-5">
-            {post.title}
-          </h2>
-          {post.description && (
-            <p className="text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
-              {post.description}
-            </p>
-          )}
+          <h2 className="text-2xl font-semibold hover:underline mb-5">{post.title}</h2>
+          {post.description && <p className="text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">{post.description}</p>}
         </div>
 
         {/* Date & Copy Link */}
@@ -72,19 +63,13 @@ export default function BlogCard({
             </span>
           )}
           <div className="relative">
-            <button
-              onClick={handleCopyLink}
-              className="flex items-center gap-1 hover:text-blue-500 transition-colors relative">
+            <button onClick={handleCopyLink} className="flex items-center gap-1 hover:text-indigo-600 cursor-pointer hover:font-semibold transition-colors relative">
               <Copy className="w-4 h-4" size={16} />
               <span className="mt-0.5">Copy</span>
             </button>
 
             {/* Tooltip */}
-            {showTooltip && (
-              <div className="absolute -top-8 right-0 bg-gray-800 text-white text-xs px-2 py-1 rounded shadow-md whitespace-nowrap">
-                Link copied!
-              </div>
-            )}
+            {showTooltip && <div className="absolute -top-8 right-0 bg-gray-800 text-white text-xs px-2 py-1 rounded shadow-md whitespace-nowrap">Link copied!</div>}
           </div>
         </div>
       </div>

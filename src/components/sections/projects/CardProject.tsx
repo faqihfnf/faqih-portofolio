@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CardProjectProps {
   title: string;
@@ -24,17 +25,27 @@ export default function CardProject({ title, description, image, technologies, s
       animate={{ opacity: 1, y: 0 }}
     >
       {/* Gambar */}
-      <div className="relative h-56 overflow-hidden">
-        <Image src={image} alt={title} fill className="object-fill transition-transform duration-300 hover:scale-105" />
-      </div>
+      {liveUrl ? (
+        <Link href={liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`Buka demo live untuk ${title}`}>
+          <div className="relative h-56 overflow-hidden cursor-pointer">
+            {/* Sedikit saran: object-cover seringkali lebih baik dari object-fill agar gambar tidak gepeng */}
+            <Image src={image} alt={title} fill className="object-cover transition-transform duration-300 hover:scale-105" />
+          </div>
+        </Link>
+      ) : (
+        // Jika tidak ada liveUrl, tampilkan gambar saja tanpa Link
+        <div className="relative h-56 overflow-hidden">
+          <Image src={image} alt={title} fill className="object-cover transition-transform duration-300 hover:scale-105" />
+        </div>
+      )}
 
       {/* Konten */}
       <div className="p-4 flex flex-col flex-1">
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="mb-4 text-justify flex-grow">{description}</p>
 
-        <div className="">
-          {technologies.map((tech, index) => (
+        <div className="flex flex-wrap">
+          {technologies.map((index) => (
             <span key={index}></span>
           ))}
         </div>
@@ -56,16 +67,16 @@ export default function CardProject({ title, description, image, technologies, s
         {/* Link Code & Live Demo selalu di bawah */}
         <div className="flex justify-between gap-4 pt-4 border-t border-gray-100 dark:border-gray-700">
           {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
+            <Link href={githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
               <Github size={20} />
               Code
-            </a>
+            </Link>
           )}
           {liveUrl && (
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
+            <Link href={liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
               <ExternalLink size={20} />
               Live Demo
-            </a>
+            </Link>
           )}
         </div>
       </div>
