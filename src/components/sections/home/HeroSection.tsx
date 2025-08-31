@@ -2,18 +2,17 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { BriefcaseBusinessIcon, DownloadIcon, Facebook, Github, Instagram, Linkedin, Mail, Youtube } from "lucide-react";
+import { BriefcaseBusinessIcon, DownloadIcon, Facebook, Github, Instagram, Linkedin, Youtube } from "lucide-react";
 import Link from "next/link";
 import { Spotlight } from "@/components/ui/spotlight";
 import ColourfulText from "@/components/ui/colourful-text";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { useTranslation } from "react-i18next";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
   const { t } = useTranslation();
-  const words = t("hero.description");
+  // const words = t("hero.description");
 
   return (
     <div className="h-screen w-full flex md:items-center md:justify-center bg-black/[0.96] dark:bg-black/[0.96] antialiased  relative overflow-hidden">

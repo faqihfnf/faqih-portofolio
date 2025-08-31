@@ -71,7 +71,7 @@ export default function AboutMe() {
           <div className="text-left order-2 md:order-1">
             <motion.div className="space-y-6" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
               <div className="text-center md:text-left">
-                <blockquote className="text-2xl font-medium text-gray-800 dark:text-gray-200 italic border-l-4 border-indigo-600 pl-4">"Create with passion, innovate with impact and deliver excellence solutions."</blockquote>
+                <blockquote className="text-2xl font-medium text-gray-800 dark:text-gray-200 italic border-l-4 border-indigo-600 pl-4">&quot;Create with passion, innovate with impact and deliver excellence solutions.&quot;</blockquote>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">- My Work Philosophy</p>
               </div>
 

@@ -1,5 +1,5 @@
 "use client";
-import { Hourglass, Wrench, Rocket, ToolCase, Home } from "lucide-react";
+import { Hourglass, Wrench, Rocket, Home } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";

@@ -30,7 +30,7 @@ export const certificates: CertificateItem[] = [
     organization: "FreeCodeCamp",
     date: "Mar 2024",
     image: "/certificates/js-algorithms.jpg",
-    link: "/certificates/js-algorithms.jpgcv.pdf",
+    link: "/certificates/js-algorithms.jpg",
   },
   {
     id: 4,

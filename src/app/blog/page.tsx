@@ -1,5 +1,4 @@
 import { getData } from "@/services/notionServices";
-import BlogCard from "@/components/sections/blog/BlogCard";
 import BlogHeader from "@/components/sections/blog/BlogHeader";
 import BlogListClient from "@/components/sections/blog/BlogListClient";
 

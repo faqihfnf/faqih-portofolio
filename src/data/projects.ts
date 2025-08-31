@@ -57,7 +57,7 @@ export const projects: Project[] = [
   {
     title: "Learning Management System",
     description: "An LMS platform for online courses with video streaming, quizzes, and progress tracking.",
-    image: "https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/projects/resumeaizer.jpg",
     technologies: ["Vue.js", "Node.js", "MongoDB", "AWS"],
     stackIcons: ["/stack/nextjs.svg"],
     githubUrl: "https://github.com",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   {
     title: "Learning Management System",
     description: "An LMS platform for online courses with video streaming, quizzes, and progress tracking.",
-    image: "https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/projects/resumeaizer.jpg",
     technologies: ["Vue.js", "Node.js", "MongoDB", "AWS"],
     stackIcons: ["/stack/nextjs.svg"],
     githubUrl: "https://github.com",
@@ -75,7 +75,7 @@ export const projects: Project[] = [
   {
     title: "Learning Management System",
     description: "An LMS platform for online courses with video streaming, quizzes, and progress tracking.",
-    image: "https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/projects/resumeaizer.jpg",
     technologies: ["Vue.js", "Node.js", "MongoDB", "AWS"],
     stackIcons: ["/stack/nextjs.svg"],
     githubUrl: "https://github.com",
@@ -84,7 +84,7 @@ export const projects: Project[] = [
   {
     title: "Learning Management System",
     description: "An LMS platform for online courses with video streaming, quizzes, and progress tracking.",
-    image: "https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/projects/resumeaizer.jpg",
     technologies: ["Vue.js", "Node.js", "MongoDB", "AWS"],
     stackIcons: ["/stack/nextjs.svg"],
     githubUrl: "https://github.com",
