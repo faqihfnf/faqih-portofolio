@@ -1,16 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  Home,
-  User,
-  Briefcase,
-  BookOpen,
-  Mail,
-  ShieldAlertIcon,
-  ShieldCheckIcon,
-  BriefcaseBusinessIcon,
-} from "lucide-react";
+import { Home, User, Briefcase, BookOpen, Mail, ShieldAlertIcon, ShieldCheckIcon, BriefcaseBusinessIcon, GraduationCap } from "lucide-react";
 import { FloatingNav } from "../ui/floating-navbar";
 import { useTranslation } from "react-i18next";
 
@@ -41,6 +32,11 @@ export default function Navbar() {
       name: "Blog",
       link: "/blog",
       icon: <BookOpen className="h-4 w-4 " />,
+    },
+    {
+      name: "Course",
+      link: "/course",
+      icon: <GraduationCap className="h-4 w-4 " />,
     },
     {
       name: t("navbar.nav-item-5"),
