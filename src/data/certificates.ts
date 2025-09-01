@@ -40,4 +40,28 @@ export const certificates: CertificateItem[] = [
     image: "/certificates/mern.jpg",
     link: "/certificates/mern.jpg",
   },
+  {
+    id: 5,
+    title: "React Fundamentals",
+    organization: "Dicoding",
+    date: "Mar 2025",
+    image: "/certificates/react-fundamental.jpg",
+    link: "/certificates/react-fundamental.pdf",
+  },
+  {
+    id: 6,
+    title: "React Intermediate",
+    organization: "ID Camp",
+    date: "Mar 2025",
+    image: "/certificates/react-intermediate.jpg",
+    link: "/certificates/react-intermediate.pdf",
+  },
+  {
+    id: 7,
+    title: "Junior Web Developer",
+    organization: "Komdigi",
+    date: "Aug 2025",
+    image: "/certificates/junior-web.jpg",
+    link: "/certificates/junior-web.pdf",
+  },
 ];

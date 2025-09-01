@@ -60,9 +60,8 @@ export default function AboutMe() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Saya seorang developer yang passionate dalam menciptakan solusi digital yang inovatif dan user-friendly. Dengan pengalaman dalam frontend dan backend development, saya senang mengubah ide menjadi kenyataan.
-              <br />
-              Saya seorang developer yang passionate dalam menciptakan solusi digital yang inovatif dan user-friendly. Dengan pengalaman dalam frontend dan backend development, saya senang mengubah ide menjadi kenyataan.
+              I create beautiful and functional web applications using modern technologies to help and solve the problems. Passionate about user experience and innovative solutions.
+              <br />I have a strong understanding of front-end development and have a proven track record of delivering high-quality solutions that meet the needs of clients and users.
             </motion.p>
           </div>
         </motion.div>
