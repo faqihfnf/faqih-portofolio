@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     title: "Islamic Website",
     description: "A Islamic website that provides information about the Holy Quran, Hadith, Islamic knowledge and Free Islamic Ebook.",
-    image: "/projects/marifah.png",
+    image: "/projects/marifah.jpg",
     technologies: ["React", "Node.js", "MongoDB", "Tailwind", "Express.js"],
     stackIcons: ["/stack/react.svg", "/stack/expressjs.svg", "/stack/mongodb.svg", "/stack/tailwind.svg", "/stack/javascript.svg"],
     githubUrl: "https://github.com/faqihfnf",
