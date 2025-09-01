@@ -58,7 +58,7 @@ export const projects: Project[] = [
     title: "Resumefly",
     description: "A resume builder website that allows users to create and customize resumes with AI-powered suggestions.",
     image: "/projects/resumefly.jpg",
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "AWS"],
+    technologies: ["Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind", "React"],
     stackIcons: ["/stack/nextjs.svg", "/stack/typescript.svg", "/stack/tailwind.svg", "/stack/react.svg", "/stack/postgresql.svg"],
     githubUrl: "https://github.com/faqihfnf/resume-builder",
     liveUrl: "https://resumefly.my.id",
