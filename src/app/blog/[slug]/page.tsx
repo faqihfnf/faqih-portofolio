@@ -4,7 +4,12 @@ import TableOfContents from "./TableOfContents";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const posts = await getData();
+  return posts.filter((p) => p.slug !== null).map((p) => ({ slug: p.slug as string }));
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
