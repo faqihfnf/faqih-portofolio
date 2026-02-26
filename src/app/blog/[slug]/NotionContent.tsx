@@ -1,6 +1,6 @@
 "use client";
 
-import { NotionRenderer as Renderer } from "./renderer";
+// import { NotionRenderer as Renderer } from "./renderer";
 import NotionErrorBoundary from "./NotionErrorBoundary";
 
 interface NotionContentProps {
@@ -10,9 +10,7 @@ interface NotionContentProps {
 export default function NotionContent({ recordMap }: NotionContentProps) {
   return (
     <NotionErrorBoundary>
-      <div className="prose dark:prose-invert">
-        <Renderer recordMap={recordMap} />
-      </div>
+      <div className="prose dark:prose-invert">{/* <Renderer recordMap={recordMap} /> */}</div>
     </NotionErrorBoundary>
   );
 }
