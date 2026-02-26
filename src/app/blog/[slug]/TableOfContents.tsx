@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { getBlockTitle } from "notion-utils";
 import { TableOfContentsIcon } from "lucide-react";
 
 interface TOCItem {
@@ -11,137 +10,61 @@ interface TOCItem {
 }
 
 interface TableOfContentsProps {
-  recordMap: any;
+  headings: TOCItem[];
 }
 
-export default function TableOfContents({ recordMap }: TableOfContentsProps) {
-  const [tocItems, setTocItems] = useState<TOCItem[]>([]);
+export default function TableOfContents({ headings }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>("");
-
-  // 👉 state untuk mendeteksi sedang manual scroll (klik TOC)
-  const [isManualScrolling, setIsManualScrolling] = useState(false);
   const isManualScrollingRef = useRef(false);
+
+  // Intersection Observer untuk highlight aktif
   useEffect(() => {
-    isManualScrollingRef.current = isManualScrolling;
-  }, [isManualScrolling]);
+    if (headings.length === 0) return;
 
-  // 🔹 Extract headings
-  useEffect(() => {
-    const extractHeadings = () => {
-      const items: TOCItem[] = [];
-      if (!recordMap?.block) return items;
-
-      Object.values(recordMap.block).forEach((block: any) => {
-        const value = block?.value;
-        if (!value) return;
-
-        if (value.type === "header" || value.type === "sub_header" || value.type === "sub_sub_header") {
-          const title = getBlockTitle(value, recordMap) || "";
-          if (title.trim()) {
-            let level = 1;
-            if (value.type === "sub_header") level = 2;
-            if (value.type === "sub_sub_header") level = 3;
-
-            // hapus dash agar sesuai dengan data-block-id
-            items.push({
-              id: value.id.replace(/-/g, ""),
-              title: title.trim(),
-              level,
-            });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isManualScrollingRef.current) return;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
           }
-        }
+        });
+      },
+      { rootMargin: "-20% 0% -35% 0%", threshold: 0 },
+    );
+
+    // Setup observer setelah render
+    const timer = setTimeout(() => {
+      headings.forEach((item) => {
+        const el = document.getElementById(item.id);
+        if (el) observer.observe(el);
       });
-
-      return items;
-    };
-
-    const headings = extractHeadings();
-    setTocItems(headings);
-    console.log("TOC Items extracted:", headings);
-  }, [recordMap]);
-
-  // 🔹 Intersection Observer
-  useEffect(() => {
-    const observerOptions = {
-      rootMargin: "-20% 0% -35% 0%",
-      threshold: 0,
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      if (isManualScrollingRef.current) return; // 🚫 jangan override saat sedang manual scroll
-
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveId(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const setupObserver = () => {
-      tocItems.forEach((item) => {
-        const element = document.getElementById(item.id);
-        if (element) {
-          observer.observe(element);
-          console.log("Observing element:", item.id);
-        } else {
-          console.log("Element not found:", item.id);
-        }
-      });
-    };
-
-    const timer = setTimeout(setupObserver, 1000);
+    }, 300);
 
     return () => {
       clearTimeout(timer);
       observer.disconnect();
     };
-  }, [tocItems]);
+  }, [headings]);
 
-  // 🔹 Scroll to heading saat klik
   const scrollToHeading = (id: string) => {
-    setIsManualScrolling(true);
-    setActiveId(id); // langsung highlight heading yang diklik
+    isManualScrollingRef.current = true;
+    setActiveId(id);
 
-    let element = document.getElementById(id);
-    if (!element) {
-      element = document.querySelector(`[data-block-id="${id}"] h1, [data-block-id="${id}"] h2, [data-block-id="${id}"] h3`) as HTMLElement | null;
+    const el = document.getElementById(id);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.pageYOffset - 100;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      if (history.pushState) history.pushState(null, "", `#${id}`);
     }
 
-    if (element) {
-      const yOffset = -100; // sesuaikan dengan tinggi navbar
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      window.scrollTo({
-        top: y,
-        behavior: "smooth",
-      });
-
-      if (history.pushState) {
-        history.pushState(null, "", `#${id}`);
-      }
-    } else {
-      console.log("Element not found for scrolling:", id);
-    }
-
-    // Matikan flag setelah scroll animasi selesai
     setTimeout(() => {
-      setIsManualScrolling(false);
+      isManualScrollingRef.current = false;
     }, 1000);
   };
 
-  // 🔹 Jika tidak ada heading
-  if (tocItems.length === 0) {
-    return (
-      <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">📋 Table of Contents</h3>
-        <p className="text-sm text-gray-500">No headings found</p>
-      </div>
-    );
-  }
+  if (headings.length === 0) return null;
 
-  // 🔹 Render TOC
   return (
     <div className="bg-slate-800/10 dark:bg-slate-800 rounded-md p-4 mt-10">
       <h3 className="text-lg flex items-center font-semibold mb-4 text-gray-900 dark:text-gray-100">
@@ -150,7 +73,7 @@ export default function TableOfContents({ recordMap }: TableOfContentsProps) {
       </h3>
       <nav>
         <ul className="space-y-2">
-          {tocItems.map((item) => (
+          {headings.map((item) => (
             <li key={item.id}>
               <button
                 onClick={() => scrollToHeading(item.id)}
