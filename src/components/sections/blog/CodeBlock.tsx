@@ -1,20 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import { CodeBlock, dracula } from "react-code-blocks";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Clipboard } from "lucide-react";
 
 export default function CustomCodeBlock({ block }: { block: any }) {
   const [copied, setCopied] = useState(false);
-  const rawCode = block.properties?.title?.[0]?.[0] || "";
-  const language = block.properties?.language?.[0]?.[0] || "typescript";
 
-  // Hilangkan backticks jika ada
-  const cleanCode = rawCode.replace(/^```[a-z]*\n|\n```$/g, "");
+  const language = block.code?.language || "plaintext";
+  const code = block.code?.rich_text?.map((t: any) => t.plain_text || "").join("") || "";
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(cleanCode);
+      await navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -23,24 +22,32 @@ export default function CustomCodeBlock({ block }: { block: any }) {
   };
 
   return (
-    <div className="w-full relative">
-      <button onClick={handleCopy} className="absolute top-2 right-2 z-10 text-white p-1 rounded-md text-sm hover:bg-indigo-700 transition">
-        {copied ? <Check size={16} /> : <Clipboard size={16} />}
-      </button>
+    <div className="my-6 rounded-lg overflow-hidden max-w-full relative">
+      {/* Header bar */}
+      <div className="bg-gray-800 text-gray-400 text-xs px-4 py-2 flex justify-between items-center">
+        <span>{language}</span>
+        <button onClick={handleCopy} className="text-gray-400 hover:text-white p-1 rounded transition">
+          {copied ? <Check size={16} /> : <Clipboard size={16} />}
+        </button>
+      </div>
 
-      <CodeBlock
-        text={cleanCode}
+      {/* Code dengan scroll horizontal */}
+      <SyntaxHighlighter
         language={language}
-        theme={dracula}
-        showLineNumbers={false}
+        style={oneDark}
         customStyle={{
-          borderRadius: "8px",
-          padding: "16px",
-          fontFamily: "JetBrains Mono, monospace",
-          backgroundColor: "#282a36",
+          margin: 0,
+          borderRadius: 0,
+          fontSize: "0.875rem",
           overflowX: "auto",
+          maxWidth: "100%",
+          scrollBehavior: "smooth",
         }}
-      />
+      >
+        {code}
+      </SyntaxHighlighter>
+
+      {block.code?.caption?.length > 0 && <p className="text-xs text-gray-500 mt-1 text-center">{block.code.caption.map((c: any) => c.plain_text).join("")}</p>}
     </div>
   );
 }

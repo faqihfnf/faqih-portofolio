@@ -53,9 +53,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
   const headings = extractHeadings(blocks);
 
   return (
-    <div className="max-w-6xl mx-auto px-10 py-20">
-      <Link href="/blog" className="flex text-md hover:text-indigo-500 font-medium mb-6">
-        <ChevronLeft className="inline-block mr-1" />
+    <div className="max-w-6xl mx-auto px-4 sm:px-10 py-20">
+      <Link href="/blog" className="text-md hover:text-indigo-400 hover:font-semibold font-medium mb-6">
+        <ChevronLeft className="inline-block mr-1 -mt-1" />
         <span>Back to Blog</span>
       </Link>
 
@@ -71,11 +71,11 @@ export default async function BlogDetailPage({ params }: PageProps) {
         </p>
       )}
 
-      {page.cover && <img src={page.cover} alt={page.title} className="w-full h-64 object-cover rounded-lg mb-6" />}
+      {page.cover && <img src={page.cover} alt={page.title} className="w-full h-96 object-fill rounded-lg mb-6" />}
 
-      <div className="flex gap-8">
+      <div className="flex gap-8 min-w-0">
         {/* Content utama */}
-        <div className="flex-1 max-w-4xl">
+        <div className="flex-1 min-w-0 max-w-4xl overflow-hidden">
           <NotionBlockRenderer blocks={blocks} />
         </div>
 

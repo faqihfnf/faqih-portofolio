@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { NotionBlock } from "@/services/notionServices";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import CustomCodeBlock from "./CodeBlock";
 
 // ============================================================
 // Rich Text Renderer
@@ -247,24 +248,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
     }
 
     case "code": {
-      const data = (block as any).code;
-      const language = data?.language || "plaintext";
-      const code = data?.rich_text?.map((t: RichText) => t.plain_text || "").join("") || "";
-      return (
-        <div className="my-6 rounded-lg overflow-hidden">
-          <div className="bg-gray-800 text-gray-400 text-xs px-4 py-2 flex justify-between items-center">
-            <span>{language}</span>
-          </div>
-          <SyntaxHighlighter language={language} style={oneDark} customStyle={{ margin: 0, borderRadius: 0, fontSize: "0.875rem" }}>
-            {code}
-          </SyntaxHighlighter>
-          {data?.caption?.length > 0 && (
-            <p className="text-xs text-gray-500 mt-1 text-center">
-              <RichTextContent richText={data.caption} />
-            </p>
-          )}
-        </div>
-      );
+      return <CustomCodeBlock block={block} />;
     }
 
     case "image": {
