@@ -4,7 +4,8 @@ import TableOfContents from "./TableOfContents";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
-export const revalidate = 3600;
+// export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   const posts = await getData();
@@ -69,7 +70,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
         {/* Sidebar TOC - hanya tampil di desktop */}
         <div className="hidden lg:block w-64 flex-shrink-0">
-          <div className="sticky top-8">
+          <div className="sticky top-16">
             <TableOfContents recordMap={recordMap} />
           </div>
         </div>

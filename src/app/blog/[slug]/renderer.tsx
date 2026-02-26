@@ -13,6 +13,10 @@ import { NotionRenderer as Renderer } from "react-notion-x";
 
 export function NotionRenderer({ recordMap }: { recordMap: any }) {
   useEffect(() => {
+    if (!recordMap) return; // tambahkan guard ini
+
+    let timers: ReturnType<typeof setTimeout>[] = [];
+
     const addHeadingIds = () => {
       const blocks = document.querySelectorAll(".notion-block");
       blocks.forEach((block: Element) => {
@@ -27,24 +31,20 @@ export function NotionRenderer({ recordMap }: { recordMap: any }) {
               let levelSuffix = "";
               if (blockData.type === "sub_header") levelSuffix = "-h2";
               if (blockData.type === "sub_sub_header") levelSuffix = "-h3";
-
               headingElement.id = cleanId + levelSuffix;
-
-              console.log("Added ID to heading:", headingElement.id, headingElement.textContent);
             }
           }
         }
       });
     };
 
-    const timer1 = setTimeout(addHeadingIds, 100);
-    const timer2 = setTimeout(addHeadingIds, 500);
-    const timer3 = setTimeout(addHeadingIds, 1000);
+    // Tunggu render selesai dulu
+    timers.push(setTimeout(addHeadingIds, 100));
+    timers.push(setTimeout(addHeadingIds, 500));
+    timers.push(setTimeout(addHeadingIds, 1000));
 
     return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
+      timers.forEach(clearTimeout); // cleanup semua timer sekaligus
     };
   }, [recordMap]);
 

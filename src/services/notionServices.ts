@@ -2,11 +2,10 @@ import { notion } from "../lib/notion";
 import { NotionAPI } from "notion-client";
 import { PageObjectResponse, QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
-// notion-client tanpa requestTimeout (tidak didukung semua versi)
 const notionApi = new NotionAPI();
 
 // ============================================================
-// Simple in-memory cache
+// Simple in-memory cache (30 menit)
 // ============================================================
 interface CacheEntry {
   data: unknown;
@@ -14,7 +13,7 @@ interface CacheEntry {
 }
 
 const cache = new Map<string, CacheEntry>();
-const CACHE_TTL = 1000 * 60 * 60; // 1 jam
+const CACHE_TTL = 1000 * 60 * 30; // 30 menit
 
 function getCache<T>(key: string): T | null {
   const cached = cache.get(key);
@@ -50,7 +49,6 @@ export async function getData(): Promise<BlogPost[]> {
 
   const cached = getCache<BlogPost[]>(cacheKey);
   if (cached) {
-    console.log("getData: returning from cache");
     return cached;
   }
 
@@ -135,11 +133,35 @@ export async function getPageRecordMap(pageId: string) {
 
   const cached = getCache<unknown>(cacheKey);
   if (cached) {
-    console.log(`getPageRecordMap: returning ${pageId} from cache`);
     return cached;
   }
 
   const recordMap = await notionApi.getPage(pageId);
   setCache(cacheKey, recordMap);
   return recordMap;
+}
+
+// ============================================================
+// revalidatePage — paksa hapus cache untuk halaman tertentu
+// Panggil ini jika ingin update konten tanpa tunggu 30 menit
+// ============================================================
+export function revalidatePage(pageId: string) {
+  cache.delete(`page-${pageId}`);
+  cache.delete("blog-list");
+}
+
+// ============================================================
+// revalidateAll — paksa hapus semua cache
+// Panggil ini jika ingin update konten tanpa tunggu 30 menit
+// ============================================================
+export function revalidateAll() {
+  cache.clear();
+}
+
+// ============================================================
+// revalidateBlogList — paksa hapus cache untuk list blog
+// Panggil ini jika ingin update konten tanpa tunggu 30 menit
+// ============================================================
+export function revalidateBlogList() {
+  cache.delete("blog-list");
 }
