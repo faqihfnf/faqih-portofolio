@@ -1,9 +1,9 @@
 import { getData, getPageBlocks } from "@/services/notionServices";
-import TableOfContents from "./TableOfContents";
+import TableOfContents from "../../../components/sections/blog/TableOfContents";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { NotionBlock } from "@/services/notionServices";
-import NotionBlockRenderer from "./Notionblockrenderer";
+import NotionBlockRenderer from "../../../components/sections/blog/NotionBlockRenderer";
 
 export const dynamic = "force-dynamic";
 
