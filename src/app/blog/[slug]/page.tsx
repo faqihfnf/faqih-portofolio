@@ -71,7 +71,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
         </p>
       )}
 
-      {page.cover && <img src={page.cover} alt={page.title} className="w-full h-96 object-fill rounded-lg mb-6" />}
+      {page.cover && <img src={page.cover} alt={page.title} className="w-full h-64 sm:h-96 object-cover rounded-lg mb-6" />}
 
       <div className="flex gap-8 min-w-0">
         {/* Content utama */}
