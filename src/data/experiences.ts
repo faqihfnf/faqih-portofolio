@@ -4,14 +4,14 @@ import { TFunction } from "i18next";
 export function getExperienceData(t: TFunction) {
   return [
     {
-      title: "Compensation & Benefits Lead",
+      title: "Human Capital Supervisor",
       company: "Papandayan Cargo",
       location: "Jakarta, Indonesia",
       period: "2025 - Present",
       description: t("experience.description-1"),
       icon: Rocket,
       color: "indigo",
-      technologies: ["React", "Next.js", "Node.js", "PostgreSQL", "AWS"],
+      technologies: ["HRIS", "Payroll", "L & D", "Industiral Relation", "Talent Management"],
     },
     {
       title: "Compensation & Benefits and HRIS Leader",
@@ -21,7 +21,7 @@ export function getExperienceData(t: TFunction) {
       description: t("experience.description-2"),
       icon: Layers,
       color: "pink",
-      technologies: ["React", "Vue.js", "Express.js", "MongoDB", "Docker"],
+      technologies: ["HRIS", "Personal Administration", "HR Analytics", "Compensation & Benefits"],
     },
     {
       title: "Compensation & Benefits Senior Staff",
@@ -31,7 +31,7 @@ export function getExperienceData(t: TFunction) {
       description: t("experience.description-3"),
       icon: Code,
       color: "green",
-      technologies: ["JavaScript", "React", "SASS", "Webpack", "Git"],
+      technologies: ["HRIS", "Personal Administration", "HR Analytics", "Compensation & Benefits"],
     },
     {
       title: "Human Resource Staff",
@@ -41,7 +41,7 @@ export function getExperienceData(t: TFunction) {
       description: t("experience.description-4"),
       icon: Briefcase,
       color: "red",
-      technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      technologies: ["Administration", "Database Management", "Compensation & Benefits"],
     },
   ];
 }

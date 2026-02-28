@@ -10,7 +10,7 @@ export interface CertificateItem {
 export const certificates: CertificateItem[] = [
   {
     id: 1,
-    title: "SPV HR",
+    title: "Supervisor Human Resource",
     organization: "BNSP",
     date: "Feb 2026",
     image: "/certificates/bnsp-spv-hr.png",
@@ -71,5 +71,13 @@ export const certificates: CertificateItem[] = [
     date: "Aug 2025",
     image: "/certificates/junior-web.jpg",
     link: "/certificates/junior-web.pdf",
+  },
+  {
+    id: 9,
+    title: "AI Enable Python Bootcamp",
+    organization: "Devscale",
+    date: "Okt 2025",
+    image: "/certificates/python.png",
+    link: "/certificates/python.png",
   },
 ];

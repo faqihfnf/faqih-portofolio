@@ -35,5 +35,5 @@ export const techStackIcons = [
   { image: "/stack/tailwind.svg" },
   { image: "/stack/typescript.svg" },
   { image: "/stack/vite.svg" },
-  { image: "/stack/vue.svg" },
+  // { image: "/stack/vue.svg" },
 ];
