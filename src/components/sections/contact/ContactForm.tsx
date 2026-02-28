@@ -40,7 +40,7 @@ export function ContactForm() {
               subject: data.subject,
               message: data.message,
             },
-            process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+            process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
           );
           toast("Message sent successfully!", {
             className: "bg-green-500 text-white border-none",
@@ -72,7 +72,7 @@ export function ContactForm() {
           <label htmlFor="name" className="block text-sm font-medium mb-2">
             Name
           </label>
-          <input id="name" {...register("name")} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your name" />
+          <input id="name" {...register("name")} className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your name" />
           {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
         </div>
         {/* Email */}
@@ -80,7 +80,7 @@ export function ContactForm() {
           <label htmlFor="email" className="block text-sm font-medium mb-2">
             Email
           </label>
-          <input id="email" {...register("email")} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com" />
+          <input id="email" {...register("email")} className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com" />
           {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
         </div>
         {/* Subject */}
@@ -88,7 +88,7 @@ export function ContactForm() {
           <label htmlFor="subject" className="block text-sm font-medium mb-2">
             Subject
           </label>
-          <input id="subject" {...register("subject")} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="What's this about?" />
+          <input id="subject" {...register("subject")} className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="What's this about?" />
           {errors.subject && <p className="mt-1 text-sm text-red-600">{errors.subject.message}</p>}
         </div>
         {/* Message */}
@@ -96,7 +96,7 @@ export function ContactForm() {
           <label htmlFor="message" className="block text-sm font-medium mb-2">
             Message
           </label>
-          <textarea id="message" rows={5} {...register("message")} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your message..." />
+          <textarea id="message" rows={5} {...register("message")} className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your message..." />
           {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
         </div>
         <Button onClick={handleButtonClick} className="inline-flex items-center justify-center w-full rounded-md bg-indigo-600 hover:bg-indigo-700 hover:ring-0 hover:ring-offset-0 px-4 py-2 gap-2" type="button">

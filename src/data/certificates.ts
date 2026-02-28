@@ -10,6 +10,14 @@ export interface CertificateItem {
 export const certificates: CertificateItem[] = [
   {
     id: 1,
+    title: "SPV HR",
+    organization: "BNSP",
+    date: "Feb 2026",
+    image: "/certificates/bnsp-spv-hr.png",
+    link: "/certificates/bnsp-spv-hr.pdf",
+  },
+  {
+    id: 2,
     title: "Responsive Web Design",
     organization: "FreeCodeCamp",
     date: "Sep 2024",
@@ -17,7 +25,7 @@ export const certificates: CertificateItem[] = [
     link: "/certificates/responsive-web-design.jpg",
   },
   {
-    id: 2,
+    id: 3,
     title: "React Basic",
     organization: "Hacker Rank",
     date: "Feb 2024",
@@ -25,7 +33,7 @@ export const certificates: CertificateItem[] = [
     link: "/certificates/react-basic.jpg",
   },
   {
-    id: 3,
+    id: 4,
     title: "JavaScript Algorithms and Data Structures",
     organization: "FreeCodeCamp",
     date: "Mar 2024",
@@ -33,7 +41,7 @@ export const certificates: CertificateItem[] = [
     link: "/certificates/js-algorithms.jpg",
   },
   {
-    id: 4,
+    id: 5,
     title: "Full Stack MERN Bootcamp",
     organization: "Devscale",
     date: "Mar 2024",
@@ -41,7 +49,7 @@ export const certificates: CertificateItem[] = [
     link: "/certificates/mern.jpg",
   },
   {
-    id: 5,
+    id: 6,
     title: "React Fundamentals",
     organization: "Dicoding",
     date: "Mar 2025",
@@ -49,7 +57,7 @@ export const certificates: CertificateItem[] = [
     link: "/certificates/react-fundamental.pdf",
   },
   {
-    id: 6,
+    id: 7,
     title: "React Intermediate",
     organization: "ID Camp",
     date: "Mar 2025",
@@ -57,7 +65,7 @@ export const certificates: CertificateItem[] = [
     link: "/certificates/react-intermediate.pdf",
   },
   {
-    id: 7,
+    id: 8,
     title: "Junior Web Developer",
     organization: "Komdigi",
     date: "Aug 2025",

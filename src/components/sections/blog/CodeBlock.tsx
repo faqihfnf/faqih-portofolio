@@ -24,9 +24,9 @@ export default function CustomCodeBlock({ block }: { block: any }) {
   return (
     <div className="my-6 rounded-lg overflow-hidden max-w-full relative">
       {/* Header bar */}
-      <div className="bg-gray-800 text-gray-400 text-xs px-4 py-2 flex justify-between items-center">
+      <div className="bg-slate-800 text-slate-400 text-xs px-4 py-2 flex justify-between items-center">
         <span>{language}</span>
-        <button onClick={handleCopy} className="text-gray-400 hover:text-white p-1 rounded transition">
+        <button onClick={handleCopy} className="text-slate-400 hover:text-white p-1 rounded transition">
           {copied ? <Check size={16} /> : <Clipboard size={16} />}
         </button>
       </div>
@@ -47,7 +47,7 @@ export default function CustomCodeBlock({ block }: { block: any }) {
         {code}
       </SyntaxHighlighter>
 
-      {block.code?.caption?.length > 0 && <p className="text-xs text-gray-500 mt-1 text-center">{block.code.caption.map((c: any) => c.plain_text).join("")}</p>}
+      {block.code?.caption?.length > 0 && <p className="text-xs text-slate-500 mt-1 text-center">{block.code.caption.map((c: any) => c.plain_text).join("")}</p>}
     </div>
   );
 }

@@ -39,7 +39,7 @@ export default function ProjectsPage() {
                 setSelectedCategory(category);
                 setVisibleCount(6);
               }}
-              className={`px-5 py-2 rounded-full font-medium transition-colors shadow-sm cursor-pointer ${selectedCategory === category ? "bg-indigo-600 text-white" : "bg-indigo-100 text-gray-700 hover:bg-indigo-200"}`}
+              className={`px-5 py-2 rounded-full font-medium transition-colors shadow-sm cursor-pointer ${selectedCategory === category ? "bg-indigo-600 text-white" : "bg-indigo-100 text-slate-700 hover:bg-indigo-200"}`}
             >
               {category}
             </button>

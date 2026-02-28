@@ -9,7 +9,7 @@ export default function CoursePage() {
     <div className="flex flex-col items-center justify-center min-h-screen text-center py-32">
       {/* Animated Icon */}
       <motion.div initial={{ rotate: 0 }} animate={{ rotate: [0, 15, -15, 0] }} transition={{ repeat: Infinity, duration: 3 }}>
-        <Hourglass className="w-16 h-16 text-orange-500 animate-bounce mb-4" />
+        <Hourglass className="w-16 h-16 text-indigo-500 animate-bounce mb-4" />
       </motion.div>
 
       {/* Title */}
@@ -22,12 +22,12 @@ export default function CoursePage() {
 
       {/* Progress style info */}
       <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-        <Wrench className="w-4 h-4 text-orange-500" />
+        <Wrench className="w-4 h-4 text-indigo-500" />
         <span>In development</span>
       </div>
       <div className="w-48 h-2 bg-slate-200 dark:bg-slate-700 rounded-full mt-2 overflow-hidden">
         <motion.div
-          className="h-2 bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 hover:bg-gradient-to-tl"
+          className="h-2 bg-gradient-to-tr from-sky-500 via-blue-500 to-indigo-500 hover:bg-gradient-to-bl transition-all duration-200"
           initial={{ width: "20%" }}
           animate={{ width: ["20%", "60%", "40%", "80%"] }}
           transition={{ repeat: Infinity, duration: 6 }}
@@ -43,7 +43,7 @@ export default function CoursePage() {
 
       {/* Optional footer note */}
       <div className="mt-8 flex items-center gap-2 text-xs text-muted-foreground">
-        <Rocket className="w-3 h-3 text-orange-500" />
+        <Rocket className="w-3 h-3 text-indigo-500" />
         <span>Exciting updates are on the way!</span>
       </div>
     </div>

@@ -97,13 +97,13 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
                       ? isScrolled
                         ? "text-indigo-600 dark:text-indigo-400"
                         : pathname === "/"
-                        ? "text-indigo-600 dark:text-indigo-400"
-                        : "text-indigo-600 dark:text-indigo-400"
+                          ? "text-indigo-600 dark:text-indigo-400"
+                          : "text-indigo-600 dark:text-indigo-400"
                       : isScrolled
-                      ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
-                      : pathname === "/"
-                      ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-300"
-                      : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
+                        ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
+                        : pathname === "/"
+                          ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-300"
+                          : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
                   }`}
                 >
                   {isScrolled && navItem.icon && <span className="block sm:hidden">{navItem.icon}</span>}
@@ -129,8 +129,8 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
                   isScrolled
                     ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
                     : pathname === "/"
-                    ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-300 hover:bg-white/10 dark:hover:bg-gray-800/30"
-                    : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
+                      ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-300 hover:bg-white/10 dark:hover:bg-slate-800/30"
+                      : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
                 }`}
               >
                 {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
@@ -140,8 +140,8 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
                   isScrolled
                     ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
                     : pathname === "/"
-                    ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-300 hover:bg-white/10 dark:hover:bg-gray-800/30"
-                    : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
+                      ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-300 hover:bg-white/10 dark:hover:bg-slate-800/30"
+                      : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 "
                 }`}
               >
                 <SwitchTranslation />
@@ -202,7 +202,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.8, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute min-w-full right-0 top-full mt-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-md rounded-xl shadow-xl border border-slate-200 dark:border-gray-600 py-2 "
+                        className="absolute min-w-full right-0 top-full mt-2 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-xl shadow-xl border border-slate-200 dark:border-slate-600 py-2 "
                       >
                         {/* Navigation Links */}
                         <div className="px-2">
@@ -214,7 +214,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
                               className={`relative flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                                 pathname === navItem.link
                                   ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30"
-                                  : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-700/50"
+                                  : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-700/50"
                               }`}
                             >
                               {navItem.icon && <span className="text-current">{navItem.icon}</span>}
@@ -235,21 +235,21 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
                         </div>
 
                         {/* Separator */}
-                        <div className="mx-2 my-2 border-t border-slate-200 dark:border-gray-600"></div>
+                        <div className="mx-2 my-2 border-t border-slate-200 dark:border-slate-600"></div>
 
                         {/* Theme Toggle and Translation */}
                         <div className="px-2 ">
                           {/* Theme Toggle */}
                           <button
                             onClick={handleToggleTheme}
-                            className="w-full flex items-center gap-2 px-4 py-3 rounded-lg text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-700/50 transition-colors cursor-pointer"
+                            className="w-full flex items-center gap-2 px-4 py-3 rounded-lg text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-700/50 transition-colors cursor-pointer"
                           >
                             {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
                             <span className="font-medium">{theme === "dark" ? "Dark Mode" : "Light Mode"}</span>
                           </button>
 
                           {/* Translation Switch */}
-                          <div className="w-full flex items-center px-4 py-3 rounded-lg text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-700/50 transition-colors gap-2 cursor-pointer">
+                          <div className="w-full flex items-center px-4 py-3 rounded-lg text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-700/50 transition-colors gap-2 cursor-pointer">
                             <SwitchTranslation />
                             <span className="font-medium">Language</span>
                           </div>

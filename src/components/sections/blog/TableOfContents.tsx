@@ -67,7 +67,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
 
   return (
     <div className="bg-slate-800/10 dark:bg-slate-800 rounded-md p-4 mt-10">
-      <h3 className="text-lg flex items-center font-semibold mb-4 text-gray-900 dark:text-gray-100">
+      <h3 className="text-lg flex items-center font-semibold mb-4 text-slate-900 dark:text-slate-100">
         <TableOfContentsIcon className="inline-block w-6 h-6 mr-2" />
         <span className="font-semibold">Daftar Isi</span>
       </h3>
@@ -78,7 +78,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
               <button
                 onClick={() => scrollToHeading(item.id)}
                 className={`text-left w-full transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400 ${
-                  activeId === item.id ? "text-indigo-600 dark:text-indigo-400 font-medium" : "text-gray-600 font-medium dark:text-gray-300"
+                  activeId === item.id ? "text-indigo-600 dark:text-indigo-400 font-medium" : "text-slate-600 font-medium dark:text-slate-300"
                 }`}
                 style={{
                   paddingLeft: `${(item.level - 1) * 12}px`,

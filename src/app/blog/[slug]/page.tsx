@@ -42,8 +42,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
           <span>Back to Blog</span>
         </Link>
         <div className="text-center flex flex-col items-center justify-center mt-40">
-          <h2 className="text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">❌ Oops! Blog tidak ditemukan</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">Sepertinya artikel yang Anda cari sudah tidak tersedia atau telah dipindahkan.</p>
+          <h2 className="text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">❌ Oops! Blog tidak ditemukan</h2>
+          <p className="text-slate-600 dark:text-slate-300 mb-6">Sepertinya artikel yang Anda cari sudah tidak tersedia atau telah dipindahkan.</p>
         </div>
       </div>
     );
@@ -61,7 +61,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
       <h1 className="text-4xl font-bold mb-2 text-center">{page.title}</h1>
       {page.createdAt && (
-        <p className="text-sm text-gray-500 mb-8 text-center">
+        <p className="text-sm text-slate-500 mb-8 text-center">
           📅{" "}
           {new Date(page.createdAt).toLocaleDateString("id-ID", {
             year: "numeric",

@@ -38,7 +38,7 @@ function RichTextContent({ richText }: { richText: RichText[] }) {
 
         if (annotations.code) {
           node = (
-            <code key={i} className="bg-gray-100 dark:bg-gray-800 text-rose-500 dark:text-rose-400 px-1.5 py-0.5 rounded text-sm font-mono">
+            <code key={i} className="bg-slate-100 dark:bg-slate-800 text-rose-500 dark:text-rose-400 px-1.5 py-0.5 rounded text-sm font-mono">
               {content}
             </code>
           );
@@ -72,13 +72,13 @@ function ToggleBlock({ block, blocks }: { block: NotionBlock; blocks: NotionBloc
   return (
     <div className="my-2">
       <button onClick={() => setOpen(!open)} className="flex items-start gap-2 w-full text-left group">
-        <span className={`mt-1 text-gray-500 transition-transform duration-200 ${open ? "rotate-90" : ""}`}>▶</span>
-        <span className="font-medium text-gray-800 dark:text-gray-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+        <span className={`mt-1 text-slate-500 transition-transform duration-200 ${open ? "rotate-90" : ""}`}>▶</span>
+        <span className="font-medium text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
           <RichTextContent richText={data?.rich_text || []} />
         </span>
       </button>
       {open && block.children && (
-        <div className="ml-6 mt-2 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+        <div className="ml-6 mt-2 border-l-2 border-slate-200 dark:border-slate-700 pl-4">
           <NotionBlockRenderer blocks={block.children} />
         </div>
       )}
@@ -96,7 +96,7 @@ function TableBlock({ block }: { block: NotionBlock }) {
   const rows = block.children || [];
 
   return (
-    <div className="my-6 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+    <div className="my-6 overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-700">
       <table className="w-full text-sm">
         <tbody>
           {rows.map((row, rowIndex) => {
@@ -105,12 +105,12 @@ function TableBlock({ block }: { block: NotionBlock }) {
             const isHeader = hasColumnHeader && rowIndex === 0;
 
             return (
-              <tr key={row.id} className={isHeader ? "bg-gray-100 dark:bg-gray-800 font-semibold" : rowIndex % 2 === 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50 dark:bg-gray-800/50"}>
+              <tr key={row.id} className={isHeader ? "bg-slate-100 dark:bg-slate-800 font-semibold" : rowIndex % 2 === 0 ? "bg-white dark:bg-slate-900" : "bg-slate-50 dark:bg-slate-800/50"}>
                 {cells.map((cell, cellIndex) => {
                   const isRowHeader = hasRowHeader && cellIndex === 0;
                   const Tag = isHeader || isRowHeader ? "th" : "td";
                   return (
-                    <Tag key={cellIndex} className="px-4 py-2 border-b border-r border-gray-200 dark:border-gray-700 last:border-r-0 text-gray-800 dark:text-gray-200">
+                    <Tag key={cellIndex} className="px-4 py-2 border-b border-r border-slate-200 dark:border-slate-700 last:border-r-0 text-slate-800 dark:text-slate-200">
                       <RichTextContent richText={cell} />
                     </Tag>
                   );
@@ -153,7 +153,7 @@ export default function NotionBlockRenderer({ blocks }: NotionBlockRendererProps
           {group.map((b) => {
             const data = (b as any).numbered_list_item;
             return (
-              <li key={b.id} className="text-gray-700 dark:text-gray-300 leading-relaxed pl-1">
+              <li key={b.id} className="text-slate-700 dark:text-slate-300 leading-relaxed pl-1">
                 <RichTextContent richText={data?.rich_text || []} />
                 {b.children && (
                   <div className="ml-4 mt-1">
@@ -180,7 +180,7 @@ export default function NotionBlockRenderer({ blocks }: NotionBlockRendererProps
           {group.map((b) => {
             const data = (b as any).bulleted_list_item;
             return (
-              <li key={b.id} className="text-gray-700 dark:text-gray-300 leading-relaxed pl-1">
+              <li key={b.id} className="text-slate-700 dark:text-slate-300 leading-relaxed pl-1">
                 <RichTextContent richText={data?.rich_text || []} />
                 {b.children && (
                   <div className="ml-4 mt-1">
@@ -210,7 +210,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
     case "heading_1": {
       const data = (block as any).heading_1;
       return (
-        <h1 id={block.id.replace(/-/g, "")} className="text-3xl font-bold mt-10 mb-4 text-gray-900 dark:text-gray-100 scroll-mt-20">
+        <h1 id={block.id.replace(/-/g, "")} className="text-3xl font-bold mt-10 mb-4 text-slate-900 dark:text-slate-100 scroll-mt-20">
           <RichTextContent richText={data?.rich_text || []} />
         </h1>
       );
@@ -219,7 +219,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
     case "heading_2": {
       const data = (block as any).heading_2;
       return (
-        <h2 id={block.id.replace(/-/g, "")} className="text-2xl font-bold mt-8 mb-3 text-gray-900 dark:text-gray-100 scroll-mt-20">
+        <h2 id={block.id.replace(/-/g, "")} className="text-2xl font-bold mt-8 mb-3 text-slate-900 dark:text-slate-100 scroll-mt-20">
           <RichTextContent richText={data?.rich_text || []} />
         </h2>
       );
@@ -228,7 +228,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
     case "heading_3": {
       const data = (block as any).heading_3;
       return (
-        <h3 id={block.id.replace(/-/g, "")} className="text-xl font-semibold mt-6 mb-2 text-gray-900 dark:text-gray-100 scroll-mt-20">
+        <h3 id={block.id.replace(/-/g, "")} className="text-xl font-semibold mt-6 mb-2 text-slate-900 dark:text-slate-100 scroll-mt-20">
           <RichTextContent richText={data?.rich_text || []} />
         </h3>
       );
@@ -241,7 +241,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
         return <div className="h-4" />;
       }
       return (
-        <p className="my-3 text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="my-3 text-slate-700 dark:text-slate-300 leading-relaxed">
           <RichTextContent richText={richText} />
         </p>
       );
@@ -262,7 +262,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
         <figure className="my-6">
           <img src={url} alt={caption.map((c: RichText) => c.plain_text).join("") || "Blog image"} className="w-full rounded-lg object-cover" />
           {caption.length > 0 && (
-            <figcaption className="text-sm text-gray-500 text-center mt-2">
+            <figcaption className="text-sm text-slate-500 text-center mt-2">
               <RichTextContent richText={caption} />
             </figcaption>
           )}
@@ -274,7 +274,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
       const data = (block as any).quote;
       return (
         <blockquote className="my-6 border-l-4 border-indigo-500 pl-4 py-1 bg-indigo-50 dark:bg-indigo-950/30 rounded-r-lg">
-          <p className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
+          <p className="text-slate-700 dark:text-slate-300 italic leading-relaxed">
             <RichTextContent richText={data?.rich_text || []} />
           </p>
           {block.children && (
@@ -295,16 +295,16 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
     }
 
     case "divider": {
-      return <hr className="my-8 border-gray-200 dark:border-gray-700" />;
+      return <hr className="my-8 border-slate-200 dark:border-slate-700" />;
     }
 
     case "callout": {
       const data = (block as any).callout;
       const emoji = data?.icon?.type === "emoji" ? data.icon.emoji : "💡";
       return (
-        <div className="my-6 flex gap-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+        <div className="my-6 flex gap-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-4">
           <span className="text-xl flex-shrink-0">{emoji}</span>
-          <div className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="text-slate-700 dark:text-slate-300 leading-relaxed">
             <RichTextContent richText={data?.rich_text || []} />
             {block.children && (
               <div className="mt-2">
@@ -343,7 +343,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
       const url = data?.url;
       if (!url) return null;
       return (
-        <div className="my-6 aspect-video rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+        <div className="my-6 aspect-video rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700">
           <iframe src={url} className="w-full h-full" />
         </div>
       );
@@ -358,7 +358,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="my-4 flex items-center gap-2 p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors group"
+          className="my-4 flex items-center gap-2 p-3 border border-slate-200 dark:border-slate-700 rounded-lg hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors group"
         >
           <span className="text-indigo-600 dark:text-indigo-400 group-hover:underline break-all text-sm">{url}</span>
         </a>

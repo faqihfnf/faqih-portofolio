@@ -65,15 +65,15 @@ export default function CardProject({ title, description, image, technologies, s
         )}
 
         {/* Link Code & Live Demo selalu di bawah */}
-        <div className="flex justify-between gap-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+        <div className="flex justify-between gap-4 pt-4 border-t border-slate-100 dark:border-slate-700">
           {githubUrl && (
-            <Link href={githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
+            <Link href={githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
               <Github size={20} />
               Code
             </Link>
           )}
           {liveUrl && (
-            <Link href={liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
+            <Link href={liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
               <ExternalLink size={20} />
               Live Demo
             </Link>

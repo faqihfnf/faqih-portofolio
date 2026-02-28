@@ -11,15 +11,15 @@ export interface BlogPost {
   cover: string | null;
   createdAt: string | null;
   description: string;
+  tags: string[]; // tambah tags
 }
 
-// Gunakan type sederhana untuk menghindari kompleksitas union type Notion
 export interface NotionBlock {
   id: string;
   type: string;
   has_children: boolean;
   children?: NotionBlock[];
-  [key: string]: any; // block data (paragraph, heading_1, dll)
+  [key: string]: any;
 }
 
 // ============================================================
@@ -31,7 +31,7 @@ interface CacheEntry {
 }
 
 const cache = new Map<string, CacheEntry>();
-const CACHE_TTL = 1000 * 60 * 30; // 30 menit
+const CACHE_TTL = 1000 * 60 * 30;
 
 function getCache<T>(key: string): T | null {
   const cached = cache.get(key);
@@ -99,7 +99,14 @@ export async function getData(): Promise<BlogPost[]> {
       description = descProp.rich_text[0].plain_text;
     }
 
-    return { id: page.id, title, slug, cover, description, createdAt };
+    // Tags dari multi-select
+    let tags: string[] = [];
+    const tagsProp = page.properties.Tags;
+    if (tagsProp?.type === "multi_select") {
+      tags = tagsProp.multi_select.map((t: { name: string }) => t.name);
+    }
+
+    return { id: page.id, title, slug, cover, description, createdAt, tags };
   });
 
   setCache(cacheKey, results);
@@ -122,11 +129,9 @@ async function fetchBlocksRecursive(blockId: string): Promise<NotionBlock[]> {
 
     for (const block of response.results as NotionBlock[]) {
       const notionBlock: NotionBlock = { ...block };
-
       if (block.has_children) {
         notionBlock.children = await fetchBlocksRecursive(block.id);
       }
-
       blocks.push(notionBlock);
     }
 
@@ -146,9 +151,6 @@ export async function getPageBlocks(pageId: string): Promise<NotionBlock[]> {
   return blocks;
 }
 
-// ============================================================
-// revalidatePage — hapus cache paksa
-// ============================================================
 export function revalidatePage(pageId: string) {
   cache.delete(`page-blocks-${pageId}`);
   cache.delete("blog-list");

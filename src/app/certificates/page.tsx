@@ -21,7 +21,7 @@ export default function CertificatesPage() {
           <motion.h1 className="text-4xl font-bold mb-4" whileHover={{ scale: 1.01 }} transition={{ duration: 0.5 }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             My Certificates
           </motion.h1>
-          <motion.p className="text-lg text-gray-600 dark:text-slate-300 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
+          <motion.p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             A collection of my achievements and completed courses.
           </motion.p>
         </div>
@@ -42,9 +42,9 @@ export default function CertificatesPage() {
                 <img src={cert.image} alt={cert.title} className="w-full h-full object-fill" />
               </div>
               <div className="p-3 bg-white dark:bg-slate-800">
-                <h3 className="text-md font-semibold text-gray-900 dark:text-white">{cert.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{cert.organization}</p>
-                <span className="text-xs text-gray-500 dark:text-gray-400">{cert.date}</span>
+                <h3 className="text-md font-semibold text-slate-900 dark:text-white">{cert.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300 mb-2">{cert.organization}</p>
+                <span className="text-xs text-slate-500 dark:text-slate-400">{cert.date}</span>
               </div>
             </motion.div>
           ))}
@@ -75,7 +75,7 @@ export default function CertificatesPage() {
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()} // biar klik dalam modal tidak close
             >
-              <button onClick={handleCloseModal} className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+              <button onClick={handleCloseModal} className="absolute top-2 right-2 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
                 ✕
               </button>
 
