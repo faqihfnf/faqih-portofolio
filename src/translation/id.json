@@ -14,24 +14,12 @@
     "description": "Saya membuat web yang indah dan fungsional menggunakan teknologi modern untuk membantu dan memecahkan masalah. Saya sangat tertarik dengan pengalaman pengguna dan solusi inovatif."
   },
   "experience": {
-    "title-1": "Senior Full Stack Developer",
-    "company-1": "Tech Solutions Inc.",
-    "location-1": "San Francisco, CA",
     "description-1": "Memimpin pengembangan aplikasi web yang skalabel menggunakan teknologi modern. Membimbing pengembang junior dan merancang solusi untuk kebutuhan bisnis yang kompleks.",
 
-    "title-2": "Full Stack Developer",
-    "company-2": "Digital Agency Pro",
-    "location-2": "New York, NY",
     "description-2": "Mengembangkan dan memelihara berbagai proyek klien, dengan fokus pada desain responsif dan optimisasi performa. Berkolaborasi dengan tim desain untuk mengimplementasikan antarmuka yang presisi.",
 
-    "title-3": "Frontend Developer",
-    "company-3": "StartupXYZ",
-    "location-3": "Austin, TX",
     "description-3": "Membangun aplikasi web responsif dan menerapkan desain UI/UX modern. Bekerja dalam lingkungan agile dengan prototyping cepat dan pengembangan iteratif.",
 
-    "title-4": "Junior Web Developer",
-    "company-4": "Web Development Co.",
-    "location-4": "Remote",
     "description-4": "Memulai perjalanan profesional dalam pengembangan situs dan aplikasi web. Mempelajari praktik terbaik dalam pemrograman, kontrol versi, dan manajemen proyek."
   }
 }

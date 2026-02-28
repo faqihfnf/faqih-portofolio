@@ -14,24 +14,12 @@
     "description": "I create beautiful and functional web applications using modern technologies to help and solve the problems. Passionate about user experience and innovative solutions."
   },
   "experience": {
-    "title-1": "Senior Full Stack Developer",
-    "company-1": "Tech Solutions Inc.",
-    "location-1": "San Francisco, CA",
     "description-1": "Leading the development of scalable web applications using modern technologies. Mentoring junior developers and architecting solutions for complex business requirements.",
 
-    "title-2": "Full Stack Developer",
-    "company-2": "Digital Agency Pro",
-    "location-2": "New York, NY",
     "description-2": "Developed and maintained multiple client projects, focusing on responsive design and performance optimization. Collaborated with design teams to implement pixel-perfect interfaces.",
 
-    "title-3": "Frontend Developer",
-    "company-3": "StartupXYZ",
-    "location-3": "Austin, TX",
     "description-3": "Built responsive web applications and implemented modern UI/UX designs. Worked in an agile environment with rapid prototyping and iterative development.",
 
-    "title-4": "Junior Web Developer",
-    "company-4": "Web Development Co.",
-    "location-4": "Remote",
     "description-4": "Started my professional journey developing websites and web applications. Learned best practices in coding, version control, and project management."
   }
 }

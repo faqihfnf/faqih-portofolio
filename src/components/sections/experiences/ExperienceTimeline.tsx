@@ -44,16 +44,19 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
               {/* Card */}
               <div className={`mt-8 md:mt-0 md:w-[45%] bg-white dark:bg-slate-800 p-6 rounded-md border shadow-md relative z-0 ${colorClasses[exp.color]} ${isLeft ? "md:mr-auto md:text-right" : "md:ml-auto md:text-left"}`}>
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white">{exp.title}</h3>
-                  <div className="flex items-center text-slate-600 dark:text-slate-300 text-sm mt-2 sm:mt-0 sm:ml-4">
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1">
+                  <h4 className={`text-lg font-bold text-${exp.color}-600 dark:text-white`}>{exp.company}</h4>
+                </div>
+
+                <div className="flex justify-between mb-3">
+                  <div className="flex items-center text-slate-600 dark:text-slate-300 text-sm mt-2 sm:mt-0">
                     <Calendar size={16} className="mr-1" />
                     {exp.period}
                   </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                  <h4 className={`text-xl font-bold text-${exp.color}-600 dark:text-white`}>{exp.company}</h4>
                   <div className="flex items-center text-slate-600 dark:text-slate-300 text-sm">
                     <MapPin size={16} className="mr-1" />
                     {exp.location}

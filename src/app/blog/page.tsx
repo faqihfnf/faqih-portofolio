@@ -6,7 +6,6 @@ export const dynamic = "force-dynamic";
 
 export default async function BlogList() {
   const posts = await getData();
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
   return (
     <div className="min-h-screen py-20">
@@ -15,7 +14,7 @@ export default async function BlogList() {
         <BlogHeader />
 
         {/* Blog Cards */}
-        <BlogListClient posts={posts} siteUrl={siteUrl} />
+        <BlogListClient posts={posts} />
       </div>
     </div>
   );
