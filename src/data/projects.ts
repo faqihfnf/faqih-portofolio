@@ -10,7 +10,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Islamic Website",
+    title: "Marifah.id",
     description: "A Islamic website that provides information about the Holy Quran, Hadith, Islamic knowledge and Free Islamic Ebook.",
     image: "/projects/marifah.jpg",
     technologies: ["React", "Node.js", "MongoDB", "Tailwind", "Express.js"],
