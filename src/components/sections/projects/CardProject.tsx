@@ -4,80 +4,87 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Project } from "@/services/notionServices";
 
 interface CardProjectProps {
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  stackIcons: string[];
-  githubUrl?: string;
-  liveUrl?: string;
+  project: Project;
 }
 
-export default function CardProject({ title, description, image, technologies, stackIcons, githubUrl, liveUrl }: CardProjectProps) {
+export default function CardProject({ project }: CardProjectProps) {
+  const { title, description, cover, technologies, githubUrl, liveUrl, slug } = project;
+
   return (
     <motion.div
-      className="bg-white dark:bg-slate-800 rounded-md shadow-md shadow-indigo-200 hover:shadow-indigo-300 hover:border-1 hover:border-indigo-400 overflow-hidden transition-shadow duration-300 flex flex-col h-full"
+      className="bg-white dark:bg-slate-800 rounded-md shadow-md shadow-indigo-200 hover:shadow-indigo-300 hover:border hover:border-indigo-400 overflow-hidden transition-all duration-300 flex flex-col h-full"
       whileHover={{ scale: 1.01 }}
-      transition={{ duration: 0.5, delay: 0.1 }}
+      transition={{ duration: 0.3 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      {/* Gambar */}
-      {liveUrl ? (
-        <Link href={liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`Buka demo live untuk ${title}`}>
-          <div className="relative h-56 overflow-hidden cursor-pointer">
-            {/* Sedikit saran: object-cover seringkali lebih baik dari object-fill agar gambar tidak gepeng */}
-            <Image src={image} alt={title} fill className="object-cover transition-transform duration-300 hover:scale-105" />
-          </div>
-        </Link>
-      ) : (
-        // Jika tidak ada liveUrl, tampilkan gambar saja tanpa Link
-        <div className="relative h-56 overflow-hidden">
-          <Image src={image} alt={title} fill className="object-cover transition-transform duration-300 hover:scale-105" />
+      {/* Gambar — klik ke detail page */}
+      <Link href={`/projects/${slug ?? ""}`}>
+        <div className="relative h-56 overflow-hidden cursor-pointer">
+          {cover ? (
+            <img src={cover} alt={title} className="object-cover transition-transform duration-300 hover:scale-105" />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-indigo-900 to-slate-800 flex items-center justify-center">
+              <span className="text-slate-400 text-sm">No image</span>
+            </div>
+          )}
         </div>
-      )}
+      </Link>
 
       {/* Konten */}
       <div className="p-4 flex flex-col flex-1">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="mb-4 text-justify flex-grow">{description}</p>
+        {/* Title — klik ke detail page */}
+        <Link href={`/projects/${slug ?? ""}`}>
+          <h3 className="text-xl font-bold mb-2 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">{title}</h3>
+        </Link>
 
-        <div className="flex flex-wrap">
-          {technologies.map((index) => (
-            <span key={index}></span>
-          ))}
-        </div>
+        <p className="mb-4 text-justify flex-grow text-sm text-slate-600 dark:text-slate-300">{description}</p>
 
-        {/* Spacer untuk mendorong konten ke bawah */}
-        <div className="flex-grow"></div>
+        <div className="flex-grow" />
 
-        {/* Icon stack - selalu di atas links */}
-        {stackIcons.length > 0 && (
-          <div className="flex flex-wrap items-center mb-4">
-            {stackIcons.map((icon, index) => (
-              <div key={index} className={`bg-slate-700 relative w-10 h-10 rounded-full border border-indigo-400 dark:border-indigo-100 overflow-hidden ${index !== 0 ? "-ml-2" : ""}`}>
-                <Image src={icon} alt="stack icon" fill className="object-contain p-1" />
-              </div>
+        {/* Tech badges */}
+        {technologies.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {technologies.map((tech) => (
+              <span key={tech} className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900">
+                {tech}
+              </span>
             ))}
           </div>
         )}
 
-        {/* Link Code & Live Demo selalu di bawah */}
+        {/* Links */}
         <div className="flex justify-between gap-4 pt-4 border-t border-slate-100 dark:border-slate-700">
           {githubUrl && (
-            <Link href={githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
-              <Github size={20} />
+            <Link
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors text-sm"
+            >
+              <Github size={18} />
               Code
             </Link>
           )}
           {liveUrl && (
-            <Link href={liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors">
-              <ExternalLink size={20} />
+            <Link
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors text-sm"
+            >
+              <ExternalLink size={18} />
               Live Demo
             </Link>
           )}
+          <Link href={`/projects/${slug ?? ""}`} className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400 font-semibold hover:underline transition-colors text-sm ml-auto">
+            Detail →
+          </Link>
         </div>
       </div>
     </motion.div>
