@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Project } from "@/services/notionServices";
 
@@ -11,21 +10,21 @@ interface CardProjectProps {
 }
 
 export default function CardProject({ project }: CardProjectProps) {
-  const { title, description, cover, technologies, githubUrl, liveUrl, slug } = project;
+  const { title, description, cover, technologies, slug } = project;
 
   return (
     <motion.div
-      className="bg-white dark:bg-slate-800 rounded-md shadow-md shadow-indigo-200 hover:shadow-indigo-300 hover:border hover:border-indigo-400 overflow-hidden transition-all duration-300 flex flex-col h-full"
-      whileHover={{ scale: 1.01 }}
+      className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden flex flex-col h-full border border-slate-100 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 shadow-sm hover:shadow-lg hover:shadow-indigo-100 dark:hover:shadow-indigo-950/30 transition-all duration-300"
+      whileHover={{ y: -4 }}
       transition={{ duration: 0.3 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      {/* Gambar — klik ke detail page */}
-      <Link href={`/projects/${slug ?? ""}`}>
-        <div className="relative h-56 overflow-hidden cursor-pointer">
+      {/* Cover Image */}
+      <Link href={`/projects/${slug ?? ""}`} className="block overflow-hidden">
+        <div className="relative h-48 overflow-hidden">
           {cover ? (
-            <img src={cover} alt={title} className="object-cover transition-transform duration-300 hover:scale-105" />
+            <img src={cover} alt={title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-indigo-900 to-slate-800 flex items-center justify-center">
               <span className="text-slate-400 text-sm">No image</span>
@@ -34,20 +33,21 @@ export default function CardProject({ project }: CardProjectProps) {
         </div>
       </Link>
 
-      {/* Konten */}
-      <div className="p-4 flex flex-col flex-1">
-        {/* Title — klik ke detail page */}
+      {/* Content */}
+      <div className="p-5 flex flex-col flex-1">
+        {/* Title */}
         <Link href={`/projects/${slug ?? ""}`}>
-          <h3 className="text-xl font-bold mb-2 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">{title}</h3>
+          <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-gray-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors line-clamp-1">{title}</h3>
         </Link>
 
-        <p className="mb-4 text-justify flex-grow text-sm text-slate-600 dark:text-slate-300">{description}</p>
-
-        <div className="flex-grow" />
+        {/* Description */}
+        <div className="h-20 justify-center items-center flex">
+          <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3  flex-1 mb-4">{description}</p>
+        </div>
 
         {/* Tech badges */}
         {technologies.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className="flex flex-wrap gap-1.5 mb-5">
             {technologies.map((tech) => (
               <span key={tech} className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900">
                 {tech}
@@ -56,36 +56,11 @@ export default function CardProject({ project }: CardProjectProps) {
           </div>
         )}
 
-        {/* Links */}
-        <div className="flex justify-between gap-4 pt-4 border-t border-slate-100 dark:border-slate-700">
-          {githubUrl && (
-            <Link
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors text-sm"
-            >
-              <Github size={18} />
-              Code
-            </Link>
-          )}
-          {liveUrl && (
-            <Link
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-500 transition-colors text-sm"
-            >
-              <ExternalLink size={18} />
-              Live Demo
-            </Link>
-          )}
-          <Link href={`/projects/${slug ?? ""}`} className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400 font-semibold hover:underline transition-colors text-sm ml-auto">
-            Detail →
-          </Link>
-        </div>
+        {/* Detail Button */}
+        <Link href={`/projects/${slug ?? ""}`} className="mt-auto flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold transition-colors duration-200 group">
+          Detail Project
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+        </Link>
       </div>
     </motion.div>
   );

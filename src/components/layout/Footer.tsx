@@ -46,7 +46,7 @@ export default function Footer() {
               <Youtube className="w-5 h-5" />
             </Link>
             <Link
-              href="https://www.instagram.com/faqih.fnf"
+              href="https://www.instagram.com/faqih.me"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-slate-700 hover:bg-indigo-600 hover:text-white text-white hover:border-indigo-600"

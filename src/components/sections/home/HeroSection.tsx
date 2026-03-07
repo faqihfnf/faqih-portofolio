@@ -26,7 +26,7 @@ export default function HeroSection() {
     { href: "https://www.linkedin.com/in/faqih-nur-fahmi-b51bb1ab/", icon: Linkedin, label: "LinkedIn" },
     { href: "https://www.facebook.com/faqihnurfahmi", icon: Facebook, label: "Facebook" },
     { href: "https://www.youtube.com/@marifahid", icon: Youtube, label: "YouTube" },
-    { href: "https://www.instagram.com/faqih.fnf", icon: Instagram, label: "Instagram" },
+    { href: "https://www.instagram.com/faqih.me", icon: Instagram, label: "Instagram" },
   ];
 
   return (
