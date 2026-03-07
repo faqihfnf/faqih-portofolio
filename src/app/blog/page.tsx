@@ -1,8 +1,14 @@
 import { getData } from "@/services/notionServices";
 import BlogHeader from "@/components/sections/blog/BlogHeader";
 import BlogListClient from "@/components/sections/blog/BlogListClient";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Faqih Nur Fahmi - Blog",
+  description: "Artikel dan tulisan tentang teknologi, programming, dan pengalaman.",
+};
 
 export default async function BlogList() {
   const posts = await getData();

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { LoaderPinwheel } from "lucide-react";
 import BlogCard from "@/components/sections/blog/BlogCard";
 import { BlogPost } from "@/services/notionServices";
+import FilterCarousel from "@/components/ui/filter-carousel";
 
 interface BlogListClientProps {
   posts: BlogPost[];
@@ -30,20 +31,28 @@ export default function BlogListClient({ posts }: BlogListClientProps) {
     <>
       {/* Filter Tags - sama dengan halaman project */}
       {allTags.length > 1 && (
-        <motion.div className="flex flex-wrap justify-center gap-3 mb-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
-          {allTags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => {
-                setSelectedTag(tag);
-                setVisibleCount(INITIAL_COUNT); // Reset visible count saat ganti filter
-              }}
-              className={`px-5 py-2 rounded-full font-medium transition-colors shadow-sm cursor-pointer ${selectedTag === tag ? "bg-indigo-600 text-white" : "bg-indigo-100 text-slate-700 hover:bg-indigo-200"}`}
-            >
-              {tag}
-            </button>
-          ))}
-        </motion.div>
+        // <motion.div className="flex flex-wrap justify-center gap-3 mb-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
+        //   {allTags.map((tag) => (
+        //     <button
+        //       key={tag}
+        //       onClick={() => {
+        //         setSelectedTag(tag);
+        //         setVisibleCount(INITIAL_COUNT); // Reset visible count saat ganti filter
+        //       }}
+        //       className={`px-5 py-2 rounded-full font-medium transition-colors shadow-sm cursor-pointer ${selectedTag === tag ? "bg-indigo-600 text-white" : "bg-indigo-100 text-slate-700 hover:bg-indigo-200"}`}
+        //     >
+        //       {tag}
+        //     </button>
+        //   ))}
+        // </motion.div>
+        <FilterCarousel
+          categories={allTags}
+          selected={selectedTag}
+          onSelect={(tag) => {
+            setSelectedTag(tag);
+            setVisibleCount(INITIAL_COUNT);
+          }}
+        />
       )}
 
       {/* Blog List */}

@@ -1,6 +1,7 @@
 "use client";
 
 import CardProject from "@/components/sections/projects/CardProject";
+import FilterCarousel from "@/components/ui/filter-carousel";
 import { Project } from "@/services/notionServices";
 import { motion } from "framer-motion";
 import { LoaderPinwheel } from "lucide-react";
@@ -31,12 +32,12 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
             My Projects
           </motion.h1>
           <motion.p className="text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-            Here are some of the projects I&apos;ve worked on. Each one represents a unique challenge and learning experience.
+            Here are some of the projects I&apos;ve worked on.
           </motion.p>
         </div>
 
         {/* Filter */}
-        <motion.div className="flex flex-wrap justify-center gap-3 mb-12" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
+        {/* <motion.div className="flex flex-wrap justify-center gap-3 mb-12" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
           {allCategories.map((category) => (
             <button
               key={category}
@@ -49,7 +50,19 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
               {category}
             </button>
           ))}
-        </motion.div>
+        </motion.div> */}
+        <div className="flex justify-center items-center mb-12">
+          <div className="w-full max-w-7xl">
+            <FilterCarousel
+              categories={allCategories}
+              selected={selectedCategory}
+              onSelect={(cat) => {
+                setSelectedCategory(cat);
+                setVisibleCount(INITIAL_COUNT);
+              }}
+            />
+          </div>
+        </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

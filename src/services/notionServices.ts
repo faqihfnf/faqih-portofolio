@@ -133,14 +133,24 @@ export async function getProjects(): Promise<Project[]> {
 
   const raw: QueryDatabaseResponse = await notion.databases.query({
     database_id: process.env.NOTION_PROJECTS_ID as string,
+    filter: {
+      property: "Status",
+      select: { equals: "Published" },
+    },
+    sorts: [
+      {
+        timestamp: "created_time", // gunakan ini, bukan property
+        direction: "descending",
+      },
+    ],
     // filter: {
     //   property: "Status",
     //   select: { equals: "Published" },
     // },
     // sorts: [{ property: "CreatedAt", direction: "descending" }],
   });
-  console.log("Total raw results:", raw.results.length);
-  console.log("First page properties:", JSON.stringify((raw.results[0] as any)?.properties, null, 2));
+  // console.log("Total raw results:", raw.results.length);
+  // console.log("First page properties:", JSON.stringify((raw.results[0] as any)?.properties, null, 2));
 
   const results: Project[] = (raw.results as PageObjectResponse[]).map((page) => {
     let title = "Untitled";
