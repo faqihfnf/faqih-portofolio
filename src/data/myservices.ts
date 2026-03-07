@@ -1,36 +1,28 @@
-import { Code, Palette, Zap, Users } from "lucide-react";
+import { Code2, BriefcaseBusiness, Workflow, Handshake } from "lucide-react";
 
 export const myServices = [
   {
     id: 1,
     title: "Full Stack Development",
-    desc: "Building robust web applications with modern technologies like React, Next.js, and Node.js",
-    className: "md:col-span-2",
-    // thumbnail: "/exp1.svg",
-    icon: Code,
+    desc: "Building modern web applications end-to-end with React, Next.js, Node.js, and more — from pixel-perfect UI to scalable backend infrastructure.",
+    icon: Code2,
   },
   {
     id: 2,
-    title: "UI/UX Design",
-    desc: "Creating beautiful and intuitive user interfaces that provide excellent user experience",
-    className: "md:col-span-2", // change to md:col-span-2
-    // thumbnail: "/exp2.svg",
-    icon: Palette,
+    title: "HR Digital Transformation",
+    desc: "9 years of HR experience turned into digital solutions — HRIS, payroll systems, employee portals, and recruitment tools that actually match how HR teams work.",
+    icon: BriefcaseBusiness,
   },
   {
     id: 3,
-    title: "Performance Optimization",
-    desc: "Optimizing applications for speed, scalability, and better user experience",
-    className: "md:col-span-2", // change to md:col-span-2
-    // thumbnail: "/exp3.svg",
-    icon: Zap,
+    title: "Business Process Automation",
+    desc: "Translating complex business workflows into efficient web applications — reducing manual work, minimizing errors, and increasing operational speed.",
+    icon: Workflow,
   },
   {
     id: 4,
-    title: "Collaboration",
-    desc: "Working effectively with teams to deliver high-quality software solutions",
-    className: "md:col-span-2",
-    // thumbnail: "/exp4.svg",
-    icon: Users,
+    title: "Collaboration & Consulting",
+    desc: "Bridging the gap between business needs and technical solutions — I understand both the human side and the code side, so nothing gets lost in translation.",
+    icon: Handshake,
   },
 ];

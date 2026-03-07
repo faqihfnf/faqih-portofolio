@@ -38,7 +38,7 @@ export const projects: Project[] = [
   },
   {
     title: "Digiquran",
-    description: "A responsive portfolio website showcasing creative work with smooth animations and modern design.",
+    description: "A digital Quran website that provides users with an interactive and user-friendly platform to read and explore the Quran online.",
     image: "/projects/digiquran.jpg",
     technologies: ["Next.js", "TypeScript", "Tailwind", "React"],
     stackIcons: ["/stack/nextjs.svg", "/stack/typescript.svg", "/stack/tailwind.svg", "/stack/react.svg"],
