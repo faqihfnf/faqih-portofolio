@@ -13,6 +13,28 @@
     "name": "I'm a Full Stack Developer",
     "description": "Blending 9 years of experience as an HR with Full Stack Development expertise. I help businesses digitally transform with innovative application solutions."
   },
+  "services": {
+    "title": "What I Do",
+    "description": "Here are some of the services that I offer to help you achieve your goals.",
+    "cards": {
+      "1": {
+        "title": "Full Stack Development",
+        "desc": "Building modern web applications end-to-end with React, Next.js, Node.js, and more — from pixel-perfect UI to scalable backend infrastructure."
+      },
+      "2": {
+        "title": "HR Digital Transformation",
+        "desc": "9 years of HR experience turned into digital solutions — HRIS, payroll systems, employee portals, and recruitment tools that actually match how HR teams work."
+      },
+      "3": {
+        "title": "Business Process Automation",
+        "desc": "Translating complex business workflows into efficient web applications — reducing manual work, minimizing errors, and increasing operational speed."
+      },
+      "4": {
+        "title": "Collaboration & Consulting",
+        "desc": "Bridging the gap between business needs and technical solutions — I understand both the human side and the code side, so nothing gets lost in translation."
+      }
+    }
+  },
   "experience": {
     "description-1": "Leading the development of scalable web applications using modern technologies. Mentoring junior developers and architecting solutions for complex business requirements.",
 

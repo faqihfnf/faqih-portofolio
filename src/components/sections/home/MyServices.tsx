@@ -2,6 +2,7 @@
 
 import { myServices } from "@/data/myservices";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const hoverRotations = [
   { icon: -12, card: -1 },
@@ -21,16 +22,17 @@ const borderRadii = [
 ];
 
 export default function MyServices() {
+  const { t } = useTranslation();
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-            What I Do
+            {t("services.title")}
           </motion.h2>
           <motion.p className="text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
-            Here are some of the services I offer to help you achieve your goals.
+            {t("services.description")}
           </motion.p>
         </div>
 
@@ -71,8 +73,8 @@ export default function MyServices() {
 
                   {/* Title + desc */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-bold mb-1.5 text-slate-900 dark:text-slate-100 group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors duration-200">{card.title}</h3>
-                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">{card.desc}</p>
+                    <h3 className="text-lg font-bold mb-1.5 text-slate-900 dark:text-slate-100 group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors duration-200">{t(`services.cards.${card.id}.title`)}</h3>
+                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">{t(`services.cards.${card.id}.desc`)}</p>
                   </div>
                 </div>
               </motion.div>

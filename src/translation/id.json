@@ -13,6 +13,28 @@
     "name": "Saya adalah Full Stack Developer",
     "description": "Memadukan 9 tahun pengalaman sebagai HR dengan keahlian Full Stack Development. Saya membantu bisnis bertransformasi digital dengan solusi aplikasi yang inovatif."
   },
+  "services": {
+    "title": "Apa yang Saya Lakukan",
+    "description": "Berikut beberapa layanan yang saya tawarkan untuk membantu Anda mencapai tujuan Anda.",
+    "cards": {
+      "1": {
+        "title": "Pengembangan Full Stack",
+        "desc": "Membangun aplikasi web modern secara menyeluruh dengan React, Next.js, Node.js, dan lainnya — dari UI yang presisi hingga infrastruktur backend yang skalabel."
+      },
+      "2": {
+        "title": "Transformasi Digital HR",
+        "desc": "Mengubah 9 tahun pengalaman HR menjadi solusi digital — HRIS, sistem penggajian, portal karyawan, dan sistem rekrutmen yang benar-benar sesuai dengan cara kerja tim HR."
+      },
+      "3": {
+        "title": "Otomatisasi Proses Bisnis",
+        "desc": "Menerjemahkan alur kerja bisnis yang kompleks menjadi aplikasi web yang efisien — mengurangi pekerjaan manual, meminimalkan kesalahan, dan meningkatkan kecepatan operasional."
+      },
+      "4": {
+        "title": "Kolaborasi & Konsultasi",
+        "desc": "Menjembatani kesenjangan antara kebutuhan bisnis dan solusi teknis — saya memahami sisi operasional dan sisi teknikal (kode), sehingga komunikasi berjalan lancar dan tepat sasaran."
+      }
+    }
+  },
   "experience": {
     "description-1": "Memimpin pengembangan aplikasi web yang skalabel menggunakan teknologi modern. Membimbing pengembang junior dan merancang solusi untuk kebutuhan bisnis yang kompleks.",
 
