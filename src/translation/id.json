@@ -42,7 +42,15 @@
   "about": {
     "title": "Siapa Saya",
     "description": "Ini adalah pengenalan singkat tentang diri saya dan latar belakang saya.",
-    "content": "Menjembatani manajemen SDM dan teknologi. Dengan 9 tahun pengalaman sebagai praktisi HR dan keahlian di bidang Full-Stack Development, saya membangun solusi digital yang benar-benar mengerti cara kerja sebuah bisnis. Dari aplikasi web modern hingga sistem internal yang kompleks, fokus saya bukan semata menulis baris-baris kode, tetapi mengembangkan solusi yang efektif untuk menyelesaikan masalah operasional perusahaan melalui teknologi yang tepat."
+    "content": "Menjembatani manajemen SDM dan teknologi. Dengan 9 tahun pengalaman sebagai praktisi HR dan keahlian di bidang Full-Stack Development, saya membangun solusi digital yang benar-benar mengerti cara kerja sebuah bisnis. Dari aplikasi web modern hingga sistem internal yang kompleks, fokus saya bukan semata menulis baris-baris kode, tetapi mengembangkan solusi yang efektif untuk menyelesaikan masalah operasional perusahaan melalui teknologi yang tepat.",
+    "stats-1-a": "Tahun",
+    "stats-1-b": "Pengalaman",
+    "stats-2-a": "Teknologi",
+    "stats-2-b": "Dikuasai",
+    "stats-3-a": "Proyek",
+    "stats-3-b": "Selesai",
+    "stats-4-a": "GitHub",
+    "stats-4-b": "Commits"
   },
   "experience": {
     "description-1": "Memimpin pengembangan aplikasi web yang skalabel menggunakan teknologi modern. Membimbing pengembang junior dan merancang solusi untuk kebutuhan bisnis yang kompleks.",

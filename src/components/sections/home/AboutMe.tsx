@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import CountUp from "react-countup";
 
 export default function AboutMe() {
   const { t } = useTranslation();
@@ -72,26 +73,61 @@ export default function AboutMe() {
           </div>
         </motion.div>
         <motion.div className=" gap-12 items-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+          {/* Quick Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">
+            {/* Stat 1: Pengalaman HR */}
+            <div className="flex items-center justify-start gap-3 md:gap-4">
+              <div className="text-4xl lg:text-5xl font-extrabold text-blue-600 dark:text-blue-400">
+                <CountUp end={9} duration={5} suffix="+" enableScrollSpy scrollSpyOnce />
+              </div>
+              <div className="flex flex-col text-left text-sm lg:text-base font-semibold text-slate-600 dark:text-slate-300 leading-snug">
+                <span>{t("about.stats-1-a")}</span>
+                <span>{t("about.stats-1-b")}</span>
+              </div>
+            </div>
+
+            {/* Stat 2: Tech Stack */}
+            <div className="flex items-center justify-start gap-3 md:gap-4">
+              <div className="text-4xl lg:text-5xl font-extrabold text-pink-600 dark:text-pink-400">
+                <CountUp end={10} duration={4} suffix="+" enableScrollSpy scrollSpyOnce />
+              </div>
+              <div className="flex flex-col text-left text-sm lg:text-base font-semibold text-slate-600 dark:text-slate-300 leading-snug">
+                <span>{t("about.stats-2-a")}</span>
+                <span>{t("about.stats-2-b")}</span>
+              </div>
+            </div>
+
+            {/* Stat 3: Project Selesai */}
+            <div className="flex items-center justify-start gap-3 md:gap-4">
+              <div className="text-4xl lg:text-5xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                <CountUp end={15} duration={4} suffix="+" enableScrollSpy scrollSpyOnce />
+              </div>
+              <div className="flex flex-col text-left text-sm lg:text-base font-semibold text-slate-600 dark:text-slate-300 leading-snug">
+                <span>{t("about.stats-3-a")}</span>
+                <span>{t("about.stats-3-b")}</span>
+              </div>
+            </div>
+
+            {/* Stat 4: GitHub Commits */}
+            <div className="flex items-center justify-start gap-3 md:gap-4">
+              <div className="text-4xl lg:text-5xl font-extrabold text-purple-600 dark:text-purple-400">
+                <CountUp end={1000} duration={4} suffix="+" enableScrollSpy scrollSpyOnce />
+              </div>
+              <div className="flex flex-col text-left text-sm lg:text-base font-semibold text-slate-600 dark:text-slate-300 leading-snug">
+                <span>{t("about.stats-4-a")}</span>
+                <span>{t("about.stats-4-b")}</span>
+              </div>
+            </div>
+          </div>
           {/* Motto/Tagline */}
           <div className="text-left order-2 md:order-1 mt-10 md:mt-16">
             <motion.div className="space-y-6" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
               <div className="text-center md:text-left">
-                <blockquote className="text-2xl font-medium text-slate-800 dark:text-slate-200 italic border-l-4 border-indigo-600 pl-4">
-                  &quot;Create with <span className="text-indigo-600 dark:text-indigo-400">passion</span>, innovate with impact and deliver excellence solutions.&quot;
+                <blockquote className="text-2xl font-medium text-slate-800 dark:text-slate-200 italic border-l-4 leading-relaxed border-indigo-600 pl-4">
+                  &quot;Create with <span className="text-indigo-600 dark:text-indigo-400 font-semibold">passion</span>, focus on <span className="text-emerald-600 dark:text-emerald-400 font-semibold">innovation</span>, and strive for{" "}
+                  <span className="text-pink-600 font-semibold dark:text-pink-400">perfection</span>.&quot;
                 </blockquote>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">- My Work Philosophy</p>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-lg shadow-lime-400 hover:shadow-teal-500">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">9+</div>
-                  <div className="text-sm text-slate-600 dark:text-slate-400">Tahun Pengalaman</div>
-                </div>
-                <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-lg shadow-lime-400 hover:shadow-pink-500">
-                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">15+</div>
-                  <div className="text-sm text-slate-600 dark:text-slate-400">Project Selesai</div>
-                </div>
+                <p className="text-sm text-slate-500 dark:text-slate-300 mt-2">- My Work Philosophy</p>
               </div>
             </motion.div>
 
