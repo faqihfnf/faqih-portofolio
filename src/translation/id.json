@@ -35,6 +35,15 @@
       }
     }
   },
+  "stack": {
+    "title": "Apa yang Saya Gunakan",
+    "description": "Berikut adalah tech stack utama yang saya gunakan untuk membangun aplikasi web yang andal."
+  },
+  "about": {
+    "title": "Siapa Saya",
+    "description": "Ini adalah pengenalan singkat tentang diri saya dan latar belakang saya.",
+    "content": "Menjembatani manajemen SDM dan teknologi. Dengan 9 tahun pengalaman sebagai praktisi HR dan keahlian di bidang Full-Stack Development, saya membangun solusi digital yang benar-benar mengerti cara kerja sebuah bisnis. Dari aplikasi web modern hingga sistem internal yang kompleks, fokus saya bukan semata menulis baris-baris kode, tetapi mengembangkan solusi yang efektif untuk menyelesaikan masalah operasional perusahaan melalui teknologi yang tepat."
+  },
   "experience": {
     "description-1": "Memimpin pengembangan aplikasi web yang skalabel menggunakan teknologi modern. Membimbing pengembang junior dan merancang solusi untuk kebutuhan bisnis yang kompleks.",
 

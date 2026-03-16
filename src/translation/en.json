@@ -35,6 +35,15 @@
       }
     }
   },
+  "stack": {
+    "title": "What I Use",
+    "description": "Here is the core tech stack I use to build robust web applications."
+  },
+  "about": {
+    "title": "Who I Am",
+    "description": "This is a brief introduction about myself and my background.",
+    "content": "Bridging HR management and technology. With 9 years of experience as an HR practitioner and expertise in Full-Stack Development, I build digital solutions that truly understand how a business works. From modern web applications to complex internal systems, my focus isn't just on writing lines of code, but on developing effective solutions to solve operational problems for companies through the right technology."
+  },
   "experience": {
     "description-1": "Leading the development of scalable web applications using modern technologies. Mentoring junior developers and architecting solutions for complex business requirements.",
 

@@ -2,17 +2,19 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function AboutMe() {
+  const { t } = useTranslation();
   return (
     <section className="py-20">
       <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4">
           <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-            Who I Am
+            {t("about.title")}
           </motion.h2>
           <motion.p className="text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
-            This is a brief introduction about myself and my background.
+            {t("about.description")}
           </motion.p>
         </div>
         {/* Profile & Text */}
@@ -60,8 +62,7 @@ export default function AboutMe() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              I create beautiful and functional web applications using modern technologies to help and solve the problems. Passionate about user experience and innovative solutions.
-              <br />I have a strong understanding of front-end development and have a proven track record of delivering high-quality solutions that meet the needs of clients and users.
+              {t("about.content")}
             </motion.p>
           </div>
         </motion.div>
