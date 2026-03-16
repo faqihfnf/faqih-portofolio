@@ -13,7 +13,7 @@ export default function AboutMe() {
           <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
             {t("about.title")}
           </motion.h2>
-          <motion.p className="text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+          <motion.p className="text-lg max-w-2xl mx-auto mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
             {t("about.description")}
           </motion.p>
         </div>
@@ -21,39 +21,44 @@ export default function AboutMe() {
         <motion.div className="" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-8 items-center">
             {/* Profile Image */}
-            <div className="w-full flex justify-center md:justify-end mb-4 md:mx-0 order-1 md:order-2">
-              <div className="">
-                <div
-                  className="w-[475px] h-[475px] bg-gradient-to-tl from-blue-600 via-teal-500 to-pink-500 p-0.5"
-                  style={{
-                    WebkitMaskImage: "url('/mask-outline.svg')",
-                    WebkitMaskRepeat: "no-repeat",
-                    WebkitMaskPosition: "center",
-                    WebkitMaskSize: "contain",
-                    maskImage: "url('/mask-outline.svg')",
-                    maskRepeat: "no-repeat",
-                    maskPosition: "center",
-                    maskSize: "cover",
-                  }}
+            <div className="w-full flex justify-center md:justify-end mb-8 md:mb-0 md:mx-0 order-1 md:order-2">
+              {/* Container Utama (Ukuran disamakan di sini) */}
+              <div className="relative flex items-center justify-center w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
+                {/* Animasi Garis Putus-putus (Indigo) */}
+                <motion.svg
+                  className="absolute inset-0 w-full h-full text-indigo-500 dark:text-indigo-400 scale-[1.03]"
+                  viewBox="0 0 100 100"
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                 >
-                  <div
-                    className="w-[425px] h-[385px] m-6 bg-gradient-to-br from-yellow-500 via-teal-500 to-green-600 p-4 overflow-hidden"
-                    style={{
-                      WebkitMaskImage: "url('/mask-inline.svg')",
-                      WebkitMaskRepeat: "no-repeat",
-                      WebkitMaskPosition: "center",
-                      WebkitMaskSize: "contain",
-                      maskImage: "url('/mask-inline.svg')",
-                      maskRepeat: "no-repeat",
-                      maskPosition: "right",
-                      maskSize: "cover",
+                  <motion.circle
+                    cx="50"
+                    cy="50"
+                    r="49"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    initial={{ strokeDasharray: "40 10 5 10 15 10 2 10 25 10 5 10" }}
+                    animate={{
+                      strokeDasharray: [
+                        "40 10 5 10 15 10 2 10 25 10 5 10", // Kondisi Awal: Garis panjang dan bervariasi
+                        "5 35 1 25 4 25 1 25 5 35 1 25", // Kondisi Mentok: Garis mengecil, jarak/celah membesar
+                      ],
                     }}
-                  >
-                    <Image src="/profile.jpg" alt="Profile" width={300} height={300} className="mt-14 w-full h-full object-cover" />
-                  </div>
+                    // Transition disamakan persis dengan SVG di atas agar sinkron
+                    transition={{ duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+                  />
+                </motion.svg>
+
+                {/* Container Gambar Profil */}
+                <div className="relative w-full h-full rounded-full overflow-hidden">
+                  <Image src="/photo.png" alt="Faqih Nur Fahmi" width={400} height={400} className="w-full h-full object-cover object-top" />
                 </div>
               </div>
             </div>
+
             {/* About Text */}
             <motion.p
               className="text-lg text-justify items-center justify-center flex text-slate-600 dark:text-slate-300 mb-6 leading-8 order-2 md:order-1"
@@ -68,10 +73,12 @@ export default function AboutMe() {
         </motion.div>
         <motion.div className=" gap-12 items-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
           {/* Motto/Tagline */}
-          <div className="text-left order-2 md:order-1">
+          <div className="text-left order-2 md:order-1 mt-10 md:mt-16">
             <motion.div className="space-y-6" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
               <div className="text-center md:text-left">
-                <blockquote className="text-2xl font-medium text-slate-800 dark:text-slate-200 italic border-l-4 border-indigo-600 pl-4">&quot;Create with passion, innovate with impact and deliver excellence solutions.&quot;</blockquote>
+                <blockquote className="text-2xl font-medium text-slate-800 dark:text-slate-200 italic border-l-4 border-indigo-600 pl-4">
+                  &quot;Create with <span className="text-indigo-600 dark:text-indigo-400">passion</span>, innovate with impact and deliver excellence solutions.&quot;
+                </blockquote>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">- My Work Philosophy</p>
               </div>
 
