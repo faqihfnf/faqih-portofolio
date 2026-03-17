@@ -50,7 +50,23 @@
     "stats-3-a": "Projects",
     "stats-3-b": "Completed",
     "stats-4-a": "GitHub",
-    "stats-4-b": "Commits"
+    "stats-4-b": "Commits",
+    "quote-1": "Create with",
+    "quote-2": "Passion",
+    "quote-3": "focus on",
+    "quote-4": "Innovation",
+    "quote-5": "commit to",
+    "quote-6": "Precision",
+    "add-title-1": "Driven by Passion",
+    "add-desc-1": "Turning complex ideas into functional digital experiences with deep enthusiasm and empathy.",
+    "add-title-2": "Continuous Innovation",
+    "add-desc-2": "Continuously mastering modern tech stacks to deliver fast, scalable, and future-proof solutions.",
+    "add-title-3": "Committed to Precision",
+    "add-desc-3": "Ensuring every feature operates accurately and directly solves your real business challenges."
+  },
+  "github": {
+    "title": "My GitHub Contributions",
+    "description": "Here is a summary of my contributions on GitHub over the past year."
   },
   "experience": {
     "description-1": "Leading the development of scalable web applications using modern technologies. Mentoring junior developers and architecting solutions for complex business requirements.",

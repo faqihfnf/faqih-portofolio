@@ -9,7 +9,7 @@
     "nav-item-5": "Kontak"
   },
   "hero": {
-    "title": "Hallo, saya Faqih",
+    "title": "Halo, saya Faqih",
     "name": "Saya adalah Full Stack Developer",
     "description": "Memadukan 9 tahun pengalaman sebagai HR dengan keahlian Full Stack Development. Saya membantu bisnis bertransformasi digital dengan solusi aplikasi yang inovatif."
   },
@@ -50,7 +50,23 @@
     "stats-3-a": "Proyek",
     "stats-3-b": "Selesai",
     "stats-4-a": "GitHub",
-    "stats-4-b": "Commits"
+    "stats-4-b": "Commits",
+    "quote-1": "Berkarya dengan",
+    "quote-2": "Dedikasi",
+    "quote-3": "berfokus pada",
+    "quote-4": "Inovasi",
+    "quote-5": "mengutamakan",
+    "quote-6": "Presisi",
+    "add-title-1": "Berkarya Penuh Dedikasi",
+    "add-desc-1": "Mengubah ide kompleks menjadi solusi digital yang fungsional dengan antusiasme penuh.",
+    "add-title-2": "Inovasi Berkelanjutan",
+    "add-desc-2": "Terus menguasai teknologi modern untuk menghadirkan solusi digital yang cepat, skalabel, dan tangguh.",
+    "add-title-3": "Memastikan Presisi",
+    "add-desc-3": "Memastikan setiap fitur beroperasi secara akurat dan tepat dalam memecahkan masalah bisnis."
+  },
+  "github": {
+    "title": "Kontribusi GitHub Saya",
+    "description": "Berikut adalah ringkasan kontribusi saya di GitHub selama setahun terakhir."
   },
   "experience": {
     "description-1": "Memimpin pengembangan aplikasi web yang skalabel menggunakan teknologi modern. Membimbing pengembang junior dan merancang solusi untuk kebutuhan bisnis yang kompleks.",
