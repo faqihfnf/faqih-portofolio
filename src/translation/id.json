@@ -84,6 +84,8 @@
     "button": "Hubungi Saya"
   },
   "experience": {
+    "title": "Pengalaman Saya",
+    "description": "Perjalanan profesional saya di HR dan pengembangan web",
     "description-1": "Memimpin pengembangan aplikasi web yang skalabel menggunakan teknologi modern. Membimbing pengembang junior dan merancang solusi untuk kebutuhan bisnis yang kompleks.",
 
     "description-2": "Mengembangkan dan memelihara berbagai proyek klien, dengan fokus pada desain responsif dan optimisasi performa. Berkolaborasi dengan tim desain untuk mengimplementasikan antarmuka yang presisi.",

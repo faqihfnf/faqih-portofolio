@@ -85,6 +85,8 @@
   },
 
   "experience": {
+    "title": "My Experience",
+    "description": "My professional journey in HR and web development",
     "description-1": "Leading the development of scalable web applications using modern technologies. Mentoring junior developers and architecting solutions for complex business requirements.",
 
     "description-2": "Developed and maintained multiple client projects, focusing on responsive design and performance optimization. Collaborated with design teams to implement pixel-perfect interfaces.",

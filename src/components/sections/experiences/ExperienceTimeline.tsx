@@ -18,14 +18,14 @@ interface Experience {
 
 interface ExperienceTimelineProps {
   experiences: Experience[];
+  activeTab: "hr" | "tech";
 }
 
-export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
+export default function ExperienceTimeline({ experiences, activeTab }: ExperienceTimelineProps) {
   return (
     <div className="relative">
-      {/* Garis timeline */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-indigo-500 transform -translate-x-1/2"></div>
-
+      {/* Garis timeline dengan conditional color & animasi transisi */}
+      <div className={`absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2 transition-colors duration-500 ease-in-out ${activeTab === "tech" ? "bg-pink-500" : "bg-indigo-500"}`}></div>
       <div className="space-y-16">
         {experiences.map((exp, index) => {
           const isLeft = index % 2 === 0;
