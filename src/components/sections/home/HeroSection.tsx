@@ -65,7 +65,7 @@ export default function HeroSection() {
         </motion.h1>
 
         {/* Description */}
-        <motion.h2 className="font-normal text-sm sm:text-lg text-white lg:max-w-2xl max-w-sm text-center mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        <motion.h2 className="font-normal text-sm sm:text-lg text-white lg:max-w-4xl max-w-sm text-center mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           {t("hero.description")}
         </motion.h2>
 

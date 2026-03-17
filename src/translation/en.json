@@ -14,7 +14,8 @@
     "description": "Blending 9 years of experience as an HR with Full Stack Development expertise. I help businesses digitally transform with innovative application solutions."
   },
   "services": {
-    "title": "What I Do",
+    "title": "What ",
+    "title-1": "I Do?",
     "description": "Here are some of the services that I offer to help you achieve your goals.",
     "cards": {
       "1": {
@@ -36,11 +37,13 @@
     }
   },
   "stack": {
-    "title": "What I Use",
+    "title": "What",
+    "title-1": "I Use?",
     "description": "Here is the core tech stack I use to build robust web applications."
   },
   "about": {
-    "title": "Who I Am",
+    "title": "Who ",
+    "title-1": "I Am?",
     "description": "This is a brief introduction about myself and my background.",
     "content": "Bridging HR management and technology. With 9 years of experience as an HR practitioner and expertise in Full-Stack Development, I build digital solutions that truly understand how a business works. From modern web applications to complex internal systems, my focus isn't just on writing lines of code, but on developing effective solutions to solve operational problems for companies through the right technology.",
     "stats-1-a": "Years of",
@@ -65,9 +68,22 @@
     "add-desc-3": "Ensuring every feature operates accurately and directly solves your real business challenges."
   },
   "github": {
-    "title": "My GitHub Contributions",
+    "title": "How ",
+    "title-1": "My GitHub?",
     "description": "Here is a summary of my contributions on GitHub over the past year."
   },
+  "cta": {
+    "title": "Ready to work",
+    "title-1": "together?",
+    "description-1": "Let's reach out me to discuss your",
+    "description-2": "project",
+    "description-3": "needs. I'm always open to new",
+    "description-4": "opportunities ",
+    "description-5": "and",
+    "description-6": "collaborations",
+    "button": "Get in Touch"
+  },
+
   "experience": {
     "description-1": "Leading the development of scalable web applications using modern technologies. Mentoring junior developers and architecting solutions for complex business requirements.",
 

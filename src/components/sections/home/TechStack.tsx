@@ -13,8 +13,9 @@ export default function TechStack() {
         <div className="text-center mb-16">
           <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
             {t("stack.title")}
+            <span className="text-indigo-700 dark:text-indigo-500"> {t("stack.title-1")}</span>
           </motion.h2>
-          <motion.p className="text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+          <motion.p className="text-lg max-w-4xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
             {t("stack.description")}
           </motion.p>
         </div>

@@ -3,16 +3,19 @@
 import GitHubCalendar from "react-github-calendar";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default function GithubContribution() {
+  const { t } = useTranslation();
   return (
     <section className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-10">
         <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-          My GitHub Contributions
+          {t("github.title")}
+          <span className="text-indigo-700 dark:text-indigo-500">{t("github.title-1")}</span>
         </motion.h2>
-        <motion.p className="text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
-          Here is a summary of my contributions on GitHub over the past year.
+        <motion.p className="text-lg max-w-4xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+          {t("github.description")}
         </motion.p>
       </div>
 

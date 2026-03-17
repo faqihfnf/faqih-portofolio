@@ -14,7 +14,8 @@
     "description": "Memadukan 9 tahun pengalaman sebagai HR dengan keahlian Full Stack Development. Saya membantu bisnis bertransformasi digital dengan solusi aplikasi yang inovatif."
   },
   "services": {
-    "title": "Apa yang Saya Lakukan",
+    "title": "Apa yang ",
+    "title-1": "Saya Lakukan?",
     "description": "Berikut beberapa layanan yang saya tawarkan untuk membantu Anda mencapai tujuan Anda.",
     "cards": {
       "1": {
@@ -36,11 +37,13 @@
     }
   },
   "stack": {
-    "title": "Apa yang Saya Gunakan",
+    "title": "Apa yang ",
+    "title-1": "Saya Gunakan?",
     "description": "Berikut adalah tech stack utama yang saya gunakan untuk membangun aplikasi web yang andal."
   },
   "about": {
-    "title": "Siapa Saya",
+    "title": "Siapa ",
+    "title-1": "Saya?",
     "description": "Ini adalah pengenalan singkat tentang diri saya dan latar belakang saya.",
     "content": "Menjembatani manajemen SDM dan teknologi. Dengan 9 tahun pengalaman sebagai praktisi HR dan keahlian di bidang Full-Stack Development, saya membangun solusi digital yang benar-benar mengerti cara kerja sebuah bisnis. Dari aplikasi web modern hingga sistem internal yang kompleks, fokus saya bukan semata menulis baris-baris kode, tetapi mengembangkan solusi yang efektif untuk menyelesaikan masalah operasional perusahaan melalui teknologi yang tepat.",
     "stats-1-a": "Tahun",
@@ -65,8 +68,20 @@
     "add-desc-3": "Memastikan setiap fitur beroperasi secara akurat dan tepat dalam memecahkan masalah bisnis."
   },
   "github": {
-    "title": "Kontribusi GitHub Saya",
+    "title": "Bagaimana ",
+    "title-1": "GitHub Saya?",
     "description": "Berikut adalah ringkasan kontribusi saya di GitHub selama setahun terakhir."
+  },
+  "cta": {
+    "title": "Siap untuk ",
+    "title-1": "bekerja sama?",
+    "description-1": "Hubungi saya untuk membahas kebutuhan",
+    "description-2": "project",
+    "description-3": "anda. Saya selalu terbuka untuk setiap",
+    "description-4": "kesempatan ",
+    "description-5": "dan",
+    "description-6": "kolaborasi",
+    "button": "Hubungi Saya"
   },
   "experience": {
     "description-1": "Memimpin pengembangan aplikasi web yang skalabel menggunakan teknologi modern. Membimbing pengembang junior dan merancang solusi untuk kebutuhan bisnis yang kompleks.",

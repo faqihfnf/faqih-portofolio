@@ -12,9 +12,9 @@ export default function AboutMe() {
       <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4">
           <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-            {t("about.title")}
+            {t("about.title")} <span className="text-indigo-700 dark:text-indigo-500">{t("about.title-1")}</span>
           </motion.h2>
-          <motion.p className="text-lg max-w-2xl mx-auto mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+          <motion.p className="text-lg max-w-4xl mx-auto mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
             {t("about.description")}
           </motion.p>
         </div>
