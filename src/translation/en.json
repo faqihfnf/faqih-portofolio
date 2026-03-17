@@ -86,13 +86,19 @@
 
   "experience": {
     "title": "My Experience",
-    "description": "My professional journey in HR and web development",
-    "description-1": "Leading the development of scalable web applications using modern technologies. Mentoring junior developers and architecting solutions for complex business requirements.",
-
-    "description-2": "Developed and maintained multiple client projects, focusing on responsive design and performance optimization. Collaborated with design teams to implement pixel-perfect interfaces.",
-
-    "description-3": "Built responsive web applications and implemented modern UI/UX designs. Worked in an agile environment with rapid prototyping and iterative development.",
-
-    "description-4": "Started my professional journey developing websites and web applications. Learned best practices in coding, version control, and project management."
+    "hr": {
+      "Job-1": "Leading the standardization and digitalization of HR processes—from recruitment, onboarding, and performance management to employee development—enhancing overall efficiency and the employee experience.",
+      "Job-2": "Led HR digital transformation through the implementation and optimization of HRIS. Actively involved in designing compensation structures to ensure internal equity and external market competitiveness.",
+      "Job-3": "Managed comprehensive compensation and benefits processes, including payroll, allowances, overtime, incentives, and BPJS, ensuring the company's competitiveness in attracting and retaining top talent.",
+      "Job-4": "Executed core HR administrative processes, including employee data management, contract administration, attendance tracking, and leave management, ensuring smooth and efficient daily HR operations."
+    },
+    "tech": {
+      "Job-1": "Architecting and developing an HRIS system for HSI utilizing Next.js, React, Prisma, PostgreSQL, Redis, and Supabase. Focused on building responsive and functional user interfaces to elevate the user experience in HR data management.",
+      "Job-2": "Participating in an intensive sandbox bootcamp mastering the Next.js framework and its ecosystem. Focused on developing real-world projects to solidify core concepts and best practices in modern web development.",
+      "Job-3": "Completed an intensive bootcamp on building AI-enabled applications using Python. Focused on practical projects that integrate AI models to solve real-world problems, while mastering foundational concepts in AI development.",
+      "Job-4": "Completed an intensive full-stack web development bootcamp mastering the MERN stack (MongoDB, Express.js, React, Node.js). Focused on building hands-on projects to strengthen technical fundamentals and apply best practices.",
+      "Job-5": "Pursuing a degree in Informatics Engineering (Computer Science) to deepen my understanding of fundamental computing concepts, algorithms, data structures, and software engineering principles.",
+      "Job-6": "Started my journey in the tech industry through self-taught learning via various online resources, building a strong programming foundation starting from HTML, CSS, JavaScript, and PHP."
+    }
   }
 }

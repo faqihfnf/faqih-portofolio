@@ -62,7 +62,7 @@ export const certificates: CertificateItem[] = [
     organization: "ID Camp",
     date: "Mar 2025",
     image: "/certificates/react-intermediate.jpg",
-    link: "/certificates/react-intermediate.pdf",
+    link: "/certificates/react-intermediate.jpg",
   },
   {
     id: 8,

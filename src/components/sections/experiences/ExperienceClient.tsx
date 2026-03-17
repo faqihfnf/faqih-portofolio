@@ -5,7 +5,7 @@ import { useState } from "react";
 import ExperienceTimeline from "@/components/sections/experiences/ExperienceTimeline";
 import { getExperienceData } from "@/data/experiences"; // Sesuaikan path jika berbeda
 import { useTranslation } from "react-i18next";
-import { Briefcase, Terminal } from "lucide-react"; // Icon untuk tombol
+import { Briefcase, SquareTerminal, Terminal } from "lucide-react"; // Icon untuk tombol
 
 export default function ExperienceClient() {
   const { t } = useTranslation();
@@ -49,7 +49,7 @@ export default function ExperienceClient() {
                 activeTab === "tech" ? "bg-white dark:bg-slate-700 text-pink-600 dark:text-pink-400 shadow-sm" : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
               }`}
             >
-              <Terminal size={18} />
+              <SquareTerminal size={18} />
               Tech Journey
             </button>
           </div>

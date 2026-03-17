@@ -85,13 +85,19 @@
   },
   "experience": {
     "title": "Pengalaman Saya",
-    "description": "Perjalanan profesional saya di HR dan pengembangan web",
-    "description-1": "Memimpin pengembangan aplikasi web yang skalabel menggunakan teknologi modern. Membimbing pengembang junior dan merancang solusi untuk kebutuhan bisnis yang kompleks.",
-
-    "description-2": "Mengembangkan dan memelihara berbagai proyek klien, dengan fokus pada desain responsif dan optimisasi performa. Berkolaborasi dengan tim desain untuk mengimplementasikan antarmuka yang presisi.",
-
-    "description-3": "Membangun aplikasi web responsif dan menerapkan desain UI/UX modern. Bekerja dalam lingkungan agile dengan prototyping cepat dan pengembangan iteratif.",
-
-    "description-4": "Memulai perjalanan profesional dalam pengembangan situs dan aplikasi web. Mempelajari praktik terbaik dalam pemrograman, kontrol versi, dan manajemen proyek."
+    "hr": {
+      "Job-1": "Memimpin proses standarisasi dan digitalisasi proses HR mulai dari rekrutmen, onboarding, manajemen kinerja, hingga pengembangan karyawan untuk meningkatkan efisiensi dan pengalaman karyawan.",
+      "Job-2": "Memimpin transformasi digital HR dengan implementasi dan optimalisasi HRIS terlibat dalam merancang skema upah untuk memastikan keadilan internal dan daya saing eksternal perusahaan.",
+      "Job-3": "Mengelola proses compensation & benefit yang meliputi pembayaran gaji, tunjangan, overtime, insentif dan BPJS untuk memastikan daya saing perusahaan dalam menarik dan mempertahankan talenta terbaik.",
+      "Job-4": "Menjalankan proses administrasi HR seperti pengelolaan data karyawan, kontrak, rekap absensi, dan manajemen cuti untuk memastikan operasi HR yang lancar dan efisien."
+    },
+    "tech": {
+      "Job-1": "Membuat dan mengembangkan sistem HRIS untuk HSI menggunakan Next.js, React, Prisma, PostgreSQL, Redis, dan Supabase. Berfokus pada pembuatan antarmuka pengguna yang responsif dan fungsional untuk meningkatkan pengalaman kelola data HR.",
+      "Job-2": "Mengikuti bootcamp sandbox intensif untuk mempelajari framework Next.js dan ekosistemnya. Berfokus pada pengembangan proyek nyata untuk memperkuat pemahaman konsep dan praktik terbaik dalam modern web development.",
+      "Job-3": "Mengikuti bootcamp intensif pembuatan aplikasi berbasis AI menggunakan Python. Berfokus pada integrasi model AI untuk menyelesaikan masalah dunia nyata, serta memahami konsep dasar pengembangan aplikasi AI.",
+      "Job-4": "Mengikuti bootcamp intensif pengembangan aplikasi web full-stack menggunakan teknologi MERN (MongoDB, Express.js, React, Node.js). Berfokus pada proyek nyata untuk memperkuat fondasi teknis dan praktik terbaik.",
+      "Job-5": "Mengambil perkuliahan di bidang Teknik Informatika untuk memperdalam pemahaman tentang konsep-konsep ilmu komputer, algoritma, struktur data, dan rekayasa perangkat lunak.",
+      "Job-6": "Memulai perjalanan di dunia teknologi dengan belajar secara otodidak melalui berbagai sumber online, membangun fondasi pemrograman yang kuat mulai dari HTML, CSS, JavaScript, hingga PHP."
+    }
   }
 }
