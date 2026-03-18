@@ -9,6 +9,9 @@ import ColourfulText from "@/components/ui/colourful-text";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import { useTypewriter } from "react-simple-typewriter";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/stars-background";
+import FallingBeams from "@/components/ui/falling-beams";
 
 export default function HeroSection() {
   const { t } = useTranslation();
@@ -30,16 +33,19 @@ export default function HeroSection() {
   ];
 
   return (
-    <div className="h-screen w-full flex md:items-center md:justify-center bg-black/[0.96] dark:bg-black/[0.96] antialiased relative overflow-hidden">
+    <div className="min-h-screen w-full flex md:items-center md:justify-center bg-black/[0.96] dark:bg-black/[0.96] antialiased relative overflow-hidden">
       {/* Grid background */}
-      <div
+      {/* <div
         className={cn("pointer-events-none absolute inset-0 select-none", "[background-size:60px_60px]", "[background-image:linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]")}
-      />
+      /> */}
 
       {/* Glow blob */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-indigo-600/20 blur-[120px] rounded-full" />
 
-      <Spotlight />
+      {/* <Spotlight /> */}
+      <ShootingStars />
+      <StarsBackground />
+      <FallingBeams />
 
       <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-36 md:pt-0 flex flex-col items-center text-center">
         {/* Nama utama */}
