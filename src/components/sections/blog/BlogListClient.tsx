@@ -6,6 +6,7 @@ import { LoaderPinwheel } from "lucide-react";
 import BlogCard from "@/components/sections/blog/BlogCard";
 import { BlogPost } from "@/services/notionServices";
 import FilterCarousel from "@/components/ui/filter-carousel";
+import { useTranslation } from "react-i18next";
 
 interface BlogListClientProps {
   posts: BlogPost[];
@@ -27,24 +28,20 @@ export default function BlogListClient({ posts }: BlogListClientProps) {
     setVisibleCount((prev) => Math.min(prev + INITIAL_COUNT, filteredPosts.length));
   };
 
+  const { t } = useTranslation();
+
   return (
     <>
+      <div className="text-center mb-12">
+        <motion.h1 className="text-4xl font-bold mb-4" whileHover={{ scale: 1.01 }} transition={{ duration: 0.5 }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          {t("blog.title")}
+        </motion.h1>
+        <motion.p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
+          {t("blog.description")}
+        </motion.p>
+      </div>
       {/* Filter Tags - sama dengan halaman project */}
       {allTags.length > 1 && (
-        // <motion.div className="flex flex-wrap justify-center gap-3 mb-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
-        //   {allTags.map((tag) => (
-        //     <button
-        //       key={tag}
-        //       onClick={() => {
-        //         setSelectedTag(tag);
-        //         setVisibleCount(INITIAL_COUNT); // Reset visible count saat ganti filter
-        //       }}
-        //       className={`px-5 py-2 rounded-full font-medium transition-colors shadow-sm cursor-pointer ${selectedTag === tag ? "bg-indigo-600 text-white" : "bg-indigo-100 text-slate-700 hover:bg-indigo-200"}`}
-        //     >
-        //       {tag}
-        //     </button>
-        //   ))}
-        // </motion.div>
         <FilterCarousel
           categories={allTags}
           selected={selectedTag}

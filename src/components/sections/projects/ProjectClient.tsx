@@ -6,6 +6,7 @@ import { Project } from "@/services/notionServices";
 import { motion } from "framer-motion";
 import { LoaderPinwheel } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const INITIAL_COUNT = 6;
 
@@ -24,15 +25,17 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
 
   const handleLoadMore = () => setVisibleCount((prev) => prev + INITIAL_COUNT);
 
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <motion.h1 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            My Projects
+            {t("projects.title")}
           </motion.h1>
           <motion.p className="text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-            Here are some of the projects I&apos;ve worked on.
+            {t("projects.description")}
           </motion.p>
         </div>
 

@@ -4,7 +4,7 @@
   "navbar": {
     "nav-item-1": "Beranda",
     "nav-item-2": "Pengalaman",
-    "nav-item-3": "Projek",
+    "nav-item-3": "Proyek",
     "nav-item-4": "Sertifikat",
     "nav-item-5": "Kontak"
   },
@@ -85,6 +85,7 @@
   },
   "experience": {
     "title": "Pengalaman Saya",
+    "description": "Perjalanan profesional saya dalam bidang HR dan pengembangan web.",
     "hr": {
       "Job-1": "Memimpin proses standarisasi dan digitalisasi proses HR mulai dari rekrutmen, onboarding, manajemen kinerja, hingga pengembangan karyawan untuk meningkatkan efisiensi dan pengalaman karyawan.",
       "Job-2": "Memimpin transformasi digital HR dengan implementasi dan optimalisasi HRIS terlibat dalam merancang skema upah untuk memastikan keadilan internal dan daya saing eksternal perusahaan.",
@@ -99,5 +100,25 @@
       "Job-5": "Mengambil perkuliahan di bidang Teknik Informatika untuk memperdalam pemahaman tentang konsep-konsep ilmu komputer, algoritma, struktur data, dan rekayasa perangkat lunak.",
       "Job-6": "Memulai perjalanan di dunia teknologi dengan belajar secara otodidak melalui berbagai sumber online, membangun fondasi pemrograman yang kuat mulai dari HTML, CSS, JavaScript, hingga PHP."
     }
+  },
+
+  "projects": {
+    "title": "Proyek Saya",
+    "description": "Berikut adalah beberapa proyek yang telah saya kerjakan."
+  },
+
+  "certificates": {
+    "title": "Sertifikat Saya",
+    "description": "Kumpulan pencapaian dan kursus yang telah saya selesaikan."
+  },
+
+  "blog": {
+    "title": "Blog Saya",
+    "description": "Kumpulan pemikiran, tutorial, dan pengalaman saya."
+  },
+
+  "contact": {
+    "title": "Hubungi Saya",
+    "description": "Jangan ragu untuk menghubungi saya untuk kolaborasi atau sekadar salam kenal!"
   }
 }

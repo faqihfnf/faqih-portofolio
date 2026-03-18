@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LoaderPinwheel } from "lucide-react";
 import { certificates } from "@/data/certificates";
+import { useTranslation } from "react-i18next";
 
 export default function CertificatesPage() {
   const [visibleCount, setVisibleCount] = useState(6);
@@ -13,16 +14,18 @@ export default function CertificatesPage() {
   const handleCardClick = (link: string) => setSelectedLink(link);
   const handleCloseModal = () => setSelectedLink(null);
 
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <motion.h1 className="text-4xl font-bold mb-4" whileHover={{ scale: 1.01 }} transition={{ duration: 0.5 }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            My Certificates
+            {t("certificates.title")}
           </motion.h1>
           <motion.p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-            A collection of my achievements and completed courses.
+            {t("certificates.description")}
           </motion.p>
         </div>
 

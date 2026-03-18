@@ -3,9 +3,9 @@
   "select-lang": "Choose Language",
   "navbar": {
     "nav-item-1": "Home",
-    "nav-item-2": "Experiences",
-    "nav-item-3": "Projects",
-    "nav-item-4": "Certificates",
+    "nav-item-2": "Experience",
+    "nav-item-3": "Project",
+    "nav-item-4": "Certificate",
     "nav-item-5": "Contact"
   },
   "hero": {
@@ -86,6 +86,7 @@
 
   "experience": {
     "title": "My Experience",
+    "description": "My professional journey in HR and web development.",
     "hr": {
       "Job-1": "Leading the standardization and digitalization of HR processes—from recruitment, onboarding, and performance management to employee development—enhancing overall efficiency and the employee experience.",
       "Job-2": "Led HR digital transformation through the implementation and optimization of HRIS. Actively involved in designing compensation structures to ensure internal equity and external market competitiveness.",
@@ -100,5 +101,25 @@
       "Job-5": "Pursuing a degree in Informatics Engineering (Computer Science) to deepen my understanding of fundamental computing concepts, algorithms, data structures, and software engineering principles.",
       "Job-6": "Started my journey in the tech industry through self-taught learning via various online resources, building a strong programming foundation starting from HTML, CSS, JavaScript, and PHP."
     }
+  },
+
+  "projects": {
+    "title": "My Projects",
+    "description": "Here are some of the projects I've worked on."
+  },
+
+  "certificates": {
+    "title": "My Certificates",
+    "description": "A collection of my achievements and completed courses."
+  },
+
+  "blog": {
+    "title": "My Blog",
+    "description": "A collection of my thoughts, tutorials, and experiences."
+  },
+
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Feel free to reach out for collaborations or just a friendly hello!"
   }
 }
