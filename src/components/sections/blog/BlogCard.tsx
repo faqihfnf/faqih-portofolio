@@ -1,6 +1,6 @@
 "use client";
 
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Pin } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { BlogPost } from "@/services/notionServices";
@@ -33,8 +33,16 @@ export default function BlogCard({ post }: { post: BlogPost }) {
       <div className="flex-1 flex flex-col justify-between min-w-0">
         {/* Title + Description */}
         <div>
-          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2 leading-snug group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors duration-200 line-clamp-2">{post.title}</h2>
-          {post.description && <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-2">{post.description}</p>}
+          {/* Pinned badge */}
+          {post.featured && (
+            <div className="flex items-center gap-1 text-xs font-medium text-indigo-500 dark:text-indigo-400 mb-2">
+              <Pin className="w-3 h-3" />
+              <span>Pinned</span>
+            </div>
+          )}
+
+          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 leading-snug group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors duration-200 line-clamp-2">{post.title}</h2>
+          {post.description && <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed line-clamp-2">{post.description}</p>}
         </div>
 
         {/* Bottom row: tags + date + copy */}

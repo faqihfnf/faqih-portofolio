@@ -36,7 +36,7 @@ export default function CoursePage() {
 
       {/* Button */}
       <Link href="/tools">
-        <Button className="mt-10 text-md transition-all">
+        <Button className="mt-10 text-md transition-all bg-indigo-600 hover:bg-indigo-700 cursor-pointer text-white">
           <Home className="w-4 h-4" /> Back to Home
         </Button>
       </Link>

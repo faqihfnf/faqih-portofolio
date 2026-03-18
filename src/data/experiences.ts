@@ -73,8 +73,8 @@ export function getExperienceData(t: TFunction) {
       period: "2025",
       description: t("experience.tech.Job-3"),
       icon: Terminal,
-      color: "pink",
-      technologies: ["Next.js", "React", "Prisma", "PostgreSQL", "Redis", "Supabase"],
+      color: "blue",
+      technologies: ["Python", "FastAPI", "LangChain", "OpenAI API", "Pinecone", "Docker"],
     },
     {
       title: "Bootcamp Full Stack Developer (MERN)",
@@ -103,7 +103,7 @@ export function getExperienceData(t: TFunction) {
       period: "2023",
       description: t("experience.tech.Job-6"),
       icon: Code,
-      color: "blue",
+      color: "cyan",
       technologies: ["HTML", "CSS", "JavaScript", "PHP"],
     },
   ];

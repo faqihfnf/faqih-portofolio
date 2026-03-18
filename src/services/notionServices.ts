@@ -12,6 +12,7 @@ export interface BlogPost {
   createdAt: string | null;
   description: string;
   tags: string[];
+  featured: boolean;
 }
 
 export interface Project {
@@ -115,12 +116,23 @@ export async function getData(): Promise<BlogPost[]> {
     if (tagsProp?.type === "multi_select") {
       tags = tagsProp.multi_select.map((t: { name: string }) => t.name);
     }
+    let featured = false;
+    const featuredProp = page.properties.Featured;
+    if (featuredProp?.type === "checkbox") {
+      featured = featuredProp.checkbox;
+    }
 
-    return { id: page.id, title, slug, cover, description, createdAt, tags };
+    return { id: page.id, title, slug, cover, description, createdAt, tags, featured };
   });
 
+  // Featured selalu paling atas, sisanya tetap urutan createdAt dari Notion
+  const sorted = results.sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return 0;
+  });
   setCache(cacheKey, results);
-  return results;
+  return sorted;
 }
 
 // ============================================================
@@ -139,7 +151,7 @@ export async function getProjects(): Promise<Project[]> {
     },
     sorts: [
       {
-        timestamp: "created_time", // gunakan ini, bukan property
+        property: "CreatedAt", // gunakan ini, bukan property
         direction: "descending",
       },
     ],
