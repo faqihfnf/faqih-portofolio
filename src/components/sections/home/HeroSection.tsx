@@ -76,7 +76,7 @@ export default function HeroSection() {
         </motion.h2>
 
         {/* CTA Buttons */}
-        <motion.div className="flex justify-center space-x-4 mt-20" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
+        <motion.div className="flex justify-center space-x-4 mt-10" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
           <Link
             href="/CV.pdf"
             target="_blank"
