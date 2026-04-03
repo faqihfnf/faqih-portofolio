@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Home, User, BookOpen, Mail, ShieldCheckIcon, BriefcaseBusinessIcon, GraduationCap } from "lucide-react";
 import { FloatingNav } from "../ui/floating-navbar";
 import { useTranslation } from "react-i18next";
