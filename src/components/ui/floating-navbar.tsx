@@ -46,8 +46,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
     closeMobileMenu();
   }, [pathname]);
 
-  const logoClass = pathname === "/" ? "" : "dark:invert";
-
+  const logoClass = pathname === "/" ? "sm:invert dark:invert" : "dark:invert";
   return (
     <>
       {/* ============================================================
@@ -120,7 +119,15 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
                   {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
                 </button>
 
-                <div>
+                <div
+                  className={`p-2 rounded-full transition-colors cursor-pointer ${
+                    isScrolled
+                      ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
+                      : pathname === "/"
+                        ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 hover:bg-white/10"
+                        : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
+                  }`}
+                >
                   <SwitchTranslation />
                 </div>
               </div>
