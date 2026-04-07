@@ -47,14 +47,14 @@ export function getExperienceData(t: TFunction) {
 
   const techExperiences = [
     {
-      title: "Frontend Developer HSI",
+      title: "Frontend Developer",
       company: "HSI",
       location: "Jakarta, Indonesia",
       period: "2026 - Present",
       description: t("experience.tech.Job-1"),
       icon: Terminal,
       color: "indigo",
-      technologies: ["Next.js", "React", "Prisma", "PostgreSQL", "Redis", "Supabase"],
+      technologies: ["Next.js", "React", "Prisma", "PostgreSQL", "Tanstack Query", "Supabase"],
     },
     {
       title: "Bootcamp Sandbox HSI",
@@ -64,7 +64,7 @@ export function getExperienceData(t: TFunction) {
       description: t("experience.tech.Job-2"),
       icon: Terminal,
       color: "yellow",
-      technologies: ["Next.js", "React", "Prisma", "PostgreSQL", "Redis", "Supabase"],
+      technologies: ["Next.js", "React", "Prisma", "PostgreSQL", "Supabase"],
     },
     {
       title: "Bootcamp AI Enabled Python",

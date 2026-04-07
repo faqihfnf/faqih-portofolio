@@ -36,7 +36,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   if (!page) {
     return (
-      <div className="max-w-6xl mx-auto px-10 py-20">
+      <div className="max-w-6xl mx-auto px-10">
         <Link href="/blog" className="flex text-md hover:text-indigo-500 font-medium mb-6">
           <ChevronLeft className="inline-block mr-1" />
           <span>Back to Blog</span>
@@ -53,13 +53,13 @@ export default async function BlogDetailPage({ params }: PageProps) {
   const headings = extractHeadings(blocks);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-10 py-20">
+    <div className="max-w-6xl mx-auto px-4 sm:px-10">
       <Link href="/blog" className="text-md hover:text-indigo-400 hover:font-semibold font-medium mb-6">
         <ChevronLeft className="inline-block mr-1 -mt-1" />
         <span>Back to Blog</span>
       </Link>
 
-      <h1 className="text-4xl font-bold mb-2 text-center">{page.title}</h1>
+      <h1 className="text-4xl my-5 font-bold mb-2 text-center">{page.title}</h1>
       {page.createdAt && (
         <p className="text-sm text-slate-500 mb-8 text-center">
           📅{" "}
