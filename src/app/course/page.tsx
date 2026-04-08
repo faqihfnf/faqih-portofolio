@@ -13,7 +13,7 @@ export default function CoursePage() {
       </motion.div>
 
       {/* Title */}
-      <h1 className="text-5xl font-macondo font-bold mb-2">Feature is Coming Soon 🚀</h1>
+      <h1 className="sm:text-4xl text-5xl sm:leading-tight font-macondo font-bold mb-2">Feature is Coming Soon</h1>
       <p className="text-lg text-muted-foreground mt-5">
         We&apos;re currently crafting this feature and excited to make it better.
         <br />

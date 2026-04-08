@@ -40,7 +40,7 @@ export default function FilterCarousel({ categories, selected, onSelect }: Filte
   };
 
   return (
-    <div className="relative flex items-center gap-2">
+    <div className="relative flex items-center gap-2 mb-10">
       {/* Left button */}
       <button
         onClick={() => scroll("left")}

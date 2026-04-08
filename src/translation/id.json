@@ -60,6 +60,7 @@
     "quote-4": "Inovasi",
     "quote-5": "mengutamakan",
     "quote-6": "Presisi",
+    "read-more": "Baca selengkapnya",
     "add-title-1": "Berkarya Penuh Dedikasi",
     "add-desc-1": "Mengubah ide kompleks menjadi solusi digital yang fungsional dengan antusiasme penuh.",
     "add-title-2": "Inovasi Berkelanjutan",
@@ -93,7 +94,7 @@
       "Job-4": "Menjalankan proses administrasi HR seperti pengelolaan data karyawan, kontrak, rekap absensi, dan manajemen cuti untuk memastikan operasi HR yang lancar dan efisien."
     },
     "tech": {
-      "Job-1": "Membuat dan mengembangkan sistem HRIS untuk HSI menggunakan Next.js, React, Prisma, PostgreSQL, Redis, dan Supabase. Berfokus pada pembuatan antarmuka pengguna yang responsif dan fungsional untuk meningkatkan pengalaman kelola data HR.",
+      "Job-1": "Membuat dan mengembangkan sistem HRIS untuk HSI menggunakan Next.js, React, Prisma, PostgreSQL, Tailwind CSS, TypeScript, dan Tanstack Query. Berfokus pada pembuatan antarmuka pengguna yang responsif dan fungsional untuk meningkatkan pengalaman kelola data HR.",
       "Job-2": "Mengikuti bootcamp sandbox intensif untuk mempelajari framework Next.js dan ekosistemnya. Berfokus pada pengembangan proyek nyata untuk memperkuat pemahaman konsep dan praktik terbaik dalam modern web development.",
       "Job-3": "Mengikuti bootcamp intensif pembuatan aplikasi berbasis AI menggunakan Python. Berfokus pada integrasi model AI untuk menyelesaikan masalah dunia nyata, serta memahami konsep dasar pengembangan aplikasi AI.",
       "Job-4": "Mengikuti bootcamp intensif pengembangan aplikasi web full-stack menggunakan teknologi MERN (MongoDB, Express.js, React, Node.js). Berfokus pada proyek nyata untuk memperkuat fondasi teknis dan praktik terbaik.",

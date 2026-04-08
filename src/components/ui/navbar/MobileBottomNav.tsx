@@ -18,7 +18,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ navItems }) =>
   const pathname = usePathname();
 
   return (
-    <div className="flex sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700" style={{ boxShadow: "0 -8px 24px rgba(80, 70, 230, 0.4)" }}>
+    <div className="flex sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700" style={{ boxShadow: "0 -2px 10px rgba(80, 70, 230, 0.4)" }}>
       {" "}
       <div className="flex items-center justify-around w-full px-2 py-4">
         {navItems.map((navItem, idx) => {

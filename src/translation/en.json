@@ -60,6 +60,7 @@
     "quote-4": "Innovation",
     "quote-5": "commit to",
     "quote-6": "Precision",
+    "read-more": "Read more",
     "add-title-1": "Driven by Passion",
     "add-desc-1": "Turning complex ideas into functional digital experiences with deep enthusiasm and empathy.",
     "add-title-2": "Continuous Innovation",
@@ -94,7 +95,7 @@
       "Job-4": "Executed core HR administrative processes, including employee data management, contract administration, attendance tracking, and leave management, ensuring smooth and efficient daily HR operations."
     },
     "tech": {
-      "Job-1": "Architecting and developing an HRIS system for HSI utilizing Next.js, React, Prisma, PostgreSQL, Redis, and Supabase. Focused on building responsive and functional user interfaces to elevate the user experience in HR data management.",
+      "Job-1": "Architecting and developing an HRIS system for HSI utilizing Next.js, React, Prisma, PostgreSQL, Tailwind CSS, Typescript and Tanstack Query. Focused on building responsive and functional user interfaces to elevate the user experience in HR data management.",
       "Job-2": "Participating in an intensive sandbox bootcamp mastering the Next.js framework and its ecosystem. Focused on developing real-world projects to solidify core concepts and best practices in modern web development.",
       "Job-3": "Completed an intensive bootcamp on building AI-enabled applications using Python. Focused on practical projects that integrate AI models to solve real-world problems, while mastering foundational concepts in AI development.",
       "Job-4": "Completed an intensive full-stack web development bootcamp mastering the MERN stack (MongoDB, Express.js, React, Node.js). Focused on building hands-on projects to strengthen technical fundamentals and apply best practices.",

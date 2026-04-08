@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TableOfContentsIcon } from "lucide-react";
 
 interface TOCItem {
@@ -66,7 +66,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
   if (headings.length === 0) return null;
 
   return (
-    <div className="bg-slate-800/10 dark:bg-slate-800 rounded-md p-4 mt-10">
+    <div className="bg-slate-600/10 dark:bg-slate-800 rounded-md p-4 mt-10">
       <h3 className="text-lg flex items-center font-semibold mb-4 text-slate-900 dark:text-slate-100">
         <TableOfContentsIcon className="inline-block w-6 h-6 mr-2" />
         <span className="font-semibold">Daftar Isi</span>
@@ -77,8 +77,8 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
             <li key={item.id}>
               <button
                 onClick={() => scrollToHeading(item.id)}
-                className={`text-left w-full transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400 ${
-                  activeId === item.id ? "text-indigo-600 dark:text-indigo-400 font-medium" : "text-slate-600 font-medium dark:text-slate-300"
+                className={`text-left cursor-pointer w-full transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400 ${
+                  activeId === item.id ? "text-indigo-700 dark:text-indigo-400 font-medium" : "text-slate-600 font-medium dark:text-slate-300"
                 }`}
                 style={{
                   paddingLeft: `${(item.level - 1) * 12}px`,

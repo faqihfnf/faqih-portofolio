@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import CountUp from "react-countup";
+import { Button } from "@/components/ui/moving-border";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export default function AboutMe() {
   const { t } = useTranslation();
@@ -61,17 +64,29 @@ export default function AboutMe() {
             </div>
 
             {/* About Text */}
-            <motion.p
-              className="text-lg text-justify items-center justify-center flex text-slate-600 dark:text-slate-300 mb-6 leading-8 order-2 md:order-1"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              {t("about.content")}
-            </motion.p>
+            <div className="order-2 md:order-1 relative z-10">
+              <motion.p
+                className="text-lg text-justify text-slate-600 dark:text-slate-300 mb-6 leading-8"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                {t("about.content")}
+              </motion.p>
+              <a
+                href="https://www.faqih.me/blog/profil-faqih-nur-fahmi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-2 text-indigo-600 dark:text-indigo-400 font-semibold hover:underline underline-offset-4 transition-colors cursor-pointer"
+              >
+                {t("about.read-more")}
+                <ArrowRight className="mt-1 w-4 h-4" />
+              </a>
+            </div>
           </div>
         </motion.div>
+
         <motion.div className=" gap-12 items-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
           {/* Quick Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12">

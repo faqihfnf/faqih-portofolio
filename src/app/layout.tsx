@@ -7,6 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import { Toaster } from "sonner";
 import ReduxProvider from "@/providers/ReduxProvider";
 import I18nProvider from "@/providers/I18nProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="min-h-screen">{children}</main>
             <Toaster />
             <Footer />
+            <Analytics />
           </ReduxProvider>
         </I18nProvider>
       </body>

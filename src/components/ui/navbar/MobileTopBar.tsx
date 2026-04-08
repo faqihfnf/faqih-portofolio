@@ -28,7 +28,7 @@ export const MobileTopBar: React.FC<MobileTopBarProps> = ({ navItems, theme, log
   const pathname = usePathname();
 
   return (
-    <div className="flex sm:hidden fixed top-0 left-0 right-0 z-50 items-center justify-between px-4 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-lg shadow-indigo-600/30 border-b border-slate-200 dark:border-slate-700">
+    <div className="flex sm:hidden fixed top-0 left-0 right-0 z-50 items-center justify-between px-4 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-md shadow-indigo-600/30 border-b border-slate-200 dark:border-slate-700">
       {/* Logo */}
       <Link href="/" onClick={onCloseMenu} className="flex items-center gap-2">
         <Image src="/logo.png" alt="Logo" width={36} height={36} className={logoClass} />

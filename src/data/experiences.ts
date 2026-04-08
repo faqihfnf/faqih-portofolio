@@ -54,7 +54,7 @@ export function getExperienceData(t: TFunction) {
       description: t("experience.tech.Job-1"),
       icon: Terminal,
       color: "indigo",
-      technologies: ["Next.js", "React", "Prisma", "PostgreSQL", "Tanstack Query", "Supabase"],
+      technologies: ["Next.js", "React", "Prisma", "PostgreSQL", "Tanstack Query", "TypeScript", "Tailwind CSS"],
     },
     {
       title: "Bootcamp Sandbox HSI",

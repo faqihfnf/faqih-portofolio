@@ -21,7 +21,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
   };
 
   return (
-    <Link href={`/blog/${post.slug ?? ""}`} className="group flex flex-col sm:flex-row-reverse gap-8 py-10 border-b border-slate-300  hover:border-slate-400 dark:border-slate-800  dark:hover:border-slate-700 transition-all duration-300">
+    <Link href={`/blog/${post.slug ?? ""}`} className="group flex flex-col sm:flex-row-reverse gap-8 pb-10 border-b border-slate-300  hover:border-slate-400 dark:border-slate-800  dark:hover:border-slate-700 transition-all duration-300">
       {/* Thumbnail - kanan seperti Medium */}
       {post.cover && (
         <div className="sm:w-[180px] sm:h-[120px] flex-shrink-0">
@@ -40,8 +40,37 @@ export default function BlogCard({ post }: { post: BlogPost }) {
               <span>Pinned</span>
             </div>
           )}
-
+          {/* Title */}
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 leading-snug group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors duration-200 line-clamp-2">{post.title}</h2>
+          <div className="flex justify-between mb-4">
+            {/* Date */}
+            {post.createdAt && (
+              <span className="text-xs text-slate-400 dark:text-slate-500">
+                {new Date(post.createdAt).toLocaleDateString("id-ID", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </span>
+            )}
+            {/* Copy button */}
+            <div className="relative">
+              <button onClick={handleCopyLink} className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                {copied ? (
+                  <>
+                    <Check className="w-3.5 h-3.5" />
+                    <span>Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+          {/* Description */}
           {post.description && <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed line-clamp-2">{post.description}</p>}
         </div>
 
@@ -59,37 +88,6 @@ export default function BlogCard({ post }: { post: BlogPost }) {
                 ))}
               </div>
             )}
-
-            {/* Dot separator */}
-            {post.tags && post.tags.length > 0 && post.createdAt && <span className="text-slate-300 dark:text-slate-600 text-xs">·</span>}
-
-            {/* Date */}
-            {post.createdAt && (
-              <span className="text-xs text-slate-400 dark:text-slate-500">
-                {new Date(post.createdAt).toLocaleDateString("id-ID", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </span>
-            )}
-          </div>
-
-          {/* Copy button */}
-          <div className="relative">
-            <button onClick={handleCopyLink} className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-              {copied ? (
-                <>
-                  <Check className="w-3.5 h-3.5" />
-                  <span>Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5" />
-                  <span>Copy</span>
-                </>
-              )}
-            </button>
           </div>
         </div>
       </div>
