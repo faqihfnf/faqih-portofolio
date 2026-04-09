@@ -241,7 +241,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
         return <div className="h-4" />;
       }
       return (
-        <p className="my-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+        <p className="my-3 text-slate-700 text-justify dark:text-slate-300 leading-relaxed">
           <RichTextContent richText={richText} />
         </p>
       );
