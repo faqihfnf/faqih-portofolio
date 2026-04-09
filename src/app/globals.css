@@ -370,3 +370,62 @@
   font-size: 14px !important;
   font-weight: 500 !important;
 }
+
+/* --------------------------------------------------
+   Scroll Animations - GPU Accelerated
+   -------------------------------------------------- */
+
+.aos-init {
+  opacity: 0 !important;
+  transform: translateY(30px) !important;
+  will-change: transform, opacity;
+}
+
+/* When visible - override aos-init styles */
+.aos-init.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Base transition classes - 800ms, easing sama seperti Framer Motion */
+.animate-fade-up {
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.animate-fade-in.is-visible {
+  opacity: 1;
+}
+
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Force GPU acceleration for smoother animations */
+.gpu-accelerate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}

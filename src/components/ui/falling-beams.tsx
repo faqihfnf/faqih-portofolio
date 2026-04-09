@@ -2,13 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "motion/react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import React from "react";
 
 // ============================================================
 // Explosion — percikan saat beam menabrak bawah
 // ============================================================
-const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
+const Explosion = React.memo(({ ...props }: React.HTMLProps<HTMLDivElement>) => {
   const spans = Array.from({ length: 20 }, (_, index) => ({
     id: index,
     initialX: 0,
@@ -37,7 +37,9 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
       ))}
     </div>
   );
-};
+});
+
+Explosion.displayName = "Explosion";
 
 // ============================================================
 // CollisionMechanism — beam yang jatuh & deteksi tabrakan
@@ -45,8 +47,8 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
 const CollisionMechanism = React.forwardRef<
   HTMLDivElement,
   {
-    containerRef: React.RefObject<HTMLDivElement | null>; // tambah | null
-    parentRef: React.RefObject<HTMLDivElement | null>; // tambah | null
+    containerRef: React.RefObject<HTMLDivElement | null>;
+    parentRef: React.RefObject<HTMLDivElement | null>;
     beamOptions?: {
       initialX?: number;
       translateX?: number;
@@ -68,25 +70,27 @@ const CollisionMechanism = React.forwardRef<
   const [beamKey, setBeamKey] = useState(0);
   const [cycleCollisionDetected, setCycleCollisionDetected] = useState(false);
 
-  useEffect(() => {
-    const checkCollision = () => {
-      if (beamRef.current && containerRef.current && parentRef.current && !cycleCollisionDetected) {
-        const beamRect = beamRef.current.getBoundingClientRect();
-        const containerRect = containerRef.current.getBoundingClientRect();
-        const parentRect = parentRef.current.getBoundingClientRect();
+  // Memoized collision check function
+  const checkCollision = useCallback(() => {
+    if (beamRef.current && containerRef.current && parentRef.current && !cycleCollisionDetected) {
+      const beamRect = beamRef.current.getBoundingClientRect();
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const parentRect = parentRef.current.getBoundingClientRect();
 
-        if (beamRect.bottom >= containerRect.top) {
-          const relativeX = beamRect.left - parentRect.left + beamRect.width / 2;
-          const relativeY = beamRect.bottom - parentRect.top;
-          setCollision({ detected: true, coordinates: { x: relativeX, y: relativeY } });
-          setCycleCollisionDetected(true);
-        }
+      if (beamRect.bottom >= containerRect.top) {
+        const relativeX = beamRect.left - parentRect.left + beamRect.width / 2;
+        const relativeY = beamRect.bottom - parentRect.top;
+        setCollision({ detected: true, coordinates: { x: relativeX, y: relativeY } });
+        setCycleCollisionDetected(true);
       }
-    };
+    }
+  }, [cycleCollisionDetected, containerRef, parentRef]);
 
-    const animationInterval = setInterval(checkCollision, 50);
+  useEffect(() => {
+    // Increased from 50ms to 100ms to reduce CPU usage
+    const animationInterval = setInterval(checkCollision, 100);
     return () => clearInterval(animationInterval);
-  }, [cycleCollisionDetected, containerRef]);
+  }, [checkCollision]);
 
   useEffect(() => {
     if (collision.detected && collision.coordinates) {
@@ -148,15 +152,13 @@ CollisionMechanism.displayName = "CollisionMechanism";
 
 // ============================================================
 // FallingBeams — komponen utama yang dipakai di HeroSection
+// Reduced from 7 to 4 beams for better performance
 // ============================================================
 const beams = [
   { initialX: 10, translateX: 10, duration: 7, repeatDelay: 3, delay: 2 },
-  { initialX: 600, translateX: 600, duration: 3, repeatDelay: 3, delay: 4 },
-  { initialX: 100, translateX: 100, duration: 7, repeatDelay: 7 },
-  { initialX: 400, translateX: 400, duration: 5, repeatDelay: 14, delay: 4 },
-  { initialX: 800, translateX: 800, duration: 11, repeatDelay: 2, className: "h-20" },
-  { initialX: 1000, translateX: 1000, duration: 4, repeatDelay: 2, className: "h-12" },
-  { initialX: 1200, translateX: 1200, duration: 6, repeatDelay: 4, delay: 2, className: "h-6" },
+  { initialX: 400, translateX: 400, duration: 5, repeatDelay: 7, delay: 4 },
+  { initialX: 800, translateX: 800, duration: 11, repeatDelay: 4 },
+  { initialX: 1200, translateX: 1200, duration: 6, repeatDelay: 6, delay: 2, className: "h-6" },
 ];
 
 export default function FallingBeams() {
