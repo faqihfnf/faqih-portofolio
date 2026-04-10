@@ -31,10 +31,9 @@ export default function AboutMe() {
           <AnimateOnScroll animation="slide-right" delay={200} className="order-1 md:order-2">
             <div className="w-full flex justify-center md:justify-end mb-8 md:mb-0 md:mx-0">
               <div className="relative flex items-center justify-center w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
-                {/* Animasi Garis Putus-putus (CSS-only, lebih ringan) */}
+                {/* Animasi SVG Circle - sinkron seperti Framer Motion */}
                 <svg
-                  className="absolute inset-0 w-full h-full text-indigo-500 dark:text-indigo-400 scale-[1.03] animate-spin-slow"
-                  style={{ animationDuration: "30s", animationDirection: "alternate" }}
+                  className="absolute inset-0 w-full h-full text-indigo-500 dark:text-indigo-400 scale-[1.03] animate-circle-sync"
                   viewBox="0 0 100 100"
                 >
                   <circle
@@ -45,12 +44,6 @@ export default function AboutMe() {
                     stroke="currentColor"
                     strokeWidth="1"
                     strokeLinecap="round"
-                    className="animate-dash-pulse"
-                    style={{
-                      strokeDasharray: "40 10 5 10 15 10 2 10 25 10 5 10",
-                      animationDuration: "30s",
-                      animationDirection: "alternate",
-                    }}
                   />
                 </svg>
 
