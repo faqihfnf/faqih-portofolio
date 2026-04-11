@@ -60,7 +60,7 @@ export default function Testimonials() {
 
   return (
     <section className="py-20">
-      <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <AnimateOnScroll animation="fade-up" delay={0}>
@@ -70,7 +70,7 @@ export default function Testimonials() {
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll animation="fade-up" delay={200}>
-            <p className="text-lg max-w-2xl mx-auto text-gray-600 dark:text-gray-400">{t("testimonials.description")}</p>
+            <p className="text-lg max-w-4xl mx-auto">{t("testimonials.description")}</p>
           </AnimateOnScroll>
         </div>
 
