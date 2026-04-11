@@ -90,11 +90,11 @@ export default function Testimonials() {
               </div>
 
               {/* Card */}
-              <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-800 rounded-2xl pt-10 pb-8 px-8 shadow-lg">
+              <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-800 h-full rounded-2xl pt-10 pb-8 px-6 shadow-lg">
                 <AnimatePresence mode="wait">
                   <motion.div key={current} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}>
                     {/* Testimonial text - fixed height for ~250 chars */}
-                    <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 justify-center mb-8 italic h-36 text-center flex items-center">&ldquo;{data[current].testimonial}&rdquo;</p>
+                    <p className="sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 justify-center mt-4 mb-8 italic h-50 text-center flex items-center">&ldquo;{data[current].testimonial}&rdquo;</p>
 
                     {/* Author info */}
                     <div className="flex items-center justify-center gap-4">

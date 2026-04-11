@@ -423,46 +423,6 @@
   transform: translateX(0);
 }
 
-/* SVG Circle Animations for AboutMe */
-/* kanan: garis menyusut lalu hilang | kiri: garis muncul lalu utuh */
-@keyframes circle-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes circle-dash {
-  0% {
-    stroke-dasharray: 307.87 0;
-  }
-  40% {
-    stroke-dasharray: 200 107.87;
-  }
-  50% {
-    stroke-dasharray: 0 307.87;
-  }
-  60% {
-    stroke-dasharray: 200 107.87;
-  }
-  100% {
-    stroke-dasharray: 307.87 0;
-  }
-}
-
-.animate-circle-sync {
-  animation: circle-rotate 30s ease-in-out infinite;
-}
-
-.animate-circle-sync circle {
-  animation: circle-dash 30s ease-in-out infinite;
-}
-
 /* Force GPU acceleration for smoother animations */
 .gpu-accelerate {
   transform: translateZ(0);

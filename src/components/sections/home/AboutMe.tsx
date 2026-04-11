@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import CountUp from "react-countup";
 import { ArrowRight } from "lucide-react";
+import { motion } from "motion/react";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export default function AboutMe() {
@@ -31,12 +32,15 @@ export default function AboutMe() {
           <AnimateOnScroll animation="slide-right" delay={200} className="order-1 md:order-2">
             <div className="w-full flex justify-center md:justify-end mb-8 md:mb-0 md:mx-0">
               <div className="relative flex items-center justify-center w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
-                {/* Animasi SVG Circle - sinkron seperti Framer Motion */}
-                <svg
-                  className="absolute inset-0 w-full h-full text-indigo-500 dark:text-indigo-400 scale-[1.03] animate-circle-sync"
+                {/* Animasi Garis Putus-putus (Indigo) */}
+                <motion.svg
+                  className="absolute inset-0 w-full h-full text-indigo-500 dark:text-indigo-400 scale-[1.03]"
                   viewBox="0 0 100 100"
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                 >
-                  <circle
+                  <motion.circle
                     cx="50"
                     cy="50"
                     r="49"
@@ -44,8 +48,16 @@ export default function AboutMe() {
                     stroke="currentColor"
                     strokeWidth="1"
                     strokeLinecap="round"
+                    initial={{ strokeDasharray: "40 10 5 10 15 10 2 10 25 10 5 10" }}
+                    animate={{
+                      strokeDasharray: [
+                        "40 10 5 10 15 10 2 10 25 10 5 10",
+                        "5 35 1 25 4 25 1 25 5 35 1 25",
+                      ],
+                    }}
+                    transition={{ duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                   />
-                </svg>
+                </motion.svg>
 
                 {/* Container Gambar Profil */}
                 <div className="relative w-full h-full rounded-full overflow-hidden">
