@@ -73,6 +73,11 @@
     "title-1": "My GitHub?",
     "description": "Here is a summary of my contributions on GitHub over the past year."
   },
+  "testimonials": {
+    "title": "What People ",
+    "title-1": "Say?",
+    "description": "Testimonials from colleagues and clients I've had the pleasure of working with."
+  },
   "cta": {
     "title": "Ready to work",
     "title-1": "together?",

@@ -73,6 +73,11 @@
     "title-1": "GitHub Saya?",
     "description": "Berikut adalah ringkasan kontribusi saya di GitHub selama setahun terakhir."
   },
+  "testimonials": {
+    "title": "Apa Kata ",
+    "title-1": "Mereka?",
+    "description": "Testimoni dari rekan kerja dan klien yang pernah bekerja sama dengan saya."
+  },
   "cta": {
     "title": "Siap untuk ",
     "title-1": "bekerja sama?",
