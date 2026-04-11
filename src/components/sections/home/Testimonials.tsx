@@ -90,7 +90,7 @@ export default function Testimonials() {
               </div>
 
               {/* Card */}
-              <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-800 h-full rounded-2xl pt-10 pb-8 px-6 shadow-lg">
+              <div className="bg-white dark:bg-slate-900 shadow-indigo-500 border border-gray-200 dark:border-gray-800 h-full rounded-2xl pt-10 pb-8 px-6 shadow-md">
                 <AnimatePresence mode="wait">
                   <motion.div key={current} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}>
                     {/* Testimonial text - fixed height for ~250 chars */}

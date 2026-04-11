@@ -20,9 +20,7 @@ export default function AboutMe() {
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll animation="fade-up" delay={200}>
-            <p className="text-lg max-w-4xl mx-auto mb-10">
-              {t("about.description")}
-            </p>
+            <p className="text-lg max-w-4xl mx-auto mb-10">{t("about.description")}</p>
           </AnimateOnScroll>
         </div>
 
@@ -50,10 +48,7 @@ export default function AboutMe() {
                     strokeLinecap="round"
                     initial={{ strokeDasharray: "40 10 5 10 15 10 2 10 25 10 5 10" }}
                     animate={{
-                      strokeDasharray: [
-                        "40 10 5 10 15 10 2 10 25 10 5 10",
-                        "5 35 1 25 4 25 1 25 5 35 1 25",
-                      ],
+                      strokeDasharray: ["40 10 5 10 15 10 2 10 25 10 5 10", "5 35 1 25 4 25 1 25 5 35 1 25"],
                     }}
                     transition={{ duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                   />
@@ -70,9 +65,7 @@ export default function AboutMe() {
           {/* About Text - muncul dari kiri, posisi kiri di desktop */}
           <AnimateOnScroll animation="slide-left" delay={200} className="order-2 md:order-1">
             <div className="relative z-10">
-              <p className="text-lg text-justify text-slate-600 dark:text-slate-300 mb-6 leading-8">
-                {t("about.content")}
-              </p>
+              <p className="text-lg text-justify text-slate-600 dark:text-slate-300 mb-6 leading-8">{t("about.content")}</p>
               <a
                 href="https://www.faqih.me/blog/profil-faqih-nur-fahmi"
                 target="_blank"
@@ -151,7 +144,7 @@ export default function AboutMe() {
           {/* Additional Info Cards */}
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <AnimateOnScroll animation="fade-up" delay={800}>
-              <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-pink-500 transition-shadow duration-300 shadow-indigo-500">
+              <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-pink-500 transition-shadow duration-300 shadow-indigo-500">
                 <div className="text-3xl mb-3 ">❤️</div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{t("about.add-title-1")}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">{t("about.add-desc-1")}</p>
@@ -159,7 +152,7 @@ export default function AboutMe() {
             </AnimateOnScroll>
 
             <AnimateOnScroll animation="fade-up" delay={950}>
-              <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-pink-500 transition-shadow duration-300 shadow-teal-500">
+              <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-pink-500 transition-shadow duration-300 shadow-teal-500">
                 <div className="text-3xl mb-3">🚀</div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{t("about.add-title-2")}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">{t("about.add-desc-2")}</p>
@@ -167,7 +160,7 @@ export default function AboutMe() {
             </AnimateOnScroll>
 
             <AnimateOnScroll animation="fade-up" delay={1100}>
-              <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-indigo-500 transition-shadow duration-300 shadow-pink-500">
+              <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-indigo-500 transition-shadow duration-300 shadow-pink-500">
                 <div className="text-3xl mb-3">🎯</div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{t("about.add-title-3")}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">{t("about.add-desc-3")}</p>
