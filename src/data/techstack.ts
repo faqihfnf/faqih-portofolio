@@ -37,6 +37,7 @@ export const techStackIcons = [
   { image: "/stack/redux.svg" },
   { image: "/stack/redis.svg" },
   { image: "/stack/sass.svg" },
+  { image: "/stack/shadcn.svg" },
   { image: "/stack/storybook.svg" },
   { image: "/stack/supabase.svg" },
   { image: "/stack/swagger.svg" },

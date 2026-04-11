@@ -149,27 +149,31 @@ export default function AboutMe() {
           </AnimateOnScroll>
 
           {/* Additional Info Cards */}
-          <AnimateOnScroll animation="fade-up" delay={800}>
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <AnimateOnScroll animation="fade-up" delay={800}>
               <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-pink-500 transition-shadow duration-300 shadow-indigo-500">
                 <div className="text-3xl mb-3 ">❤️</div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{t("about.add-title-1")}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">{t("about.add-desc-1")}</p>
               </div>
+            </AnimateOnScroll>
 
+            <AnimateOnScroll animation="fade-up" delay={950}>
               <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-pink-500 transition-shadow duration-300 shadow-teal-500">
                 <div className="text-3xl mb-3">🚀</div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{t("about.add-title-2")}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">{t("about.add-desc-2")}</p>
               </div>
+            </AnimateOnScroll>
 
+            <AnimateOnScroll animation="fade-up" delay={1100}>
               <div className="text-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-indigo-500 transition-shadow duration-300 shadow-pink-500">
                 <div className="text-3xl mb-3">🎯</div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{t("about.add-title-3")}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">{t("about.add-desc-3")}</p>
               </div>
-            </div>
-          </AnimateOnScroll>
+            </AnimateOnScroll>
+          </div>
         </div>
       </div>
     </section>

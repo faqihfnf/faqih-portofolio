@@ -77,7 +77,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled, th
                   isScrolled
                     ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
                     : pathname === "/"
-                      ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 hover:bg-white/10"
+                      ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-400"
                       : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
                 }`}
               >
@@ -89,7 +89,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({ navItems, isScrolled, th
                   isScrolled
                     ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
                     : pathname === "/"
-                      ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 hover:bg-white/10"
+                      ? "text-slate-200 dark:text-slate-300 hover:text-indigo-400 dark:hover:text-indigo-400"
                       : "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"
                 }`}
               >
