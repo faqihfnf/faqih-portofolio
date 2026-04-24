@@ -123,6 +123,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
       {page.cover && <img src={page.cover} alt={page.title} className="w-full h-64 sm:h-96 object-cover rounded-lg mb-6" />}
 
+      {/* Mobile TOC Dropdown */}
+      {headings.length > 0 && <TableOfContents headings={headings} variant="dropdown" />}
+
       <div className="flex gap-8 min-w-0">
         {/* Content utama */}
         <div className="flex-1 min-w-0 max-w-4xl overflow-hidden">
