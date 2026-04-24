@@ -4,11 +4,61 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { NotionBlock } from "@/services/notionServices";
 import NotionBlockRenderer from "../../../components/sections/blog/NotionBlockRenderer";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+// Generate dynamic metadata untuk SEO dan Open Graph
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const posts = await getData();
+  const page = posts.find((p) => p.slug === slug);
+
+  if (!page) {
+    return {
+      title: "Blog tidak ditemukan",
+      description: "Artikel yang Anda cari tidak tersedia.",
+    };
+  }
+
+  // Gunakan description dari Notion, atau fallback
+  const description = page.description || `Baca artikel ${page.title} oleh Faqih Nur Fahmi`;
+  const coverUrl = page.cover || "https://faqih.me/og-image.jpg";
+
+  return {
+    title: `${page.title} | Faqih Nur Fahmi`,
+    description,
+    openGraph: {
+      title: page.title,
+      description,
+      type: "article",
+      url: `https://faqih.me/blog/${slug}`,
+      images: [
+        {
+          url: coverUrl,
+          width: 1200,
+          height: 630,
+          alt: page.title,
+        },
+      ],
+      siteName: "Faqih Nur Fahmi - Portfolio",
+      publishedTime: page.createdAt || undefined,
+      authors: ["Faqih Nur Fahmi"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.title,
+      description,
+      images: [coverUrl],
+    },
+    alternates: {
+      canonical: `https://faqih.me/blog/${slug}`,
+    },
+  };
 }
 
 // Extract headings dari blocks untuk TOC

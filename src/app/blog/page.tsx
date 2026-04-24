@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Faqih Nur Fahmi - Blog",
-  description: "Artikel dan tulisan tentang teknologi, programming, dan pengalaman.",
+  description: "Catatan pribadi tentang perjalanan belajar dan pengalaman saya. Mendokumentasikan proses bertumbuh melalui artikel, pemikiran, ide, dan tutorial seputar HR dan Web Development.",
 };
 
 export default async function BlogList() {
