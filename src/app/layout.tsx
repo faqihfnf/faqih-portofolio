@@ -14,7 +14,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Faqih Nur Fahmi - Portfolio",
-  description: "Faqih Nur Fahmi Portfolio - Certified HR Supervisor || Full Stack Developer",
+  description: "Faqih Nur Fahmi Portfolio - Certified HR Manager || Full Stack Developer",
   icons: {
     icon: "/favicon.ico",
   },

@@ -1,13 +1,23 @@
-import { Braces, Briefcase, Code, GraduationCap, Layers, Rocket, Server, Terminal } from "lucide-react";
+import { Braces, Briefcase, Code, GraduationCap, Layers, Rocket, Star, Terminal } from "lucide-react";
 import { TFunction } from "i18next";
 
 export function getExperienceData(t: TFunction) {
   const hrExperiences = [
     {
+      title: "Human Capital Manager",
+      company: "Papandayan Cargo",
+      location: "Jakarta, Indonesia",
+      period: "Jul 2026 - Present",
+      description: t("experience.hr.Job-0"),
+      icon: Star,
+      color: "yellow",
+      technologies: ["HRIS", "Payroll", "L & D", "Industrial Relation", "Talent Management"],
+    },
+    {
       title: "Human Capital Supervisor",
       company: "Papandayan Cargo",
       location: "Jakarta, Indonesia",
-      period: "2025 - Present",
+      period: "2025 - 2026",
       description: t("experience.hr.Job-1"),
       icon: Rocket,
       color: "indigo",

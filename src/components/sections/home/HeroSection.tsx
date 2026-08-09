@@ -42,7 +42,7 @@ export default function HeroSection() {
           <TypeIt
             getBeforeInit={(instance) => {
               instance
-                .type("Certified HR Supervisor")
+                .type("Certified HR Manager")
                 .pause(1800)
                 .delete()
                 .pause(300)
