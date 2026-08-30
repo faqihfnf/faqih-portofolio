@@ -4,8 +4,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { User, Briefcase, Building2, Linkedin, MessageSquareText, Send, CheckCircle2, Heart } from "lucide-react";
+import { EditorialButton } from "@/components/editorial/EditorialButton";
+import { fraunces, inter } from "@/components/editorial/fonts";
+import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -16,6 +17,35 @@ const schema = z.object({
 });
 
 type FormData = z.infer<typeof schema>;
+
+function Field({
+  label,
+  required,
+  optional,
+  error,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  optional?: boolean;
+  error?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label className="mb-1 block text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)]">
+        {label}
+        {required && <span className="ml-1 text-[var(--ed-accent)]">*</span>}
+        {optional && <span className="ml-2 normal-case tracking-normal opacity-70">(opsional)</span>}
+      </label>
+      {children}
+      {error && <p className="mt-1.5 text-xs text-[var(--ed-accent)]">{error}</p>}
+    </div>
+  );
+}
+
+const underlineInput =
+  "w-full border-0 border-b border-[var(--ed-border)] bg-transparent px-0 py-2 text-sm text-[var(--ed-text)] placeholder:text-[var(--ed-text-muted)] focus:outline-none focus:border-[var(--ed-accent)] transition-colors rounded-none";
 
 export default function CreateTestimonial() {
   const [loading, setLoading] = useState(false);
@@ -49,138 +79,84 @@ export default function CreateTestimonial() {
     }
   };
 
-  if (success) {
-    return (
-      <div className="min-h-screen flex items-center justify-center px-4 py-20">
-        <div className="max-w-md w-full text-center">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-10 shadow-lg">
-            <div className="flex justify-center mb-5">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                <CheckCircle2 className="w-9 h-9 text-emerald-600 dark:text-emerald-400" />
-              </div>
-            </div>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Terima Kasih!</h2>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+  return (
+    <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
+      <EditorialTheme />
+      <div className="mx-auto w-full max-w-[920px] px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
+        {success ? (
+          /* Ucapan terima kasih */
+          <div className="mx-auto max-w-xl text-center">
+            <span className="ed-serif block text-6xl italic leading-none text-[var(--ed-accent)]">&ldquo;</span>
+            <h1 className="ed-serif mt-4 text-3xl tracking-tight md:text-4xl">Terima Kasih!</h1>
+            <p className="mx-auto mt-4 max-w-md leading-relaxed text-[var(--ed-text-secondary)]">
               Terima kasih sudah meluangkan waktu untuk memberikan testimoni. Masukan Anda sangat berarti dan akan sangat berguna bagi saya dalam terus berkembang dan memberikan yang terbaik.
             </p>
-            <div className="flex items-center justify-center gap-1.5 text-rose-600 dark:text-rose-400 text-sm font-medium">
-              <Heart className="w-4 h-4 fill-current" />
-              <span>Salam hangat, Faqih Nur Fahmi</span>
+            <p className="ed-serif mt-6 text-lg italic text-[var(--ed-text-muted)]">Salam hangat, Faqih Nur Fahmi</p>
+            <div className="mt-9">
+              <EditorialButton variant="secondary" onClick={() => window.location.reload()}>
+                Tulis Testimoni Lagi
+              </EditorialButton>
             </div>
           </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-20">
-      <div className="w-full max-w-lg">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/30 mb-4">
-            <MessageSquareText className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-          </div>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Tulis Testimoni</h1>
-          <p className="text-slate-500 dark:text-slate-400">Ceritakan bagaimana pengalaman Anda saat bekerja sama dengan Faqih Nur Fahmi.</p>
-        </div>
-
-        {/* Form Card */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-            {/* Name */}
-            <div>
-              <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-                <User className="w-4 h-4 text-slate-400" />
-                Nama <span className="text-red-500">*</span>
-              </label>
-              <input
-                {...register("name")}
-                className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
-                placeholder="Nama lengkap Anda"
-              />
-              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+        ) : (
+          <>
+            {/* Header */}
+            <div className="mb-12">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--ed-text-muted)]">Testimonial</p>
+              <h1 className="ed-serif mt-3 text-3xl leading-tight tracking-tight md:text-[2.5rem] md:leading-[1.2]">Tulis Testimoni</h1>
+              <p className="mt-3 max-w-xl leading-relaxed text-[var(--ed-text-secondary)]">
+                Ceritakan bagaimana pengalaman Anda saat bekerja sama dengan Faqih Nur Fahmi.
+              </p>
             </div>
 
-            {/* Position & Company - 2 columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-                  <Briefcase className="w-4 h-4 text-slate-400" />
-                  Posisi
-                </label>
-                <input
-                  {...register("position")}
-                  className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
-                  placeholder="Supervisor HR, Manager IT, dll"
+            {/* Form — underline inputs */}
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl space-y-8">
+              {/* Name */}
+              <Field label="Nama" required error={errors.name?.message}>
+                <input {...register("name")} className={underlineInput} placeholder="Nama lengkap Anda" />
+              </Field>
+
+              {/* Position & Company - 2 columns */}
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                <Field label="Posisi" error={errors.position?.message}>
+                  <input {...register("position")} className={underlineInput} placeholder="Supervisor HR, Manager IT, dll" />
+                </Field>
+                <Field label="Perusahaan" error={errors.company?.message}>
+                  <input {...register("company")} className={underlineInput} placeholder="PT ABC Indonesia" />
+                </Field>
+              </div>
+
+              {/* LinkedIn */}
+              <Field label="LinkedIn" optional error={errors.linkedinUrl?.message}>
+                <input {...register("linkedinUrl")} className={underlineInput} placeholder="https://linkedin.com/in/namaanda" />
+              </Field>
+
+              {/* Testimonial */}
+              <Field label="Testimoni" required error={errors.testimonial?.message}>
+                <textarea
+                  {...register("testimonial", {
+                    onChange: (e) => setCharCount(e.target.value.length),
+                  })}
+                  rows={6}
+                  maxLength={MAX_CHARS}
+                  className={`${underlineInput} resize-none`}
+                  placeholder="Bagikan pengalaman Anda bekerja sama dengan Faqih..."
                 />
-              </div>
-              <div>
-                <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-                  <Building2 className="w-4 h-4 text-slate-400" />
-                  Perusahaan
-                </label>
-                <input
-                  {...register("company")}
-                  className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
-                  placeholder="PT ABC Indonesia"
-                />
-              </div>
-            </div>
+                <div className="mt-1.5 flex items-center justify-between">
+                  <span />
+                  <span className={`text-xs ${charCount >= MAX_CHARS ? "text-[var(--ed-accent)]" : "text-[var(--ed-text-muted)]"}`}>
+                    {charCount}/{MAX_CHARS}
+                  </span>
+                </div>
+              </Field>
 
-            {/* LinkedIn */}
-            <div>
-              <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-                <Linkedin className="w-4 h-4 text-slate-400" />
-                LinkedIn <span className="text-slate-400 dark:text-slate-600 font-normal">(opsional)</span>
-              </label>
-              <input
-                {...register("linkedinUrl")}
-                className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors"
-                placeholder="https://linkedin.com/in/namaanda"
-              />
-              {errors.linkedinUrl && <p className="text-red-500 text-xs mt-1">{errors.linkedinUrl.message}</p>}
-            </div>
-
-            {/* Testimonial */}
-            <div>
-              <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-                <MessageSquareText className="w-4 h-4 text-slate-400" />
-                Testimoni <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                {...register("testimonial", {
-                  onChange: (e) => setCharCount(e.target.value.length),
-                })}
-                rows={7}
-                maxLength={MAX_CHARS}
-                className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors resize-none"
-                placeholder="Bagikan pengalaman Anda bekerja sama dengan Faqih..."
-              />
-              <div className="flex justify-between items-center mt-1">
-                {errors.testimonial ? <p className="text-red-500 text-xs">{errors.testimonial.message}</p> : <span />}
-                <span className={`text-xs ${charCount >= MAX_CHARS ? "text-red-500" : "text-slate-400 dark:text-slate-600"}`}>
-                  {charCount}/{MAX_CHARS}
-                </span>
-              </div>
-            </div>
-
-            {/* Submit */}
-            <Button type="submit" disabled={loading} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors">
-              {loading ? (
-                <>
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Mengirim...
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4" />
-                  Kirim Testimoni
-                </>
-              )}
-            </Button>
-          </form>
-        </div>
+              {/* Submit */}
+              <EditorialButton type="submit" disabled={loading} variant="primary">
+                {loading ? "Mengirim..." : "Kirim Testimoni"}
+              </EditorialButton>
+            </form>
+          </>
+        )}
       </div>
     </div>
   );

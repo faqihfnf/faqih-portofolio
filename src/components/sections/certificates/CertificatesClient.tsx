@@ -2,88 +2,91 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LoaderPinwheel } from "lucide-react";
 import { certificates } from "@/data/certificates";
 import { useTranslation } from "react-i18next";
+import SectionHeader from "@/components/editorial/SectionHeader";
+import { fraunces, inter } from "@/components/editorial/fonts";
+import EditorialTheme from "@/components/editorial/EditorialTheme";
 
-export default function CertificatesPage() {
-  const [visibleCount, setVisibleCount] = useState(6);
+export default function CertificatesClient() {
+  const [visibleCount, setVisibleCount] = useState(8);
   const [selectedLink, setSelectedLink] = useState<string | null>(null);
 
-  const handleLoadMore = () => setVisibleCount((prev) => prev + 6);
-  const handleCardClick = (link: string) => setSelectedLink(link);
+  const handleLoadMore = () => setVisibleCount((prev) => prev + 8);
   const handleCloseModal = () => setSelectedLink(null);
 
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <motion.h1 className="sm:text-4xl text-3xl font-bold mb-4" whileHover={{ scale: 1.01 }} transition={{ duration: 0.5 }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            {t("certificates.title")}
-          </motion.h1>
-          <motion.p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-            {t("certificates.description")}
-          </motion.p>
-        </div>
+    <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
+      <EditorialTheme />
+      <section className="mx-auto w-full max-w-5xl px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
+        <SectionHeader tag="Certificates" title={t("certificates.title")} description={t("certificates.description")} />
 
-        {/* Certificates Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certificates.slice(0, visibleCount).map((cert) => (
-            <motion.div
+        {/* Daftar bernomor — baris tipis, bukan grid kartu */}
+        <ol className="border-t border-[var(--ed-border)]">
+          {certificates.slice(0, visibleCount).map((cert, index) => (
+            <motion.li
               key={cert.id}
-              onClick={() => handleCardClick(cert.link)}
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              className="grid grid-cols-[48px_1fr] gap-4 border-b border-[var(--ed-border)] py-7 md:grid-cols-[80px_1fr_auto] md:gap-10"
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="cursor-pointer rounded-md overflow-hidden shadow-md shadow-indigo-200 hover:shadow-indigo-300 hover:border-1 hover:border-indigo-400 border"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: (index % 8) * 0.08 }}
             >
-              <div className="h-64 overflow-hidden">
-                <img src={cert.image} alt={cert.title} className="w-full h-full object-fill" />
-              </div>
-              <div className="p-3 bg-white dark:bg-slate-800">
-                <h3 className="text-md font-semibold text-slate-900 dark:text-white">{cert.title}</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300 mb-2">{cert.organization}</p>
-                <span className="text-xs text-slate-500 dark:text-slate-400">{cert.date}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              <button
+                onClick={() => setSelectedLink(cert.link)}
+                className="ed-serif cursor-pointer self-start text-2xl italic text-[var(--ed-text-muted)] transition-colors hover:text-[var(--ed-accent)]"
+                aria-label={`${t("certificates.view")} ${cert.title}`}
+              >
+                {String(index + 1).padStart(2, "0")}
+              </button>
 
-        {/* Load More */}
+              <button onClick={() => setSelectedLink(cert.link)} className="cursor-pointer text-left">
+                <h3 className="ed-serif text-lg tracking-tight md:text-xl">{cert.title}</h3>
+                <p className="mt-1 text-[12px] uppercase tracking-[0.14em] text-[var(--ed-text-muted)]">{cert.organization}</p>
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedLink(cert.link);
+                  }}
+                  className="ed-link mt-3 inline-block text-[11px] uppercase tracking-[0.18em] text-[var(--ed-accent)]"
+                >
+                  {t("certificates.view")}
+                </span>
+              </button>
+
+              <span className="col-start-2 self-start text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)] md:col-start-3 md:self-center">{cert.date}</span>
+            </motion.li>
+          ))}
+        </ol>
+
+        {/* Load More — teks underline bronze */}
         {visibleCount < certificates.length && (
-          <div className="text-center mt-12">
-            <button
-              onClick={handleLoadMore}
-              className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#5907e8,55%,#000103)] bg-[length:200%_100%] px-6 text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:text-slate-100 font-semibold"
-            >
-              <LoaderPinwheel className="mr-2 h-4 w-4" />
+          <div className="mt-10 text-center">
+            <button onClick={handleLoadMore} className="ed-link cursor-pointer text-xs uppercase tracking-[0.18em]">
               Load More
             </button>
           </div>
         )}
-      </div>
+      </section>
 
       {/* Modal Preview */}
       <AnimatePresence>
         {selectedLink && (
-          <motion.div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={handleCloseModal}>
+          <motion.div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={handleCloseModal}>
             <motion.div
-              className="bg-white dark:bg-slate-900 rounded-lg shadow-md max-w-4xl w-full max-h-[90vh] overflow-auto relative p-4"
-              initial={{ scale: 0.9, opacity: 0 }}
+              className="relative max-h-[90vh] w-full max-w-4xl overflow-auto rounded-lg border border-[var(--ed-border)] bg-[var(--ed-bg)] p-4"
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()} // biar klik dalam modal tidak close
+              exit={{ scale: 0.95, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <button onClick={handleCloseModal} className="absolute top-2 right-2 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
-                ✕
+              <button onClick={handleCloseModal} className="absolute top-3 right-4 text-lg text-[var(--ed-text-muted)] transition-colors hover:text-[var(--ed-accent)]" aria-label="Close">
+                &times;
               </button>
 
-              {/* Tampilkan konten sesuai jenis */}
-              {selectedLink.toLowerCase().endsWith(".pdf") ? <iframe src={selectedLink} className="w-full h-[70vh] rounded-md"></iframe> : <img src={selectedLink} alt="Certificate" className="w-full h-auto rounded-md" />}
+              {selectedLink.toLowerCase().endsWith(".pdf") ? <iframe src={selectedLink} className="h-[70vh] w-full rounded-md" /> : <img src={selectedLink} alt="Certificate" className="h-auto w-full rounded-md" />}
             </motion.div>
           </motion.div>
         )}

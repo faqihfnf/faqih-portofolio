@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { TableOfContentsIcon, ChevronDown } from "lucide-react";
 
 interface TOCItem {
   id: string;
@@ -35,7 +34,6 @@ export default function TableOfContents({ headings, variant = "sidebar" }: Table
       { rootMargin: "-20% 0% -35% 0%", threshold: 0 },
     );
 
-    // Setup observer setelah render
     const timer = setTimeout(() => {
       headings.forEach((item) => {
         const el = document.getElementById(item.id);
@@ -52,7 +50,7 @@ export default function TableOfContents({ headings, variant = "sidebar" }: Table
   const scrollToHeading = (id: string) => {
     isManualScrollingRef.current = true;
     setActiveId(id);
-    setIsOpen(false); // Close dropdown after click
+    setIsOpen(false);
 
     const el = document.getElementById(id);
     if (el) {
@@ -71,43 +69,33 @@ export default function TableOfContents({ headings, variant = "sidebar" }: Table
   // Dropdown version untuk mobile
   if (variant === "dropdown") {
     return (
-      <div className="mb-6 lg:hidden">
+      <div className="mb-8 border-y border-[var(--ed-border)] lg:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full flex items-center justify-between bg-slate-100 dark:bg-slate-800 rounded-lg px-4 py-3 text-left transition-colors hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="flex w-full cursor-pointer items-center justify-between py-4 text-left"
         >
-          <span className="flex items-center font-medium text-slate-900 dark:text-slate-100">
-            <TableOfContentsIcon className="w-5 h-5 mr-2" />
-            Daftar Isi
-          </span>
-          <ChevronDown className={`w-5 h-5 text-slate-500 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+          <span className="text-[11px] uppercase tracking-[0.22em] text-[var(--ed-text-muted)]">Daftar Isi</span>
+          <span className="text-[var(--ed-text-muted)]">{isOpen ? "−" : "+"}</span>
         </button>
 
         {isOpen && (
-          <div className="mt-2 bg-slate-50 dark:bg-slate-900/50 rounded-lg p-3 border border-slate-200 dark:border-slate-700">
-            <nav>
-              <ul className="space-y-1">
-                {headings.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => scrollToHeading(item.id)}
-                      className={`text-left cursor-pointer w-full py-2 px-3 rounded-md transition-colors ${
-                        activeId === item.id
-                          ? "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 font-medium"
-                          : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                      }`}
-                      style={{
-                        paddingLeft: `${12 + (item.level - 1) * 12}px`,
-                        fontSize: item.level === 1 ? "14px" : item.level === 2 ? "13px" : "12px",
-                      }}
-                    >
-                      {item.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
+          <nav className="pb-4">
+            <ul className="space-y-2">
+              {headings.map((item) => (
+                <li key={item.id}>
+                  <button
+                    onClick={() => scrollToHeading(item.id)}
+                    className={`w-full cursor-pointer py-1.5 text-left text-[13px] transition-colors ${
+                      activeId === item.id ? "text-[var(--ed-accent)]" : "text-[var(--ed-text-secondary)] hover:text-[var(--ed-text)]"
+                    }`}
+                    style={{ paddingLeft: `${(item.level - 1) * 14}px` }}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
         )}
       </div>
     );
@@ -115,24 +103,18 @@ export default function TableOfContents({ headings, variant = "sidebar" }: Table
 
   // Sidebar version untuk desktop
   return (
-    <div className="bg-slate-600/10 dark:bg-slate-800 rounded-md p-4 mt-5">
-      <h3 className="text-lg flex items-center font-semibold mb-4 text-slate-900 dark:text-slate-100">
-        <TableOfContentsIcon className="inline-block w-6 h-6 mr-2" />
-        <span className="font-semibold">Daftar Isi</span>
-      </h3>
+    <div className="border-l border-[var(--ed-border)] pl-5 pt-5">
+      <h3 className="text-[11px] uppercase tracking-[0.22em] text-[var(--ed-text-muted)]">Daftar Isi</h3>
       <nav>
-        <ul className="space-y-2">
+        <ul className="mt-4 space-y-2.5">
           {headings.map((item) => (
             <li key={item.id}>
               <button
                 onClick={() => scrollToHeading(item.id)}
-                className={`text-left cursor-pointer w-full transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400 ${
-                  activeId === item.id ? "text-indigo-700 dark:text-indigo-400 font-medium" : "text-slate-600 font-medium dark:text-slate-300"
+                className={`w-full cursor-pointer text-left text-[13px] leading-snug transition-colors ${
+                  activeId === item.id ? "text-[var(--ed-accent)]" : "text-[var(--ed-text-secondary)] hover:text-[var(--ed-text)]"
                 }`}
-                style={{
-                  paddingLeft: `${(item.level - 1) * 12}px`,
-                  fontSize: item.level === 1 ? "14px" : item.level === 2 ? "13px" : "12px",
-                }}
+                style={{ paddingLeft: `${(item.level - 1) * 14}px` }}
               >
                 {item.title}
               </button>

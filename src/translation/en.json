@@ -11,6 +11,10 @@
   "hero": {
     "title": "Hello, I'm Faqih",
     "name": "I'm a Full Stack Developer",
+    "tagline-1": "Bridging",
+    "tagline-2": "people",
+    "tagline-3": "and",
+    "tagline-4": "systems",
     "description": "Blending 9 years of experience as an HR with Full Stack Development expertise. I help businesses digitally transform with innovative application solutions."
   },
   "services": {
@@ -112,12 +116,14 @@
 
   "projects": {
     "title": "My Projects",
-    "description": "Here are some of the projects I've worked on."
+    "description": "Here are some of the projects I've worked on.",
+    "detail": "Detail"
   },
 
   "certificates": {
     "title": "My Certificates",
-    "description": "A collection of my achievements and completed courses."
+    "description": "A collection of achievements and courses I have completed.",
+    "view": "View Certificate"
   },
 
   "blog": {
@@ -127,6 +133,9 @@
 
   "contact": {
     "title": "Get in Touch",
-    "description": "Feel free to reach out for collaborations or just a friendly hello!"
+    "description": "Feel free to reach out for collaborations or just a friendly hello!",
+    "success-title": "Your message is on its way!",
+    "success-body": "Thank you for taking the time to write. I'm really glad we got connected — I'll get back to you soon, usually within 24 hours. Talk to you soon!",
+    "success-close": "Back"
   }
 }

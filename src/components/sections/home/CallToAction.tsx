@@ -1,46 +1,27 @@
 "use client";
 
-import TouchButton from "@/components/ui/button-touch";
-import { SendIcon } from "lucide-react";
+import { EditorialButton } from "@/components/editorial/EditorialButton";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export default function CallToAction() {
   const { t } = useTranslation();
+
   return (
-    <section className="py-20 ">
-      <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        {/* Title - 800ms delay */}
-        <AnimateOnScroll animation="fade-up" delay={0}>
-          <h2 className="text-4xl font-bold mb-4">
-            {t("cta.title")}{" "}
-            <span>
-              <span className="text-indigo-700 dark:text-indigo-500">{t("cta.title-1")}</span>
-            </span>
-          </h2>
-        </AnimateOnScroll>
+    <section>
+      <div className="mx-auto w-full max-w-5xl px-6 py-20 text-center md:px-10 md:py-28">
+        <h2 className="ed-serif mx-auto max-w-2xl text-3xl leading-tight tracking-tight md:text-[2.75rem] md:leading-[1.15]">
+          {t("cta.title")} <em className="ed-accent-em">{t("cta.title-1")}</em>
+        </h2>
 
-        {/* Description */}
-        <AnimateOnScroll animation="fade-up" delay={200}>
-          <p className="text-xl mb-4">
-            {t("cta.description-1")} <span className="text-teal-600 dark:text-teal-500 font-semibold">{t("cta.description-2")}</span> {t("cta.description-3")}{" "}
-            <span className="text-indigo-600 dark:text-indigo-500 font-semibold">{t("cta.description-4")}</span>
-            {t("cta.description-5")} <span className="text-pink-600 dark:text-pink-500 font-semibold">{t("cta.description-6")}</span>.
-          </p>
-        </AnimateOnScroll>
+        <p className="mx-auto mt-6 max-w-xl leading-relaxed text-[var(--ed-text-secondary)]">
+          {t("cta.description-1")} {t("cta.description-2")} {t("cta.description-3")} {t("cta.description-4")}
+          {t("cta.description-5")} {t("cta.description-6")}.
+        </p>
 
-        {/* Button */}
-        <AnimateOnScroll animation="fade-up" delay={400}>
-          <Link href="/contact">
-            <TouchButton
-              otherClasses="hover:text-pink-500 dark:hover:text-pink-500 hover:bg-indigo-200 text-indigo-900 dark:text-indigo-100 font-semibold text-lg"
-              title={t("cta.button")}
-              icon={<SendIcon className="w-4 h-4" />}
-              position="right"
-            ></TouchButton>
-          </Link>
-        </AnimateOnScroll>
+        <Link href="/contact" className="ed-link ed-serif mt-10 inline-block text-2xl italic md:text-3xl">
+          <EditorialButton variant="primary">{t("cta.button")}</EditorialButton>
+        </Link>
       </div>
     </section>
   );

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { Linkedin, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import SectionHeader from "@/components/editorial/SectionHeader";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 interface Testimonial {
   id: string;
@@ -13,15 +13,6 @@ interface Testimonial {
   company: string;
   testimonial: string;
   linkedinUrl: string | null;
-}
-
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
 }
 
 export default function Testimonials() {
@@ -59,72 +50,49 @@ export default function Testimonials() {
   if (!loading && data.length === 0) return null;
 
   return (
-    <section className="py-20">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <AnimateOnScroll animation="fade-up" delay={0}>
-            <h2 className="text-4xl font-bold mb-4">
-              {t("testimonials.title")}
-              <span className="text-indigo-700 dark:text-indigo-500">{t("testimonials.title-1")}</span>
-            </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-up" delay={200}>
-            <p className="text-lg max-w-4xl mx-auto">{t("testimonials.description")}</p>
-          </AnimateOnScroll>
-        </div>
+    <section className="border-b border-[var(--ed-border)]">
+      <div className="mx-auto w-full max-w-5xl px-6 py-14 md:px-10 md:py-24">
+        <AnimateOnScroll animation="fade-up">
+          <SectionHeader
+            tag="Testimonials"
+            title={
+              <>
+                {t("testimonials.title")}
+                <em className="ed-accent-em">{t("testimonials.title-1")}</em>
+              </>
+            }
+            description={t("testimonials.description")}
+          />
+        </AnimateOnScroll>
 
-        {/* Spotlight */}
-        <AnimateOnScroll animation="fade-up" delay={400}>
-          {loading ? (
-            <div className="max-w-2xl mx-auto animate-pulse">
-              <div className="h-40 bg-gray-200 dark:bg-gray-800 rounded-xl" />
-            </div>
-          ) : (
-            <div className="relative max-w-2xl mx-auto">
-              {/* Quote icon */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                <div className="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center">
-                  <Quote className="w-5 h-5 text-white" />
-                </div>
-              </div>
-
-              {/* Card */}
-              <div className="bg-white dark:bg-slate-900 shadow-indigo-500 border border-gray-200 dark:border-gray-800 h-full rounded-2xl pt-10 pb-8 px-6 shadow-md">
+        {loading ? (
+          <div className="mx-auto max-w-2xl animate-pulse">
+            <div className="h-40 rounded-lg border border-[var(--ed-border)]" />
+          </div>
+        ) : (
+          <AnimateOnScroll animation="fade-up" delay={150}>
+            <div className="relative mx-auto max-w-2xl">
+              <div className="rounded-lg border border-[var(--ed-border)] bg-[var(--ed-bg-elevated)] px-7 py-9 md:px-10">
                 <AnimatePresence mode="wait">
-                  <motion.div key={current} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}>
-                    {/* Testimonial text - fixed height for ~250 chars */}
-                    <p className="sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 justify-center mt-4 mb-8 italic h-50 text-center flex items-center">&ldquo;{data[current].testimonial}&rdquo;</p>
+                  <motion.div key={current} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35 }}>
+                    <p className="ed-serif min-h-[10rem] text-xl italic leading-relaxed tracking-tight md:text-[1.35rem]">
+                      <span className="text-[var(--ed-accent)]">&ldquo;</span>
+                      {data[current].testimonial}
+                      <span className="text-[var(--ed-accent)]">&rdquo;</span>
+                    </p>
 
-                    {/* Author info */}
-                    <div className="flex items-center justify-center gap-4">
-                      {/* Avatar with initials */}
-                      <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center flex-shrink-0">
-                        <span className="text-indigo-700 dark:text-indigo-400 font-semibold text-sm">{getInitials(data[current].name)}</span>
-                      </div>
-
-                      <div className="text-left">
-                        {/* Name (with optional LinkedIn link) */}
-                        {data[current].linkedinUrl ? (
-                          <a
-                            href={data[current].linkedinUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-semibold text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors inline-flex items-center gap-1.5"
-                          >
-                            {data[current].name}
-                            <Linkedin className="w-3.5 h-3.5" />
-                          </a>
-                        ) : (
-                          <p className="font-semibold text-gray-900 dark:text-white">{data[current].name}</p>
-                        )}
-
-                        {/* Position & Company */}
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {data[current].position}
-                          {data[current].company && <span> at {data[current].company}</span>}
-                        </p>
-                      </div>
+                    <div className="mt-7 border-t border-[var(--ed-border)] pt-5">
+                      {data[current].linkedinUrl ? (
+                        <a href={data[current].linkedinUrl} target="_blank" rel="noopener noreferrer" className="ed-link text-sm font-medium">
+                          {data[current].name}
+                        </a>
+                      ) : (
+                        <p className="text-sm font-medium">{data[current].name}</p>
+                      )}
+                      <p className="mt-0.5 text-xs uppercase tracking-[0.14em] text-[var(--ed-text-muted)]">
+                        {data[current].position}
+                        {data[current].company && <span> &middot; {data[current].company}</span>}
+                      </p>
                     </div>
                   </motion.div>
                 </AnimatePresence>
@@ -132,26 +100,29 @@ export default function Testimonials() {
 
               {/* Navigation */}
               {data.length > 1 && (
-                <div className="flex items-center justify-center gap-4 mt-6">
-                  <button onClick={prev} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                    <ChevronLeft className="w-5 h-5" />
+                <div className="mt-6 flex items-center justify-center gap-6">
+                  <button onClick={prev} className="text-xs uppercase tracking-[0.18em] text-[var(--ed-text-muted)] transition-colors hover:text-[var(--ed-accent)]">
+                    Prev
                   </button>
-
-                  {/* Dots */}
                   <div className="flex gap-2">
                     {data.map((_, i) => (
-                      <button key={i} onClick={() => setCurrent(i)} className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-indigo-600 w-6" : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400"}`} />
+                      <button
+                        key={i}
+                        onClick={() => setCurrent(i)}
+                        aria-label={`Go to testimonial ${i + 1}`}
+                        className="h-1.5 w-1.5 rounded-full transition-all"
+                        style={{ backgroundColor: i === current ? "var(--ed-accent)" : "var(--ed-border)" }}
+                      />
                     ))}
                   </div>
-
-                  <button onClick={next} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                    <ChevronRight className="w-5 h-5" />
+                  <button onClick={next} className="text-xs uppercase tracking-[0.18em] text-[var(--ed-text-muted)] transition-colors hover:text-[var(--ed-accent)]">
+                    Next
                   </button>
                 </div>
               )}
             </div>
-          )}
-        </AnimateOnScroll>
+          </AnimateOnScroll>
+        )}
       </div>
     </section>
   );

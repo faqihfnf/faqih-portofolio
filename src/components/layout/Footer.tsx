@@ -1,61 +1,36 @@
-import { Facebook, Github, Instagram, Linkedin, Youtube } from "lucide-react";
+"use client";
+
 import Link from "next/link";
+import { fraunces, inter } from "@/components/editorial/fonts";
+import EditorialTheme from "@/components/editorial/EditorialTheme";
+
+const socialLinks = [
+  { href: "https://github.com/faqihfnf", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/faqih-nur-fahmi-b51bb1ab/", label: "LinkedIn" },
+  { href: "https://www.facebook.com/faqihnurfahmi", label: "Facebook" },
+  { href: "https://www.youtube.com/@marifahid", label: "YouTube" },
+  { href: "https://www.instagram.com/faqih.me", label: "Instagram" },
+];
 
 export default function Footer() {
   return (
-    <footer className="p-6 bg-[rgb(5,10,35)]">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          {/* Kiri: Nama */}
-          <p className="text-md text-slate-300 text-center sm:text-left">
-            Created with ❤️ <span className="bg-gradient-to-l from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-md font-extrabold text-transparent">Faqih Nur Fahmi</span>
-          </p>
+    <div className={`${fraunces.variable} ${inter.variable} editorial`}>
+      <EditorialTheme />
+      <footer className="border-t border-[var(--ed-border)] bg-[var(--ed-bg)]">
+        <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10">
+          <p className="ed-serif text-base tracking-tight">Faqih Nur Fahmi</p>
 
-          {/* Kanan: Icon Sosial Media */}
-          <div className="flex justify-center sm:justify-end gap-4">
-            <Link
-              href="https://github.com/faqihfnf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-slate-700 hover:bg-indigo-600 hover:text-white text-white hover:border-indigo-600"
-            >
-              <Github className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/faqih-nur-fahmi-b51bb1ab/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-slate-700 hover:bg-indigo-600 hover:text-white text-white hover:border-indigo-600"
-            >
-              <Linkedin className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://facebook.com/faqihnurfahmi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-slate-700 hover:bg-indigo-600 hover:text-white text-white hover:border-indigo-600"
-            >
-              <Facebook className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://youtube.com/@marifahid"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-slate-700 hover:bg-indigo-600 hover:text-white text-white hover:border-indigo-600"
-            >
-              <Youtube className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://www.instagram.com/faqih.me"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-slate-700 hover:bg-indigo-600 hover:text-white text-white hover:border-indigo-600"
-            >
-              <Instagram className="w-5 h-5" />
-            </Link>
+          <div className="flex flex-wrap gap-6">
+            {socialLinks.map(({ href, label }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="ed-link text-[11px] uppercase tracking-[0.18em]">
+                {label}
+              </a>
+            ))}
           </div>
+
+          <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)]">&copy; {new Date().getFullYear()}</p>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 }

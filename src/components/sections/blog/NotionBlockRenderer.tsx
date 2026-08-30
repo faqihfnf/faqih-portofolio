@@ -38,7 +38,7 @@ function RichTextContent({ richText }: { richText: RichText[] }) {
 
         if (annotations.code) {
           node = (
-            <code key={i} className="bg-slate-100 dark:bg-slate-800 text-rose-500 dark:text-rose-400 px-1.5 py-0.5 rounded text-sm font-mono">
+            <code key={i} className="bg-[var(--ed-bg-elevated)] text-[var(--ed-accent)] px-1.5 py-0.5 rounded text-sm font-mono">
               {content}
             </code>
           );
@@ -49,7 +49,7 @@ function RichTextContent({ richText }: { richText: RichText[] }) {
           if (annotations.underline) node = <u key={i}>{node}</u>;
           if (href) {
             node = (
-              <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 underline underline-offset-2 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors">
+              <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-[var(--ed-text)] underline decoration-[var(--ed-accent)] underline-offset-4 hover:text-[var(--ed-accent)] transition-colors">
                 {node}
               </a>
             );
@@ -72,13 +72,13 @@ function ToggleBlock({ block, blocks }: { block: NotionBlock; blocks: NotionBloc
   return (
     <div className="my-2">
       <button onClick={() => setOpen(!open)} className="flex items-start gap-2 w-full text-left group">
-        <span className={`mt-1 text-slate-500 transition-transform duration-200 ${open ? "rotate-90" : ""}`}>▶</span>
-        <span className="font-medium text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+        <span className={`mt-1 text-[var(--ed-text-muted)] transition-transform duration-200 ${open ? "rotate-90" : ""}`}>▶</span>
+        <span className="font-medium text-[var(--ed-text)] group-hover:text-[var(--ed-accent)] transition-colors">
           <RichTextContent richText={data?.rich_text || []} />
         </span>
       </button>
       {open && block.children && (
-        <div className="ml-6 mt-2 border-l-2 border-slate-200 dark:border-slate-700 pl-4">
+        <div className="ml-6 mt-2 border-l-2 border-[var(--ed-border)] pl-4">
           <NotionBlockRenderer blocks={block.children} />
         </div>
       )}
@@ -273,8 +273,8 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
     case "quote": {
       const data = (block as any).quote;
       return (
-        <blockquote className="my-6 border-l-4 border-indigo-500 pl-4 py-1 bg-indigo-50 dark:bg-indigo-950/30 rounded-r-lg">
-          <p className="text-slate-700 dark:text-slate-300 italic leading-relaxed">
+        <blockquote className="my-6 border-l-2 border-[var(--ed-accent)] pl-5 py-1">
+          <p className="ed-serif text-lg italic leading-relaxed text-[var(--ed-text-secondary)]">
             <RichTextContent richText={data?.rich_text || []} />
           </p>
           {block.children && (
@@ -358,9 +358,9 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="my-4 flex items-center gap-2 p-3 border border-slate-200 dark:border-slate-700 rounded-lg hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors group"
+          className="my-4 flex items-center gap-2 p-3 border border-[var(--ed-border)] hover:border-[var(--ed-accent)] transition-colors group"
         >
-          <span className="text-indigo-600 dark:text-indigo-400 group-hover:underline break-all text-sm">{url}</span>
+          <span className="text-[var(--ed-text)] group-hover:text-[var(--ed-accent)] group-hover:underline break-all text-sm">{url}</span>
         </a>
       );
     }

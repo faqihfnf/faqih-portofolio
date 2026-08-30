@@ -1,7 +1,8 @@
 import { getProjects, getPageBlocks } from "@/services/notionServices";
 import NotionBlockRenderer from "@/components/sections/blog/NotionBlockRenderer";
 import Link from "next/link";
-import { ChevronLeft, ExternalLink, Github } from "lucide-react";
+import { fraunces, inter } from "@/components/editorial/fonts";
+import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 export const dynamic = "force-dynamic";
 
@@ -14,67 +15,63 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   const projects = await getProjects();
   const project = projects.find((p) => p.slug === slug);
-
-  if (!project) {
-    return (
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <Link href="/projects" className="flex items-center text-md hover:text-indigo-500 font-medium mb-6">
-          <ChevronLeft className="inline-block mr-1" />
-          Back to Projects
-        </Link>
-        <div className="text-center flex flex-col items-center justify-center mt-40">
-          <h2 className="text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">❌ Project tidak ditemukan</h2>
-          <p className="text-gray-600 dark:text-gray-300">Sepertinya project yang Anda cari sudah tidak tersedia.</p>
-        </div>
-      </div>
-    );
-  }
-
-  const blocks = await getPageBlocks(project.id);
+  const blocks = project ? await getPageBlocks(project.id) : [];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-20">
-      {/* Back */}
-      <Link href="/projects" className="flex items-center text-md hover:text-indigo-500 font-medium mb-8">
-        <ChevronLeft className="inline-block mr-1" />
-        Back to Projects
-      </Link>
+    <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
+      <EditorialTheme />
+      <div className="mx-auto w-full max-w-5xl px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
+        {/* Back */}
+        <Link href="/projects" className="ed-link inline-block text-[11px] uppercase tracking-[0.18em]">
+          &larr; Projects
+        </Link>
 
-      {/* Cover */}
-      {project.cover && <img src={project.cover} alt={project.title} className="w-full h-72 object-cover rounded-lg mb-8" />}
+        {!project ? (
+          <div className="flex flex-col items-center justify-center py-40 text-center">
+            <h2 className="ed-serif text-3xl tracking-tight md:text-4xl">Project tidak ditemukan</h2>
+            <p className="mt-3 text-[var(--ed-text-secondary)]">Sepertinya project yang Anda cari sudah tidak tersedia.</p>
+          </div>
+        ) : (
+          <>
+            {/* Header */}
+            <h1 className="ed-serif mt-8 text-3xl leading-tight tracking-tight md:text-[2.75rem] md:leading-[1.15]">{project.title}</h1>
 
-      {/* Header */}
-      <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">{project.title}</h1>
+            {/* Meta: teknologi sebagai teks kecil */}
+            {project.technologies.length > 0 && (
+              <p className="mt-4 text-[13px] text-[var(--ed-text-muted)]">
+                {project.technologies.map((tech, i) => (
+                  <span key={tech}>
+                    {tech}
+                    {i < project.technologies.length - 1 && <span className="text-[var(--ed-border)]">{" · "}</span>}
+                  </span>
+                ))}
+              </p>
+            )}
 
-      {/* Tech badges */}
-      {project.technologies.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.technologies.map((tech) => (
-            <span key={tech} className="px-3 py-1 text-sm font-medium rounded-full bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900">
-              {tech}
-            </span>
-          ))}
-        </div>
-      )}
+            {/* Links — teks underline bronze */}
+            {(project.githubUrl || project.liveUrl) && (
+              <div className="mt-6 flex gap-8 border-b border-[var(--ed-border)] pb-8">
+                {project.githubUrl && (
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="ed-link text-[11px] uppercase tracking-[0.18em]">
+                    GitHub
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="ed-link text-[11px] uppercase tracking-[0.18em]">
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            )}
 
-      {/* Links */}
-      <div className="flex gap-4 mb-10 pb-8 border-b border-gray-200 dark:border-gray-700">
-        {project.githubUrl && (
-          <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition-colors text-sm font-medium">
-            <Github size={16} />
-            View Code
-          </Link>
-        )}
-        {project.liveUrl && (
-          <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition-colors text-sm font-medium">
-            <ExternalLink size={16} />
-            Live Demo
-          </Link>
+            {/* Cover */}
+            {project.cover && <img src={project.cover} alt={project.title} className="mt-10 w-full rounded-[2px] border border-[var(--ed-border)] object-cover" />}
+
+            {/* Notion Content */}
+            <div className={project.cover ? "mt-10" : "mt-2"}>{blocks.length > 0 ? <NotionBlockRenderer blocks={blocks} /> : <p className="py-10 text-center text-[var(--ed-text-muted)]">Belum ada konten detail untuk project ini.</p>}</div>
+          </>
         )}
       </div>
-
-      {/* Notion Content */}
-      {blocks.length > 0 ? <NotionBlockRenderer blocks={blocks} /> : <p className="text-gray-500 dark:text-gray-400 text-center py-10">Belum ada konten detail untuk project ini.</p>}
     </div>
   );
 }

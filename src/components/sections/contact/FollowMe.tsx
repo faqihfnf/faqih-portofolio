@@ -1,45 +1,29 @@
 "use client";
-import Link from "next/link";
-import { Github, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Github, Linkedin, Youtube, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function FollowMe() {
   const socials = [
-    {
-      href: "https://github.com/username",
-      icon: <Github className="w-5 h-5" />,
-    },
-    {
-      href: "https://linkedin.com/in/username",
-      icon: <Linkedin className="w-5 h-5" />,
-    },
-    {
-      href: "https://twitter.com/username",
-      icon: <Twitter className="w-5 h-5" />,
-    },
-    {
-      href: "https://youtube.com/@username",
-      icon: <Youtube className="w-5 h-5" />,
-    },
+    { href: "https://github.com/faqihfnf", label: "GitHub" },
+    { href: "https://www.linkedin.com/in/faqih-nur-fahmi-b51bb1ab/", label: "LinkedIn" },
+    { href: "https://www.youtube.com/@marifahid", label: "YouTube" },
+    { href: "https://www.instagram.com/faqih.me", label: "Instagram" },
   ];
 
   return (
-    <motion.div
-      className="bg-white dark:bg-slate-800 p-8 hover:border-indigo-400 rounded-md shadow-md shadow-indigo-200 hover:shadow-indigo-300 transition-shadow duration-300"
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}>
-      <h2 className="text-2xl font-bold mb-6">Follow Me</h2>
-      <div className="flex justify-center sm:justify-start gap-4">
-        {socials.map((social, idx) => (
-          <Link
-            key={idx}
+    <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+      <h2 className="text-[11px] uppercase tracking-[0.22em] text-[var(--ed-text-muted)]">Follow Me</h2>
+      <div className="mt-5 flex flex-col gap-3">
+        {socials.map((social) => (
+          <a
+            key={social.label}
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 flex justify-center items-center rounded-lg border border-indigo-400 dark:border-indigo-500 hover:bg-indigo-600 hover:text-white hover:border-indigo-600">
-            {social.icon}
-          </Link>
+            className="ed-link flex items-center gap-2 text-xs uppercase tracking-[0.18em]"
+          >
+            {social.label}
+          </a>
         ))}
       </div>
     </motion.div>

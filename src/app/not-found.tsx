@@ -2,48 +2,47 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { Home, ArrowLeft } from "lucide-react";
-import { StarsBackground } from "@/components/ui/stars-background";
-import { ShootingStars } from "@/components/ui/shooting-stars";
+import { EditorialButton } from "@/components/editorial/EditorialButton";
+import { fraunces, inter } from "@/components/editorial/fonts";
+import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
-      {/* Stars Background */}
-      <StarsBackground className="opacity-60" />
-      <ShootingStars />
-
-      <div className="text-center max-w-lg relative z-10">
-        {/* 404 Number */}
-        <motion.h1
-          className="text-[120px] sm:text-[160px] font-extrabold leading-none text-indigo-600/20 dark:text-indigo-400/20 select-none"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          404
-        </motion.h1>
-
-        {/* Message */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">Page Not Found</h2>
-          <p className="text-gray-500 dark:text-gray-400 mb-8 leading-relaxed">The page you are looking for doesn&apos;t exist or has been moved.</p>
-        </motion.div>
-
-        {/* Buttons - same width */}
-        <motion.div className="flex flex-col sm:flex-row items-stretch justify-center gap-3 max-w-sm mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
-          <Link href="/" className="flex-1 inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors">
-            <Home className="w-4 h-4" />
-            Back to Home
-          </Link>
-          <button
-            onClick={() => history.back()}
-            className="flex-1 inline-flex items-center justify-center gap-2 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 px-6 py-2.5 rounded-lg font-medium transition-colors cursor-pointer"
+    <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
+      <EditorialTheme />
+      <div className="mx-auto flex min-h-screen w-full max-w-[920px] items-center justify-center px-6 py-20 md:px-10">
+        <div className="text-center">
+          {/* 404 — angka serif italic besar */}
+          <motion.h1
+            className="ed-serif select-none text-[110px] italic leading-none text-[var(--ed-accent)] opacity-30 sm:text-[150px]"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 0.3, scale: 1 }}
+            transition={{ duration: 0.6 }}
           >
-            <ArrowLeft className="w-4 h-4" />
-            Go Back
-          </button>
-        </motion.div>
+            404
+          </motion.h1>
+
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }}>
+            <h2 className="ed-serif mt-2 text-2xl tracking-tight sm:text-3xl">Halaman tidak ditemukan</h2>
+            <p className="mx-auto mt-3 max-w-md leading-relaxed text-[var(--ed-text-secondary)]">
+              Halaman yang Anda cari tidak ada atau sudah dipindahkan.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <Link href="/">
+              <EditorialButton variant="primary">Back to Home</EditorialButton>
+            </Link>
+            <EditorialButton variant="secondary" onClick={() => history.back()}>
+              Go Back
+            </EditorialButton>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

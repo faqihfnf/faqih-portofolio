@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, MapPin } from "lucide-react";
 import React from "react";
-import { badgeClasses, colorClasses, iconBgClasses } from "@/data/colorMappings";
 
 interface Experience {
   title: string;
@@ -11,74 +9,58 @@ interface Experience {
   location: string;
   period: string;
   description: string;
-  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  color: string;
   technologies?: string[];
 }
 
 interface ExperienceTimelineProps {
   experiences: Experience[];
-  activeTab: "hr" | "tech";
 }
 
-export default function ExperienceTimeline({ experiences, activeTab }: ExperienceTimelineProps) {
+export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
   return (
-    <div className="relative">
-      {/* Garis timeline dengan conditional color & animasi transisi */}
-      <div className={`absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2 transition-colors duration-500 ease-in-out ${activeTab === "tech" ? "bg-pink-500" : "bg-indigo-500"}`}></div>
-      <div className="space-y-16">
-        {experiences.map((exp, index) => {
-          const isLeft = index % 2 === 0;
-          return (
-            <motion.div
-              key={index}
-              className={`relative flex flex-col md:flex-row items-center ${isLeft ? "md:justify-start" : "md:justify-end"}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
-              {/* Titik timeline dengan icon */}
-              <div className={`absolute left-1/2 transform -translate-x-1/2 w-10 h-10 ${iconBgClasses[exp.color] ?? iconBgClasses["indigo"]} rounded-full border-4 border-white shadow-md z-10 flex items-center justify-center`}>
-                {exp.icon ? <exp.icon className="w-4 h-4 text-white" /> : null}
-              </div>
+    <ol className="border-t border-[var(--ed-border)]">
+      {experiences.map((exp, index) => (
+        <motion.li
+          key={`${exp.title}-${exp.period}`}
+          className="grid grid-cols-1 gap-3 border-b border-[var(--ed-border)] py-9 md:grid-cols-[80px_1fr] md:gap-10 md:py-11"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: index * 0.12 }}
+        >
+          {/* Nomor italic serif */}
+          <span className="ed-serif text-2xl italic text-[var(--ed-text-muted)]">{String(index + 1).padStart(2, "0")}</span>
 
-              {/* Card */}
-              <div className={`mt-8 md:mt-0 md:w-[45%] bg-white dark:bg-slate-800 p-6 rounded-md border shadow-md relative z-0 ${colorClasses[exp.color]} ${isLeft ? "md:mr-auto md:text-right" : "md:ml-auto md:text-left"}`}>
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">{exp.title}</h3>
-                </div>
+          <div>
+            {/* Baris 1: jabatan serif + periode */}
+            <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+              <h3 className="ed-serif text-xl tracking-tight md:text-2xl">{exp.title}</h3>
+              <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)]">{exp.period}</span>
+            </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1">
-                  <h4 className={`text-lg font-bold text-${exp.color}-600 dark:text-white`}>{exp.company}</h4>
-                </div>
+            {/* Baris 2: perusahaan · lokasi */}
+            <p className="mt-1.5 text-[12px] uppercase tracking-[0.14em] text-[var(--ed-text-secondary)]">
+              {exp.company}
+              <span className="mx-2 text-[var(--ed-border)]">·</span>
+              {exp.location}
+            </p>
 
-                <div className="flex justify-between mb-3">
-                  <div className="flex items-center text-slate-600 dark:text-slate-300 text-sm mt-2 sm:mt-0">
-                    <Calendar size={16} className="mr-1" />
-                    {exp.period}
-                  </div>
-                  <div className="flex items-center text-slate-600 dark:text-slate-300 text-sm">
-                    <MapPin size={16} className="mr-1" />
-                    {exp.location}
-                  </div>
-                </div>
+            {/* Deskripsi */}
+            <p className="mt-4 max-w-2xl leading-relaxed text-[var(--ed-text-secondary)]">{exp.description}</p>
 
-                <p className="text-slate-700 text-justify dark:text-slate-200 mb-4">{exp.description}</p>
-
-                {exp.technologies && exp.technologies.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className={`px-3 py-1 text-sm font-medium rounded-full ${badgeClasses[exp.color] ?? badgeClasses["indigo"]}`}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
-    </div>
+            {/* Teknologi — teks kecil, bukan badge warna */}
+            {exp.technologies && exp.technologies.length > 0 && (
+              <p className="mt-4 text-[13px] text-[var(--ed-text-muted)]">
+                {exp.technologies.map((tech, i) => (
+                  <span key={tech}>
+                    {tech}
+                    {i < exp.technologies!.length - 1 && <span className="text-[var(--ed-border)]">{" · "}</span>}
+                  </span>
+                ))}
+              </p>
+            )}
+          </div>
+        </motion.li>
+      ))}
+    </ol>
   );
 }

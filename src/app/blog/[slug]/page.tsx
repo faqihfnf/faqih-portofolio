@@ -1,10 +1,11 @@
 import { getData, getPageBlocks } from "@/services/notionServices";
 import TableOfContents from "../../../components/sections/blog/TableOfContents";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
 import { NotionBlock } from "@/services/notionServices";
 import NotionBlockRenderer from "../../../components/sections/blog/NotionBlockRenderer";
 import { Metadata } from "next";
+import { fraunces } from "@/components/editorial/fonts";
+import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 export const dynamic = "force-dynamic";
 
@@ -83,62 +84,62 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   const posts = await getData();
   const page = posts.find((p) => p.slug === slug);
-
-  if (!page) {
-    return (
-      <div className="max-w-6xl mx-auto px-10 py-20">
-        <Link href="/blog" className="flex text-md hover:text-indigo-500 font-medium mb-6">
-          <ChevronLeft className="inline-block mr-1" />
-          <span>Back to Blog</span>
-        </Link>
-        <div className="text-center flex flex-col items-center justify-center mt-40">
-          <h2 className="text-5xl font-bold text-slate-800 dark:text-slate-100 mb-4">❌ Oops! Blog tidak ditemukan</h2>
-          <p className="text-slate-600 dark:text-slate-300 mb-6">Sepertinya artikel yang Anda cari sudah tidak tersedia atau telah dipindahkan.</p>
-        </div>
-      </div>
-    );
-  }
-
-  const blocks = await getPageBlocks(page.id);
-  const headings = extractHeadings(blocks);
+  const blocks = page ? await getPageBlocks(page.id) : [];
+  const headings = page ? extractHeadings(blocks) : [];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-10 pt-20">
-      <Link href="/blog" className="text-md hover:text-indigo-400 hover:font-semibold font-medium mb-6">
-        <ChevronLeft className="inline-block mr-1 -mt-1" />
-        <span>Back to Blog</span>
-      </Link>
+    <div className={`${fraunces.variable} editorial ed-poppins min-h-screen`}>
+      <EditorialTheme />
+      <div className="mx-auto w-full max-w-5xl px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
+        <Link href="/blog" className="ed-link inline-block text-[11px] uppercase tracking-[0.18em]">
+          &larr; Blog
+        </Link>
 
-      <h1 className="text-4xl my-5 font-bold text-center">{page.title}</h1>
-      {page.createdAt && (
-        <p className="text-sm text-slate-500 mb-5 text-center">
-          📅{" "}
-          {new Date(page.createdAt).toLocaleDateString("id-ID", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </p>
-      )}
-
-      {page.cover && <img src={page.cover} alt={page.title} className="w-full h-64 sm:h-96 object-cover rounded-lg mb-6" />}
-
-      {/* Mobile TOC Dropdown */}
-      {headings.length > 0 && <TableOfContents headings={headings} variant="dropdown" />}
-
-      <div className="flex gap-8 min-w-0">
-        {/* Content utama */}
-        <div className="flex-1 min-w-0 max-w-4xl overflow-hidden">
-          <NotionBlockRenderer blocks={blocks} />
-        </div>
-
-        {/* Sidebar TOC */}
-        {headings.length > 0 && (
-          <div className="hidden lg:block w-64 flex-shrink-0">
-            <div className="sticky top-20">
-              <TableOfContents headings={headings} />
-            </div>
+        {!page ? (
+          <div className="flex flex-col items-center justify-center py-40 text-center">
+            <h2 className="ed-serif text-3xl tracking-tight md:text-4xl">Blog tidak ditemukan</h2>
+            <p className="mt-3 text-[var(--ed-text-secondary)]">Sepertinya artikel yang Anda cari sudah tidak tersedia atau telah dipindahkan.</p>
           </div>
+        ) : (
+          <>
+            {/* Header */}
+            <h1 className="ed-serif mt-8 max-w-3xl text-3xl leading-tight tracking-tight md:text-[2.5rem] md:leading-[1.2]">{page.title}</h1>
+
+            {/* Meta: tanggal + kategori kecil */}
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)]">
+              {page.createdAt && (
+                <span>
+                  {new Date(page.createdAt).toLocaleDateString("id-ID", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </span>
+              )}
+              {page.tags.length > 0 && <span>{page.tags.slice(0, 3).join(" · ")}</span>}
+            </div>
+
+            <div className="mt-8 border-t border-[var(--ed-border)] pt-10">
+              {/* Mobile TOC Dropdown */}
+              {headings.length > 0 && <TableOfContents headings={headings} variant="dropdown" />}
+
+              <div className="flex min-w-0 gap-12">
+                {/* Content utama */}
+                <div className="min-w-0 max-w-[640px] flex-1 overflow-hidden">
+                  <NotionBlockRenderer blocks={blocks} />
+                </div>
+
+                {/* Sidebar TOC */}
+                {headings.length > 0 && (
+                  <div className="hidden w-60 flex-shrink-0 lg:block">
+                    <div className="sticky top-24">
+                      <TableOfContents headings={headings} />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </>
         )}
       </div>
     </div>

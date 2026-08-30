@@ -12,11 +12,5 @@ export const metadata: Metadata = {
 export default async function BlogList() {
   const posts = await getData();
 
-  return (
-    <div className="min-h-screen py-20">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <BlogListClient posts={posts} />
-      </div>
-    </div>
-  );
+  return <BlogListClient posts={posts} />;
 }
