@@ -8,12 +8,13 @@ import { useTranslation } from "react-i18next";
 import SectionHeader from "@/components/editorial/SectionHeader";
 import { fraunces, inter } from "@/components/editorial/fonts";
 import EditorialTheme from "@/components/editorial/EditorialTheme";
+import { EditorialButton } from "@/components/editorial/EditorialButton";
 
 interface BlogListClientProps {
   posts: BlogPost[];
 }
 
-const INITIAL_COUNT = 8;
+const INITIAL_COUNT = 5;
 
 export default function BlogListClient({ posts }: BlogListClientProps) {
   const [selectedTag, setSelectedTag] = useState("All");
@@ -36,7 +37,7 @@ export default function BlogListClient({ posts }: BlogListClientProps) {
 
         {/* Filter tag — teks minimal, bukan pill */}
         {allTags.length > 1 && (
-          <div className="mb-10 flex flex-wrap gap-x-6 gap-y-2 border-b border-[var(--ed-border)] pb-4">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 pb-4">
             {allTags.map((tag) => (
               <button
                 key={tag}
@@ -106,9 +107,9 @@ export default function BlogListClient({ posts }: BlogListClientProps) {
         {/* Load More */}
         {visibleCount < filteredPosts.length && (
           <div className="mt-10 text-center">
-            <button onClick={handleLoadMore} className="ed-link cursor-pointer text-xs uppercase tracking-[0.18em]">
+            <EditorialButton type="button" onClick={handleLoadMore} variant="primary">
               Load More
-            </button>
+            </EditorialButton>
           </div>
         )}
       </section>

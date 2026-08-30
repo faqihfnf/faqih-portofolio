@@ -8,8 +8,9 @@ import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import SectionHeader from "@/components/editorial/SectionHeader";
 import { fraunces, inter } from "@/components/editorial/fonts";
 import EditorialTheme from "@/components/editorial/EditorialTheme";
+import { EditorialButton } from "@/components/editorial/EditorialButton";
 
-const INITIAL_COUNT = 6;
+const INITIAL_COUNT = 5;
 
 interface ProjectsClientProps {
   projects: Project[];
@@ -40,9 +41,9 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
         {/* Load More */}
         {visibleCount < projects.length && (
           <div className="mt-10 text-center">
-            <button onClick={handleLoadMore} className="ed-link cursor-pointer text-xs uppercase tracking-[0.18em]">
+            <EditorialButton type="button" onClick={handleLoadMore} variant="primary">
               Load More
-            </button>
+            </EditorialButton>
           </div>
         )}
       </section>

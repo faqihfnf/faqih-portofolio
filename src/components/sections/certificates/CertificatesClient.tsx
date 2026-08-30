@@ -7,12 +7,15 @@ import { useTranslation } from "react-i18next";
 import SectionHeader from "@/components/editorial/SectionHeader";
 import { fraunces, inter } from "@/components/editorial/fonts";
 import EditorialTheme from "@/components/editorial/EditorialTheme";
+import { EditorialButton } from "@/components/editorial/EditorialButton";
+
+const INITIAL_COUNT = 5;
 
 export default function CertificatesClient() {
-  const [visibleCount, setVisibleCount] = useState(8);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const [selectedLink, setSelectedLink] = useState<string | null>(null);
 
-  const handleLoadMore = () => setVisibleCount((prev) => prev + 8);
+  const handleLoadMore = () => setVisibleCount((prev) => prev + INITIAL_COUNT);
   const handleCloseModal = () => setSelectedLink(null);
 
   const { t } = useTranslation();
@@ -64,9 +67,9 @@ export default function CertificatesClient() {
         {/* Load More — teks underline bronze */}
         {visibleCount < certificates.length && (
           <div className="mt-10 text-center">
-            <button onClick={handleLoadMore} className="ed-link cursor-pointer text-xs uppercase tracking-[0.18em]">
+            <EditorialButton type="button" onClick={handleLoadMore} variant="primary">
               Load More
-            </button>
+            </EditorialButton>
           </div>
         )}
       </section>

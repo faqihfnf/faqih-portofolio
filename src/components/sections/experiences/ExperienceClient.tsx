@@ -35,7 +35,7 @@ export default function ExperienceClient() {
         />
 
         {/* Tab — teks minimal dengan underline bronze */}
-        <div className="mb-12 flex gap-8 border-b border-[var(--ed-border)]">
+        <div className="flex gap-8 ">
           {tabs.map((tab) => (
             <button
               key={tab.id}

@@ -60,7 +60,9 @@ export default function Navbar() {
               <Link
                 key={item.link}
                 href={item.link}
-                className={`text-[11px] uppercase tracking-[0.18em] transition-colors ${pathname === item.link ? "text-[var(--ed-accent)]" : "text-[var(--ed-text-secondary)] hover:text-[var(--ed-text)]"}`}
+                className={`text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                  pathname === item.link ? "text-[var(--ed-accent)]" : "text-[var(--ed-text-secondary)] hover:text-[var(--ed-accent)]"
+                }`}
               >
                 {item.name}
               </Link>
@@ -69,9 +71,7 @@ export default function Navbar() {
             <button onClick={() => dispatch(toggleTheme())} aria-label="Toggle theme" className="cursor-pointer text-[var(--ed-text-secondary)] transition-colors hover:text-[var(--ed-accent)]">
               {theme === "dark" ? <Moon size={15} /> : <Sun size={15} />}
             </button>
-            <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-secondary)] transition-colors hover:text-[var(--ed-text)]">
-              <SwitchTranslation />
-            </span>
+            <SwitchTranslation />
           </div>
 
           {/* Mobile toggle */}
@@ -96,7 +96,9 @@ export default function Navbar() {
                     key={item.link}
                     href={item.link}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`border-b border-[var(--ed-border)] py-3 text-[12px] uppercase tracking-[0.18em] last:border-b-0 ${pathname === item.link ? "text-[var(--ed-accent)]" : "text-[var(--ed-text-secondary)]"}`}
+                    className={`border-b border-[var(--ed-border)] py-3 text-[12px] uppercase tracking-[0.18em] transition-colors last:border-b-0 ${
+                      pathname === item.link ? "text-[var(--ed-accent)]" : "text-[var(--ed-text-secondary)] hover:text-[var(--ed-accent)]"
+                    }`}
                   >
                     {item.name}
                   </Link>
