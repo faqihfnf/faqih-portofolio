@@ -19,7 +19,7 @@ export default function CallToAction() {
           {t("cta.description-5")} {t("cta.description-6")}.
         </p>
 
-        <Link href="/contact" className="ed-link ed-serif mt-10 inline-block text-2xl italic md:text-3xl">
+        <Link href="/contact" className="ed-link mt-10 inline-block text-2xl  md:text-3xl">
           <EditorialButton variant="primary">{t("cta.button")}</EditorialButton>
         </Link>
       </div>

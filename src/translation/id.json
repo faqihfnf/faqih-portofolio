@@ -80,7 +80,9 @@
   "testimonials": {
     "title": "Apa Kata ",
     "title-1": "Mereka?",
-    "description": "Testimoni dari mereka yang pernah bekerja sama dengan saya."
+    "description": "Testimoni dari mereka yang pernah bekerja sama dengan saya.",
+    "cta-text": "Kenal saya atau pernah bekerja sama dengan saya? Tulisan Anda sangat berarti — silakan berbagi pengalaman Anda di sini.",
+    "cta-button": "Tulis Testimoni"
   },
   "cta": {
     "title": "Siap untuk ",

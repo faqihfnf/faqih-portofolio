@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "react-i18next";
 import SectionHeader from "@/components/editorial/SectionHeader";
+import { EditorialButton } from "@/components/editorial/EditorialButton";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 interface Testimonial {
@@ -123,6 +125,18 @@ export default function Testimonials() {
             </div>
           </AnimateOnScroll>
         )}
+
+        {/* Undangan menulis testimoni */}
+        <AnimateOnScroll animation="fade-up" delay={250}>
+          <div className="mx-auto mt-14 max-w-xl border-t border-[var(--ed-border)] pt-10 text-center">
+            <p className="leading-relaxed text-[var(--ed-text-secondary)]">{t("testimonials.cta-text")}</p>
+            <div className="mt-6">
+              <Link href="/testimonials/create">
+                <EditorialButton variant="primary">{t("testimonials.cta-button")}</EditorialButton>
+              </Link>
+            </div>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

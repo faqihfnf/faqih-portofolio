@@ -1,50 +1,69 @@
 "use client";
-import { Hourglass, Wrench, Rocket, Home } from "lucide-react";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { EditorialButton } from "@/components/editorial/EditorialButton";
+import { fraunces, inter } from "@/components/editorial/fonts";
+import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 export default function CoursePage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center py-32">
-      {/* Animated Icon */}
-      <motion.div initial={{ rotate: 0 }} animate={{ rotate: [0, 15, -15, 0] }} transition={{ repeat: Infinity, duration: 3 }}>
-        <Hourglass className="w-16 h-16 text-indigo-500 animate-bounce mb-4" />
-      </motion.div>
+    <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
+      <EditorialTheme />
+      <div className="mx-auto w-full max-w-[920px] px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
+        <div className="flex flex-col items-center py-16 text-center md:py-24">
+          {/* Label */}
+          <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--ed-text-muted)]">Course</p>
 
-      {/* Title */}
-      <h1 className="sm:text-4xl text-5xl sm:leading-tight font-macondo font-bold mb-2">Feature is Coming Soon</h1>
-      <p className="text-lg text-muted-foreground mt-5">
-        We&apos;re currently crafting this feature and excited to make it better.
-        <br />
-        Stay tuned while we put the final touches on it!
-      </p>
+          {/* Title */}
+          <motion.h1
+            className="ed-serif mt-4 text-3xl leading-tight tracking-tight md:text-[2.5rem] md:leading-[1.2]"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Segera Hadir
+          </motion.h1>
 
-      {/* Progress style info */}
-      <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-        <Wrench className="w-4 h-4 text-indigo-500" />
-        <span>In development</span>
-      </div>
-      <div className="w-48 h-2 bg-slate-200 dark:bg-slate-700 rounded-full mt-2 overflow-hidden">
-        <motion.div
-          className="h-2 bg-gradient-to-tr from-sky-500 via-blue-500 to-indigo-500 hover:bg-gradient-to-bl transition-all duration-200"
-          initial={{ width: "20%" }}
-          animate={{ width: ["20%", "60%", "40%", "80%"] }}
-          transition={{ repeat: Infinity, duration: 6 }}
-        />
-      </div>
+          <motion.p
+            className="mt-4 max-w-md leading-relaxed text-[var(--ed-text-secondary)]"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            Kami sedang menyiapkan halaman ini. Nantikan pembaruan menarik yang sedang dalam pengerjaan!
+          </motion.p>
 
-      {/* Button */}
-      <Link href="/tools">
-        <Button className="mt-10 text-md transition-all bg-indigo-600 hover:bg-indigo-700 cursor-pointer text-white">
-          <Home className="w-4 h-4" /> Back to Home
-        </Button>
-      </Link>
+          {/* Progress — garis tipis bronze, tanpa gradient */}
+          <motion.div
+            className="mt-8 w-48"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <div className="h-px w-full overflow-hidden bg-[var(--ed-border)]">
+              <motion.div
+                className="h-px bg-[var(--ed-accent)]"
+                initial={{ width: "15%" }}
+                animate={{ width: ["15%", "70%", "45%", "85%"] }}
+                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              />
+            </div>
+            <p className="mt-3 text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)]">In development</p>
+          </motion.div>
 
-      {/* Optional footer note */}
-      <div className="mt-8 flex items-center gap-2 text-xs text-muted-foreground">
-        <Rocket className="w-3 h-3 text-indigo-500" />
-        <span>Exciting updates are on the way!</span>
+          {/* Button */}
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+          >
+            <Link href="/">
+              <EditorialButton variant="secondary">Back to Home</EditorialButton>
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

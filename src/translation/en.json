@@ -42,7 +42,7 @@
   },
   "stack": {
     "title": "What",
-    "title-1": "I Use?",
+    "title-1": " I Use?",
     "description": "Here are the tech stack and tools I use to build effective digital solutions."
   },
   "about": {
@@ -78,13 +78,15 @@
     "description": "Here is a summary of my contributions on GitHub over the past year."
   },
   "testimonials": {
-    "title": "What People ",
-    "title-1": "Say?",
-    "description": "Testimonials from people I've had the pleasure of working with."
+    "title": "What Do ",
+    "title-1": "They Say?",
+    "description": "Testimonials from those who have worked with me.",
+    "cta-text": "Know me or have we worked together? Your words would mean a lot — feel free to share your experience here.",
+    "cta-button": "Write a Testimonial"
   },
   "cta": {
     "title": "Ready to work",
-    "title-1": "together?",
+    "title-1": " together?",
     "description-1": "Let's reach out me to discuss your",
     "description-2": "project",
     "description-3": "needs. I'm always open to new",
