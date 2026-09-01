@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import SectionHeader from "@/components/editorial/SectionHeader";
 import PullQuote from "@/components/editorial/PullQuote";
 import StatRow from "@/components/editorial/StatRow";
+import { EditorialButton } from "@/components/editorial/EditorialButton";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export default function AboutMe() {
@@ -24,18 +25,22 @@ export default function AboutMe() {
           }
         />
 
-        {/* Photo + body text */}
+        {/* Photo + body text — tinggi sejajar dengan teks */}
         <AnimateOnScroll animation="fade-up">
-          <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[260px_1fr] md:gap-14">
-            <div className="w-full max-w-[280px] overflow-hidden rounded-[2px] border border-[var(--ed-border)]">
-              <Image src="/photo.png" alt="Faqih Nur Fahmi" width={400} height={400} className="h-auto w-full object-cover" priority />
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr] md:gap-14">
+            <div className="flex flex-col">
+              <div className="relative w-full max-w-[280px] flex-1 overflow-hidden rounded-lg md:max-w-none">
+                <Image src="/photo.png" alt="Faqih Nur Fahmi" width={400} height={400} className="h-full w-full object-cover" priority />
+              </div>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col">
               <p className="leading-relaxed text-[var(--ed-text-secondary)]">{t("about.content")}</p>
-              <a href="https://www.faqih.me/blog/profil-faqih-nur-fahmi" target="_blank" rel="noopener noreferrer" className="ed-link self-start text-xs uppercase tracking-[0.18em]">
-                {t("about.read-more")}
-              </a>
+              <div className="mt-6 flex flex-1 items-end">
+                <a href="https://www.faqih.me/blog/profil-faqih-nur-fahmi" target="_blank" rel="noopener noreferrer">
+                  <EditorialButton variant="primary">{t("about.read-more")}</EditorialButton>
+                </a>
+              </div>
             </div>
           </div>
         </AnimateOnScroll>

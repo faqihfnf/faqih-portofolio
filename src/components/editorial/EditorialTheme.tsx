@@ -4,13 +4,37 @@ const css = `
   --ed-bg-elevated: #ECEBE5;
   --ed-text: #1B1C1E;
   --ed-text-secondary: #4A4A46;
-  --ed-text-muted: #6E6C60;      /* was #8B897F — 3.16:1 → 4.75:1 */
+  --ed-text-muted: #8B897F;
   --ed-border: #D8D6CE;
   --ed-accent: #8A6F3F;
-  --ed-accent-text: #7F6839;
   background-color: var(--ed-bg);
   color: var(--ed-text);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Elemen yang tidak boleh rata kanan-kiri */
+.editorial h1,
+.editorial h2,
+.editorial h3,
+.editorial h4,
+.editorial blockquote,
+.editorial figcaption,
+.editorial button,
+.editorial nav,
+.editorial dl,
+.editorial dt,
+.editorial dd,
+.editorial p:has(button),
+.editorial [data-no-justify],
+.editorial [data-no-justify] * {
+  text-align: left;
+}
+
+.editorial .text-center,
+.editorial .text-center * {
+  text-align: center;
 }
 
 .dark .editorial {

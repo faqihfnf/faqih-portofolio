@@ -28,7 +28,7 @@ export default function HeroSection() {
         {/* Mobile: nama + tagline + deskripsi tampil pertama */}
         <AnimateOnScroll animation="fade-up" className="order-1 flex flex-col lg:order-2">
           {/* Nama — kecil, di atas tagline */}
-          <p className="text-[12px] uppercase tracking-[0.22em] text-[var(--ed-text-muted)] sm:text-[16px]">
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[var(--ed-text-muted)] sm:text-[16px]">
             Faqih Nur Fahmi / 2026 /{" "}
             <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="text-[var(--ed-accent)] transition-colors hover:text-[var(--ed-accent)] hover:underline">
               Download CV
