@@ -5,8 +5,9 @@ import { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Faqih Nur Fahmi - Blog",
-  description: "Catatan pribadi tentang perjalanan belajar dan pengalaman saya. Mendokumentasikan proses bertumbuh melalui artikel, pemikiran, ide, dan tutorial seputar HR dan Web Development.",
+  title: "HR, Organizational Development, and Technology Blog",
+  description: "Articles and reflections by Faqih Nur Fahmi on HR management, organizational development, digital transformation, software development, and practical workplace solutions.",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function BlogList() {

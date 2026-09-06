@@ -35,7 +35,7 @@ export default function AboutMe() {
             <div className="flex flex-col">
               <p className="leading-relaxed text-[var(--ed-text-secondary)]">{t("about.content")}</p>
               <div className="mt-6 flex flex-1 items-end">
-                <a href="https://www.faqih.me/blog/profil-faqih-nur-fahmi" target="_blank" rel="noopener noreferrer">
+                  <a href="https://faqih.id/blog/profil-faqih-nur-fahmi" target="_blank" rel="noopener noreferrer">
                   <EditorialButton variant="primary">{t("about.read-more")}</EditorialButton>
                 </a>
               </div>

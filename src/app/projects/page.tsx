@@ -5,8 +5,9 @@ import { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Faqih Nur Fahmi - Projects",
-  description: "Kumpulan project yang telah saya kerjakan.",
+  title: "HR Technology and Digital Projects",
+  description: "Explore digital products, internal tools, and practical technology solutions built to solve organizational and business challenges.",
+  alternates: { canonical: "/projects" },
 };
 
 export default async function ProjectsPage() {
