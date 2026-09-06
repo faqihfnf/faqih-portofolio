@@ -1,11 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import CountUp from "react-countup";
 import { useTranslation } from "react-i18next";
 import SectionHeader from "@/components/editorial/SectionHeader";
 import PullQuote from "@/components/editorial/PullQuote";
-import StatRow from "@/components/editorial/StatRow";
 import { EditorialButton } from "@/components/editorial/EditorialButton";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
@@ -16,21 +14,21 @@ export default function AboutMe() {
     <section className="border-b border-[var(--ed-border)]">
       <div className="mx-auto w-full max-w-5xl px-6 py-14 md:px-10 md:py-24">
         <SectionHeader
-          tag="Profile"
+          tag={t("about.tag")}
           title={
             <>
-              {t("about.title")}
-              <em className="ed-accent-em">{t("about.title-1")}</em>
+              {t("about.title")} <em className="ed-accent-em">{t("about.title-emphasis")}</em>
             </>
           }
+          description={t("about.description")}
         />
 
         {/* Photo + body text — tinggi sejajar dengan teks */}
         <AnimateOnScroll animation="fade-up">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr] md:gap-14">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-[230px_1fr] md:gap-14">
             <div className="flex flex-col">
               <div className="relative w-full max-w-[280px] flex-1 overflow-hidden rounded-lg md:max-w-none">
-                <Image src="/photo.png" alt="Faqih Nur Fahmi" width={400} height={400} className="h-full w-full object-cover" priority />
+                <Image src="/photo.png" alt="Faqih Nur Fahmi, HR Manager and Full Stack Developer" width={400} height={400} className="h-full w-full object-cover" />
               </div>
             </div>
 
@@ -47,25 +45,11 @@ export default function AboutMe() {
 
         {/* Motto */}
         <AnimateOnScroll animation="fade-up" delay={150}>
-          <div className="mt-16 max-w-2xl md:mt-20">
-            <PullQuote cite="My Work Philosophy">
-              {t("about.quote-1")} <em className="ed-accent-em">{t("about.quote-2")}</em>, {t("about.quote-3")} <em className="ed-accent-em">{t("about.quote-4")}</em>, {t("about.quote-5")}{" "}
-              <em className="ed-accent-em">{t("about.quote-6")}</em>.
+          <div className="mt-16 max-w-5xl md:mt-20">
+            <PullQuote cite={t("about.quote-cite")}>
+              {t("about.quote-1")} <em className="ed-accent-em">{t("about.quote-people")}</em>, {t("about.quote-2")} <em className="ed-accent-em">{t("about.quote-process")}</em> {t("about.quote-3")}{" "}
+              <em className="ed-accent-em">{t("about.quote-system")}</em>.
             </PullQuote>
-          </div>
-        </AnimateOnScroll>
-
-        {/* Stats */}
-        <AnimateOnScroll animation="fade-up" delay={250}>
-          <div className="mt-16 md:mt-20">
-            <StatRow
-              stats={[
-                { value: <CountUp end={9} duration={2.5} separator="" enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("about.stats-1-a") + " " + t("about.stats-1-b") },
-                { value: <CountUp end={10} duration={2.5} separator="" enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("about.stats-2-a") + " " + t("about.stats-2-b") },
-                { value: <CountUp end={15} duration={2.5} separator="" enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("about.stats-3-a") + " " + t("about.stats-3-b") },
-                { value: <CountUp end={1000} duration={2.5} separator="." enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("about.stats-4-a") + " " + t("about.stats-4-b") },
-              ]}
-            />
           </div>
         </AnimateOnScroll>
 
@@ -74,8 +58,8 @@ export default function AboutMe() {
           <div className="mt-16 border-t border-[var(--ed-border)] md:mt-20">
             {[1, 2, 3].map((id) => (
               <div key={id} className="grid grid-cols-1 gap-1 border-b border-[var(--ed-border)] py-6 md:grid-cols-[220px_1fr] md:gap-10">
-                <h3 className="text-sm font-medium">{t(`about.add-title-${id}`)}</h3>
-                <p className="text-sm leading-relaxed text-[var(--ed-text-secondary)]">{t(`about.add-desc-${id}`)}</p>
+                <h3 className="text-sm font-medium">{t(`about.principles.${id}.title`)}</h3>
+                <p className="text-sm leading-relaxed text-[var(--ed-text-secondary)]">{t(`about.principles.${id}.description`)}</p>
               </div>
             ))}
           </div>

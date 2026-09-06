@@ -11,17 +11,18 @@ export default function CallToAction() {
     <section>
       <div className="mx-auto w-full max-w-5xl px-6 py-20 text-center md:px-10 md:py-28">
         <h2 className="ed-serif mx-auto max-w-2xl text-3xl leading-tight tracking-tight md:text-[2.75rem] md:leading-[1.15]">
-          {t("cta.title")} <em className="ed-accent-em">{t("cta.title-1")}</em>
+          {t("cta.title")} <em className="ed-accent-em">{t("cta.title-emphasis")}</em>
         </h2>
 
         <p className="mx-auto mt-6 max-w-xl leading-relaxed text-[var(--ed-text-secondary)]">
-          {t("cta.description-1")} {t("cta.description-2")} {t("cta.description-3")} {t("cta.description-4")}
-          {t("cta.description-5")} {t("cta.description-6")}.
+          {t("cta.description")}
         </p>
 
-        <Link href="/contact" className="ed-link mt-10 inline-block text-2xl  md:text-3xl">
-          <EditorialButton variant="primary">{t("cta.button")}</EditorialButton>
-        </Link>
+        <div className="mt-10">
+          <EditorialButton asChild variant="primary">
+            <Link href="/contact">{t("cta.button")}</Link>
+          </EditorialButton>
+        </div>
       </div>
     </section>
   );

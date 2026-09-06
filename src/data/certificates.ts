@@ -9,8 +9,16 @@ export interface CertificateItem {
 
 export const certificates: CertificateItem[] = [
   {
+    id: 0,
+    title: "Manager Sumber Daya Manusia",
+    organization: "BNSP",
+    date: "Jul 2026",
+    image: "/certificates/bnsp-spv-hr.png",
+    link: "/certificates/bnsp-mgr-hr.pdf",
+  },
+  {
     id: 1,
-    title: "Supervisor Human Resource",
+    title: "Supervisor Sumber Daya Manusia",
     organization: "BNSP",
     date: "Feb 2026",
     image: "/certificates/bnsp-spv-hr.png",

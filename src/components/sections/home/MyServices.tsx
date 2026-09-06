@@ -9,8 +9,8 @@ export default function MyServices() {
   const { t } = useTranslation();
 
   const items = [1, 2, 3, 4].map((id) => ({
-    title: t(`services.cards.${id}.title`),
-    desc: t(`services.cards.${id}.desc`),
+    title: t(`expertise.items.${id}.title`),
+    desc: t(`expertise.items.${id}.desc`),
   }));
 
   return (
@@ -18,13 +18,13 @@ export default function MyServices() {
       <div className="mx-auto w-full max-w-5xl px-6 py-14 md:px-10 md:py-24">
         <AnimateOnScroll animation="fade-up">
           <SectionHeader
-            tag="Services"
+            tag={t("expertise.tag")}
             title={
               <>
-                {t("services.title")}
-                <em className="ed-accent-em">{t("services.title-1")}</em>
+                {t("expertise.title")} <em className="ed-accent-em">{t("expertise.title-emphasis")}</em>
               </>
             }
+            description={t("expertise.description")}
           />
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-up" delay={150}>

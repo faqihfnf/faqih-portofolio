@@ -1,6 +1,5 @@
 "use client";
 
-import TypeIt from "typeit-react";
 import CountUp from "react-countup";
 import { useTranslation } from "react-i18next";
 import RoleTag from "@/components/editorial/RoleTag";
@@ -17,9 +16,10 @@ export default function HeroSection() {
   ];
 
   const stats = [
-    { value: <CountUp end={9} duration={2.5} separator="" enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("about.stats-1-a") + " " + t("about.stats-1-b") },
-    { value: <CountUp end={15} duration={2.5} separator="" enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("about.stats-3-a") + " " + t("about.stats-3-b") },
-    { value: <CountUp end={1000} duration={2.5} separator="." enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("about.stats-4-a") + " " + t("about.stats-4-b") },
+    { value: <CountUp end={9} duration={2.5} separator="" enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("hero.stats.years") },
+    { value: <CountUp end={15} duration={2.5} separator="" enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("hero.stats.projects") },
+    { value: <CountUp end={10} duration={2.5} separator="" enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("hero.stats.technologies") },
+    { value: <CountUp end={1000} duration={2.5} separator="." enableScrollSpy scrollSpyOnce useEasing={false} suffix="+" />, label: t("hero.stats.commits") },
   ];
 
   return (
@@ -27,17 +27,17 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-12 px-6 pb-16 pt-28 md:px-10 md:pb-24 md:pt-40 lg:grid-cols-[220px_1fr] lg:gap-16">
         {/* Mobile: nama + tagline + deskripsi tampil pertama */}
         <AnimateOnScroll animation="fade-up" className="order-1 flex flex-col lg:order-2">
-          {/* Nama — kecil, di atas tagline */}
+          {/* Eyebrow — identitas halaman */}
           <p className="text-[10px] uppercase tracking-[0.22em] text-[var(--ed-text-muted)] sm:text-[16px]">
-            Faqih Nur Fahmi / 2026 /{" "}
+            {t("hero.eyebrow")}{" "}
             <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="text-[var(--ed-accent)] transition-colors hover:text-[var(--ed-accent)] hover:underline">
-              Download CV
+              {t("hero.cv")}
             </a>
           </p>
 
-          {/* Tagline — headline dominan */}
+          {/* Headline — HR is the primary professional identity */}
           <h1 className="ed-serif mt-4 text-[2.6rem] leading-[1.1] tracking-tight sm:text-6xl lg:text-[5.5rem]">
-            {t("hero.tagline-1")} <em className="ed-accent-em">{t("hero.tagline-2")}</em> {t("hero.tagline-3")} <em className="ed-accent-em">{t("hero.tagline-4")}</em>.
+            {t("hero.title-first" )} <em className="ed-accent-em">{t("hero.title-first-emphasis")}</em>{" "}{t("hero.title-connector")} <em className="ed-accent-em">{t("hero.title-second-emphasis")}</em>{t("hero.title-ending")}
           </h1>
 
           {/* Deskripsi — di bawah tagline */}
@@ -47,11 +47,11 @@ export default function HeroSection() {
         {/* Mobile: role tag + stats + sosial tampil setelahnya */}
         <AnimateOnScroll animation="slide-right" className="order-2 flex flex-col gap-8 lg:order-1">
           <RoleTag>
-            Certified HR Manager
+            {t("hero.role")}
             <br />
-            Full Stack Developer
+            {t("hero.role-secondary")}
           </RoleTag>
-          <StatRow vertical stats={stats} />
+          <StatRow stats={stats} vertical />
           <div className="flex gap-5">
             {socialLinks.map(({ href, label }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="ed-link text-xs uppercase tracking-[0.18em]">

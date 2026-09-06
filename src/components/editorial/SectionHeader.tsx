@@ -1,15 +1,7 @@
 import { ReactNode } from "react";
 import RoleTag from "./RoleTag";
 
-export default function SectionHeader({
-  tag,
-  title,
-  description,
-}: {
-  tag: string;
-  title: ReactNode;
-  description?: ReactNode;
-}) {
+export default function SectionHeader({ tag, title, description }: { tag: string; title: ReactNode; description?: ReactNode }) {
   return (
     <div className="mb-12 grid grid-cols-1 gap-6 md:mb-16 md:grid-cols-[180px_1fr] md:gap-12">
       <div className="pt-2">

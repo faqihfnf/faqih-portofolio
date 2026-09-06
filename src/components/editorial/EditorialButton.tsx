@@ -9,16 +9,14 @@ import { cn } from "@/lib/utils";
  * Dipakai untuk CTA (Resume, Projects, dll.) di seluruh situs.
  */
 const editorialButtonVariants = cva(
-  "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full border px-8 py-3 text-xs uppercase tracking-[0.18em] transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[var(--ed-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ed-bg)] disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md border px-8 py-3 text-xs uppercase tracking-[0.18em] transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[var(--ed-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ed-bg)] disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         /** Aksen bronze — untuk CTA utama */
-        primary:
-          "border-[var(--ed-accent)] text-[var(--ed-text)] hover:bg-[var(--ed-accent)] hover:text-[var(--ed-bg)]",
+        primary: "border-[var(--ed-accent)] text-[var(--ed-text)] hover:bg-[var(--ed-accent)] hover:text-[var(--ed-bg)]",
         /** Netral — untuk CTA sekunder */
-        secondary:
-          "border-[var(--ed-border)] text-[var(--ed-text)] hover:border-[var(--ed-accent)] hover:text-[var(--ed-accent)]",
+        secondary: "border-[var(--ed-border)] text-[var(--ed-text)] hover:border-[var(--ed-accent)] hover:text-[var(--ed-accent)]",
       },
     },
     defaultVariants: {
@@ -27,26 +25,13 @@ const editorialButtonVariants = cva(
   },
 );
 
-interface EditorialButtonProps
-  extends React.ComponentProps<"button">,
-    VariantProps<typeof editorialButtonVariants> {
+interface EditorialButtonProps extends React.ComponentProps<"button">, VariantProps<typeof editorialButtonVariants> {
   asChild?: boolean;
 }
 
-function EditorialButton({
-  className,
-  variant,
-  asChild = false,
-  ...props
-}: EditorialButtonProps) {
+function EditorialButton({ className, variant, asChild = false, ...props }: EditorialButtonProps) {
   const Comp = asChild ? Slot : "button";
-  return (
-    <Comp
-      data-slot="editorial-button"
-      className={cn(editorialButtonVariants({ variant, className }))}
-      {...props}
-    />
-  );
+  return <Comp data-slot="editorial-button" className={cn(editorialButtonVariants({ variant, className }))} {...props} />;
 }
 
 export { EditorialButton, editorialButtonVariants };

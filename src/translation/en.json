@@ -1,5 +1,4 @@
 {
-  "test": "test bahasa inggris",
   "select-lang": "Choose Language",
   "navbar": {
     "nav-item-1": "Home",
@@ -9,68 +8,81 @@
     "nav-item-5": "Contact"
   },
   "hero": {
-    "title": "Hello, I'm Faqih",
-    "name": "I'm a Full Stack Developer",
-    "tagline-1": "Bridging",
-    "tagline-2": "people",
-    "tagline-3": "and",
-    "tagline-4": "systems",
-    "description": "Blending 9 years of experience as an HR with Full Stack Development expertise. I help businesses digitally transform with innovative application solutions."
+    "eyebrow": "Faqih Nur Fahmi / 2026 /",
+    "cv": "Download CV",
+    "role": "Certified HR Manager",
+    "role-secondary": "Full Stack Developer",
+    "title-first": "Connecting",
+    "title-first-emphasis": "people",
+    "title-connector": "and",
+    "title-second-emphasis": "systems",
+    "title-ending": ".",
+    "description": "I’m an HR Manager with 9+ years of experience helping organizations improve their people, processes, and workplace systems. As a BNSP Certified HR Manager with full-stack development skills, I connect organizational needs with practical digital solutions.",
+    "stats": {
+      "years": "Years in HR",
+      "projects": "Digital Projects",
+      "technologies": "Technologies Used",
+      "commits": "GitHub Commits"
+    }
   },
-  "services": {
-    "title": "What ",
-    "title-1": "I Do?",
-    "description": "Here are some of the services that I offer to help you achieve your goals.",
-    "cards": {
+  "expertise": {
+    "tag": "Expertise",
+    "title": "Where I",
+    "title-emphasis": "Contribute?",
+    "description": "I work across people, organizational processes, and technology to help teams operate more effectively.",
+    "items": {
       "1": {
-        "title": "Full Stack Development",
-        "desc": "Building modern web applications end-to-end with React, Next.js, Node.js, and more — from pixel-perfect UI to scalable backend infrastructure."
+        "title": "People & HR Management",
+        "desc": "Leading people-related practices and HR initiatives that support organizational performance, employee experience, and sustainable growth."
       },
       "2": {
-        "title": "HR Digital Transformation",
-        "desc": "9 years of HR experience turned into digital solutions — HRIS, payroll systems, employee portals, and recruitment tools that actually match how HR teams work."
+        "title": "Organizational Development",
+        "desc": "Improving structures, processes, and ways of working to help organizations become more aligned, effective, and adaptable."
       },
       "3": {
-        "title": "Business Process Automation",
-        "desc": "Translating complex business workflows into efficient web applications — reducing manual work, minimizing errors, and increasing operational speed."
+        "title": "Digital Transformation",
+        "desc": "Connecting organizational needs with practical digital solutions that simplify workflows, improve visibility, and support better decisions."
       },
       "4": {
-        "title": "Collaboration & Consulting",
-        "desc": "Bridging the gap between business needs and technical solutions — I understand both the human side and the code side, so nothing gets lost in translation."
+        "title": "Full Stack Development",
+        "desc": "Building practical web applications and internal tools that translate real organizational needs into usable digital systems."
       }
     }
   },
   "stack": {
-    "title": "What",
-    "title-1": " I Use?",
-    "description": "Here are the tech stack and tools I use to build effective digital solutions."
+    "tag": "Tools",
+    "title": "What Tools do I",
+    "title-emphasis": "Use?",
+    "description": "I use technology as a practical tool to improve workflows, organize information, and turn organizational needs into usable solutions."
   },
   "about": {
-    "title": "Who ",
-    "title-1": "I Am?",
-    "description": "This is a brief introduction about myself and my background.",
-    "content": "Bridging HR management and technology. With 9 years of experience as an HR practitioner and expertise in Full-Stack Development, I build digital solutions that truly understand how a business works. From modern web applications to complex internal systems, my focus isn't just on writing lines of code, but on developing effective solutions to solve operational problems for companies through the right technology.",
-    "stats-1-a": "Years of",
-    "stats-1-b": "Experience",
-    "stats-2-a": "Technologies",
-    "stats-2-b": "Mastered",
-    "stats-3-a": "Projects",
-    "stats-3-b": "Completed",
-    "stats-4-a": "GitHub",
-    "stats-4-b": "Commits",
-    "quote-1": "Create with",
-    "quote-2": "Passion",
-    "quote-3": "focus on",
-    "quote-4": "Innovation",
-    "quote-5": "commit to",
-    "quote-6": "Precision",
-    "read-more": "Read more",
-    "add-title-1": "Driven by Passion",
-    "add-desc-1": "Turning complex ideas into functional digital experiences with deep enthusiasm and empathy.",
-    "add-title-2": "Continuous Innovation",
-    "add-desc-2": "Continuously mastering modern tech stacks to deliver fast, scalable, and future-proof solutions.",
-    "add-title-3": "Committed to Precision",
-    "add-desc-3": "Ensuring every feature operates accurately and directly solves your real business challenges."
+    "tag": "Profile",
+    "title": "People, Process, and",
+    "title-emphasis": "System",
+    "description": "A closer look at my professional experience and perspective.",
+    "content": "As an HR Manager with more than nine years of experience, I work across people management, organizational development, and workplace systems. I am involved in shaping policies, improving ways of working, supporting employee growth, and aligning people practices with organizational goals. My full-stack development skills help me connect organizational challenges with practical and usable technology solutions.",
+    "read-more": "Read my full profile",
+    "quote-1": "Understand the",
+    "quote-people": "People",
+    "quote-2": "Improve the",
+    "quote-process": "Process",
+    "quote-3": "and Build the",
+    "quote-system": "System",
+    "quote-cite": "My Work Philosophy",
+    "principles": {
+      "1": {
+        "title": "People-centered",
+        "description": "Understanding people, context, and organizational needs before designing solutions."
+      },
+      "2": {
+        "title": "Practical by design",
+        "description": "Turning complex processes into clear, usable, and sustainable ways of working."
+      },
+      "3": {
+        "title": "Built for impact",
+        "description": "Focusing on improvements that create measurable value for teams and organizations."
+      }
+    }
   },
   "github": {
     "title": "How ",
@@ -78,22 +90,21 @@
     "description": "Here is a summary of my contributions on GitHub over the past year."
   },
   "testimonials": {
-    "title": "What Do ",
+    "tag": "Testimonials",
+    "title": "What Do",
     "title-1": "They Say?",
     "description": "Testimonials from those who have worked with me.",
     "cta-text": "Know me or have we worked together? Your words would mean a lot — feel free to share your experience here.",
-    "cta-button": "Write a Testimonial"
+    "cta-button": "Write a Testimonial",
+    "previous": "Prev",
+    "next": "Next",
+    "go-to": "Go to testimonial {{number}}"
   },
   "cta": {
-    "title": "Ready to work",
-    "title-1": " together?",
-    "description-1": "Let's reach out me to discuss your",
-    "description-2": "project",
-    "description-3": "needs. I'm always open to new",
-    "description-4": "opportunities ",
-    "description-5": "and",
-    "description-6": "collaborations",
-    "button": "Get in Touch"
+    "title": "Tell me about your",
+    "title-emphasis": "challenge",
+    "description": "Whether you are building a stronger people function, improving organizational processes, or exploring practical technology solutions, I would be glad to connect.",
+    "button": "Get in touch"
   },
 
   "experience": {

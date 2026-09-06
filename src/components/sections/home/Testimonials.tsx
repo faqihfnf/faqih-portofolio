@@ -78,9 +78,9 @@ export default function Testimonials() {
                 <AnimatePresence mode="wait">
                   <motion.div key={current} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35 }}>
                     <p className="ed-serif min-h-[10rem] text-xl italic leading-relaxed tracking-tight md:text-[1.35rem]">
-                      <span className="text-[var(--ed-accent)]">&ldquo;</span>
+                      {/* <span className="text-[var(--ed-accent)]">&ldquo;</span> */}
                       {data[current].testimonial}
-                      <span className="text-[var(--ed-accent)]">&rdquo;</span>
+                      {/* <span className="text-[var(--ed-accent)]">&rdquo;</span> */}
                     </p>
 
                     <div className="mt-7 border-t border-[var(--ed-border)] pt-5">

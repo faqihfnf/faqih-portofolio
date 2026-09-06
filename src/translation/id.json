@@ -1,5 +1,4 @@
 {
-  "test": "test bahasa inggris",
   "select-lang": "Pilih Bahasa",
   "navbar": {
     "nav-item-1": "Beranda",
@@ -9,68 +8,81 @@
     "nav-item-5": "Kontak"
   },
   "hero": {
-    "title": "Halo, saya Faqih",
-    "name": "Saya adalah Full Stack Developer",
-    "tagline-1": "Menjembatani",
-    "tagline-2": "manusia",
-    "tagline-3": "dan",
-    "tagline-4": "sistem",
-    "description": "Memadukan 9 tahun pengalaman sebagai HR dengan keahlian Full Stack Development. Saya membantu bisnis bertransformasi digital dengan solusi aplikasi yang inovatif."
+    "eyebrow": "Faqih Nur Fahmi / 2026 /",
+    "cv": "Unduh CV",
+    "role": "Certified HR Manager",
+    "role-secondary": "Full Stack Developer",
+    "title-first": "Menghubungkan",
+    "title-first-emphasis": "manusia",
+    "title-connector": "dan",
+    "title-second-emphasis": "sistem",
+    "title-ending": ".",
+    "description": "Saya adalah HR Manager dengan pengalaman lebih dari 9 tahun dalam membantu organisasi mengembangkan SDM, proses kerja, dan sistem di tempat kerja. Sebagai HR Manager bersertifikasi BNSP dengan kemampuan full-stack development, saya menghubungkan kebutuhan organisasi dengan solusi digital yang praktis.",
+    "stats": {
+      "years": "Tahun di HR",
+      "projects": "Proyek Digital",
+      "technologies": "Teknologi yang Digunakan",
+      "commits": "GitHub Commits"
+    }
   },
-  "services": {
-    "title": "Apa yang ",
-    "title-1": "Saya Lakukan?",
-    "description": "Berikut beberapa layanan yang saya tawarkan untuk membantu Anda mencapai tujuan Anda.",
-    "cards": {
+  "expertise": {
+    "tag": "Keahlian",
+    "title": "Dimana Saya",
+    "title-emphasis": "Berkontribusi?",
+    "description": "Saya bekerja di antara manusia, proses organisasi, dan teknologi untuk membantu tim bekerja lebih efektif.",
+    "items": {
       "1": {
-        "title": "Pengembangan Full Stack",
-        "desc": "Membangun aplikasi web modern secara menyeluruh dengan React, Next.js, Node.js, dan lainnya — dari UI yang presisi hingga infrastruktur backend yang skalabel."
+        "title": "Manajemen SDM & HR",
+        "desc": "Memimpin praktik dan inisiatif HR yang mendukung kinerja organisasi, pengalaman karyawan, dan pertumbuhan yang berkelanjutan."
       },
       "2": {
-        "title": "Transformasi Digital HR",
-        "desc": "Mengubah 9 tahun pengalaman HR menjadi solusi digital — HRIS, sistem penggajian, portal karyawan, dan sistem rekrutmen yang benar-benar sesuai dengan cara kerja tim HR."
+        "title": "Pengembangan Organisasi",
+        "desc": "Meningkatkan struktur, proses, dan cara kerja agar organisasi menjadi lebih selaras, efektif, dan adaptif."
       },
       "3": {
-        "title": "Otomatisasi Proses Bisnis",
-        "desc": "Menerjemahkan alur kerja bisnis yang kompleks menjadi aplikasi web yang efisien — mengurangi pekerjaan manual, meminimalkan kesalahan, dan meningkatkan kecepatan operasional."
+        "title": "Transformasi Digital",
+        "desc": "Menghubungkan kebutuhan organisasi dengan solusi digital praktis yang menyederhanakan alur kerja, meningkatkan visibilitas, dan mendukung pengambilan keputusan yang lebih baik."
       },
       "4": {
-        "title": "Kolaborasi & Konsultasi",
-        "desc": "Menjembatani kesenjangan antara kebutuhan bisnis dan solusi teknis — saya memahami sisi operasional dan sisi teknikal (kode), sehingga komunikasi berjalan lancar dan tepat sasaran."
+        "title": "Full Stack Development",
+        "desc": "Membangun aplikasi web dan sistem internal yang menerjemahkan kebutuhan organisasi nyata menjadi sistem digital yang dapat digunakan."
       }
     }
   },
   "stack": {
-    "title": "Apa yang ",
-    "title-1": "Saya Gunakan?",
-    "description": "Berikut tech stack dan tools yang saya gunakan untuk membangun solusi digital yang efektif."
+    "tag": "Alat",
+    "title": "Apa Alat yang saya",
+    "title-emphasis": "Gunakan?",
+    "description": "Saya menggunakan teknologi sebagai alat praktis untuk meningkatkan alur kerja, mengelola informasi, dan menerjemahkan kebutuhan organisasi menjadi solusi yang dapat digunakan."
   },
   "about": {
-    "title": "Siapa ",
-    "title-1": "Saya?",
-    "description": "Ini adalah pengenalan singkat tentang diri saya dan latar belakang saya.",
-    "content": "Menjembatani manajemen SDM dan teknologi. Dengan 9 tahun pengalaman sebagai praktisi HR dan keahlian di bidang Full-Stack Development, saya membangun solusi digital yang benar-benar mengerti cara kerja sebuah bisnis. Dari aplikasi web modern hingga sistem internal yang kompleks, fokus saya bukan semata menulis baris-baris kode, tetapi mengembangkan solusi yang efektif untuk menyelesaikan masalah operasional perusahaan melalui teknologi yang tepat.",
-    "stats-1-a": "Tahun",
-    "stats-1-b": "Pengalaman",
-    "stats-2-a": "Teknologi",
-    "stats-2-b": "Dikuasai",
-    "stats-3-a": "Proyek",
-    "stats-3-b": "Selesai",
-    "stats-4-a": "GitHub",
-    "stats-4-b": "Commits",
-    "quote-1": "Berkarya dengan",
-    "quote-2": "Dedikasi",
-    "quote-3": "berfokus pada",
-    "quote-4": "Inovasi",
-    "quote-5": "mengutamakan",
-    "quote-6": "Presisi",
-    "read-more": "Baca selengkapnya",
-    "add-title-1": "Berkarya Penuh Dedikasi",
-    "add-desc-1": "Mengubah ide kompleks menjadi solusi digital yang fungsional dengan antusiasme penuh.",
-    "add-title-2": "Inovasi Berkelanjutan",
-    "add-desc-2": "Terus menguasai teknologi modern untuk menghadirkan solusi digital yang cepat, skalabel, dan tangguh.",
-    "add-title-3": "Memastikan Presisi",
-    "add-desc-3": "Memastikan setiap fitur beroperasi secara akurat dan tepat dalam memecahkan masalah bisnis."
+    "tag": "Profil",
+    "title": "Manusia, Proses, dan",
+    "title-emphasis": "Sistem",
+    "description": "Gambaran lebih dekat tentang pengalaman dan perspektif profesional saya.",
+    "content": "Sebagai HR Manager dengan pengalaman lebih dari sembilan tahun, saya bekerja dalam bidang manajemen SDM, pengembangan organisasi, dan sistem kerja. Saya terlibat dalam penyusunan kebijakan, peningkatan cara kerja, pengembangan karyawan, serta penyelarasan praktik SDM dengan tujuan organisasi. Kemampuan full-stack development membantu saya menghubungkan tantangan organisasi dengan solusi teknologi yang praktis dan dapat digunakan.",
+    "read-more": "Baca profil lengkap saya",
+    "quote-1": "Memahami",
+    "quote-people": "Manusia",
+    "quote-2": "Memperbaiki",
+    "quote-process": "Proses",
+    "quote-3": "dan Membangun",
+    "quote-system": "Sistem",
+    "quote-cite": "Filosofi Kerja Saya",
+    "principles": {
+      "1": {
+        "title": "Berpusat pada manusia",
+        "description": "Memahami manusia, konteks, dan kebutuhan organisasi sebelum merancang solusi."
+      },
+      "2": {
+        "title": "Praktis dalam penerapan",
+        "description": "Mengubah proses yang kompleks menjadi cara kerja yang jelas, mudah digunakan, dan berkelanjutan."
+      },
+      "3": {
+        "title": "Berorientasi pada dampak",
+        "description": "Berfokus pada perbaikan yang menciptakan nilai nyata bagi tim dan organisasi."
+      }
+    }
   },
   "github": {
     "title": "Bagaimana ",
@@ -78,22 +90,21 @@
     "description": "Berikut adalah ringkasan kontribusi saya di GitHub selama setahun terakhir."
   },
   "testimonials": {
-    "title": "Apa Kata ",
+    "tag": "Testimoni",
+    "title": "Apa Kata",
     "title-1": "Mereka?",
     "description": "Testimoni dari mereka yang pernah bekerja sama dengan saya.",
     "cta-text": "Kenal saya atau pernah bekerja sama dengan saya? Tulisan Anda sangat berarti — silakan berbagi pengalaman Anda di sini.",
-    "cta-button": "Tulis Testimoni"
+    "cta-button": "Tulis Testimoni",
+    "previous": "Sebelumnya",
+    "next": "Berikutnya",
+    "go-to": "Buka testimoni {{number}}"
   },
   "cta": {
-    "title": "Siap untuk ",
-    "title-1": "bekerja sama?",
-    "description-1": "Hubungi saya untuk membahas kebutuhan",
-    "description-2": "project",
-    "description-3": "anda. Saya selalu terbuka untuk setiap",
-    "description-4": "kesempatan ",
-    "description-5": "dan",
-    "description-6": "kolaborasi",
-    "button": "Hubungi Saya"
+    "title": "Ceritakan",
+    "title-emphasis": "Tantangan Anda",
+    "description": "Baik Anda sedang membangun fungsi SDM yang lebih kuat, meningkatkan proses organisasi, maupun mengeksplorasi solusi teknologi yang praktis, saya terbuka untuk berdiskusi.",
+    "button": "Hubungi saya"
   },
   "experience": {
     "title": "Pengalaman Saya",

@@ -6,16 +6,12 @@ import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 const categories: { label: string; tools: string[] }[] = [
   {
-    label: "Frontend",
-    tools: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Sass", "Redux", "Shadcn/ui", "Vite", "Storybook", "HTML", "CSS", "JavaScript", "Bootstrap", "Bulma", "React Router", "Figma"],
+    label: "Data & Productivity",
+    tools: ["Excel", "Looker Studio", "Notion", "Google Apps Script", "Google Workspace"],
   },
   {
-    label: "Backend & Data",
-    tools: ["Node.js", "Express.js", "Bun", "PostgreSQL", "MySQL", "MongoDB", "Redis", "Supabase", "Firebase", "Appwrite", "Prisma", "Python", "Swagger", "Postman", "Git", "GitHub", "GitLab", "Docker", "npm"],
-  },
-  {
-    label: "HR & Productivity",
-    tools: ["Excel", "Looker Studio", "Notion", "Google Apps Script", "Canva"],
+    label: "Digital Development",
+    tools: ["Next.js", "React", "TypeScript", "Node.js", "Tailwind CSS", "Prisma", "PostgreSQL"],
   },
 ];
 
@@ -27,11 +23,12 @@ export default function TechStack() {
       <div className="mx-auto w-full max-w-5xl px-6 py-14 md:px-10 md:py-24">
         <AnimateOnScroll animation="fade-up">
           <SectionHeader
-            tag="Stack"
+            tag={t("stack.tag")}
             title={
               <>
                 {t("stack.title")}
-                <em className="ed-accent-em">{t("stack.title-1")}</em>
+                {" "}
+                <em className="ed-accent-em">{t("stack.title-emphasis")}</em>
               </>
             }
             description={t("stack.description")}
