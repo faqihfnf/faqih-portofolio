@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   // Gunakan description dari Notion, atau fallback
   const description = page.description || `Baca artikel ${page.title} oleh Faqih Nur Fahmi`;
-   const coverUrl = page.cover || "https://faqih.id/og-image.jpg";
+  const coverUrl = page.cover;
 
   return {
     title: `${page.title} | Faqih Nur Fahmi`,
@@ -37,16 +37,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: page.title,
       description,
       type: "article",
-       url: `https://faqih.id/blog/${slug}`,
-      images: [
-        {
-          url: coverUrl,
-          width: 1200,
-          height: 630,
-          alt: page.title,
-        },
-      ],
-      siteName: "Faqih Nur Fahmi - Portfolio",
+      url: `https://faqih.id/blog/${slug}`,
+      ...(coverUrl ? { images: [{ url: coverUrl, width: 1200, height: 630, alt: page.title }] } : {}),
+      siteName: "Faqih Nur Fahmi",
       publishedTime: page.createdAt || undefined,
       authors: ["Faqih Nur Fahmi"],
     },
@@ -54,10 +47,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: page.title,
       description,
-      images: [coverUrl],
+      ...(coverUrl ? { images: [coverUrl] } : {}),
     },
     alternates: {
-       canonical: `https://faqih.id/blog/${slug}`,
+      canonical: `https://faqih.id/blog/${slug}`,
     },
   };
 }

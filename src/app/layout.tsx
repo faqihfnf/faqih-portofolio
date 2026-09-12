@@ -19,30 +19,33 @@ export const metadata: Metadata = {
     template: "%s | Faqih Nur Fahmi",
   },
   description: "Faqih Nur Fahmi is an HR Manager and BNSP Certified HR Manager with 9+ years of experience in people management, organizational development, and practical digital solutions.",
+  authors: [{ name: "Faqih Nur Fahmi", url: "https://faqih.id" }],
+  creator: "Faqih Nur Fahmi",
   alternates: {
     canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://faqih.id",
     siteName: "Faqih Nur Fahmi",
     title: "Faqih Nur Fahmi — HR Manager & Full Stack Developer",
     description: "HR Manager and BNSP Certified HR Manager combining people, organizational processes, and technology.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Faqih Nur Fahmi — HR Manager and Full Stack Developer",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Faqih Nur Fahmi — HR Manager & Full Stack Developer",
     description: "HR Manager and BNSP Certified HR Manager combining people, organizational processes, and technology.",
-    images: ["/og-image.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
