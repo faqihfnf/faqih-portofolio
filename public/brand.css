@@ -1,0 +1,49 @@
+/*
+  brand.css — token desain faqih.id
+  Diekstrak dari EditorialTheme.tsx (hanya nilai warna & font, tanpa aturan
+  tipografi spesifik situs utama). Dipakai oleh subdomain lain
+  (slides.faqih.id, courses.faqih.id, dst) via:
+    <link rel="stylesheet" href="https://faqih.id/brand.css">
+
+  Fonts: Inter & Fraunces di-load lewat next/font di situs utama, jadi
+  variabel --font-inter / --font-fraunces TIDAK ikut lintas-domain.
+  Untuk subdomain lain, load ulang dari Google Fonts (lihat contoh di
+  bawah), lalu font-family di sini otomatis konsisten.
+*/
+
+:root {
+  --brand-bg: #F4F3EF;
+  --brand-bg-elevated: #ECEBE5;
+  --brand-text: #1B1C1E;
+  --brand-text-secondary: #4A4A46;
+  --brand-text-muted: #8B897F;
+  --brand-border: #D8D6CE;
+  --brand-accent: #8A6F3F;
+
+  --brand-font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --brand-font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-bg: #1B1C1E;
+    --brand-bg-elevated: #202124;
+    --brand-text: #EDEBE4;
+    --brand-text-secondary: #A5A39A;
+    --brand-text-muted: #86847A;
+    --brand-border: #2E2F31;
+    --brand-accent: #A2895B;
+  }
+}
+
+/* Kalau subdomain punya toggle dark/light manual (bukan ikut sistem),
+   tambahkan blok ini juga dan set atribut data-theme="dark" di <html> */
+:root[data-theme="dark"] {
+  --brand-bg: #1B1C1E;
+  --brand-bg-elevated: #202124;
+  --brand-text: #EDEBE4;
+  --brand-text-secondary: #A5A39A;
+  --brand-text-muted: #86847A;
+  --brand-border: #2E2F31;
+  --brand-accent: #A2895B;
+}
