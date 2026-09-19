@@ -28,7 +28,8 @@ export default function Navbar() {
     { name: t("navbar.nav-item-3"), link: "/projects" },
     { name: t("navbar.nav-item-4"), link: "/certificates" },
     { name: "Blog", link: "/blog" },
-    { name: "Course", link: "/course" },
+    { name: t("navbar.nav-item-6"), link: "/course" },
+    { name: t("navbar.nav-item-7"), link: "https://slides.faqih.id/" },
     { name: t("navbar.nav-item-5"), link: "/contact" },
   ];
 
@@ -50,7 +51,7 @@ export default function Navbar() {
         <nav className="flex h-16 w-full items-center justify-between px-6 sm:px-8 lg:px-12">
           {/* Logo + Name */}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Logo" width={34} height={34} className="dark:invert" />
+            <Image src="/logo.png" alt="Logo" width={34} height={34} className="dark:invert" loading="eager" />
             <span className="ed-serif text-lg tracking-tight">FnF.</span>
           </Link>
 
@@ -60,9 +61,7 @@ export default function Navbar() {
               <Link
                 key={item.link}
                 href={item.link}
-                className={`text-[11px] uppercase tracking-[0.18em] transition-colors ${
-                  pathname === item.link ? "text-[var(--ed-accent)]" : "text-[var(--ed-text-secondary)] hover:text-[var(--ed-accent)]"
-                }`}
+                className={`text-[11px] uppercase tracking-[0.18em] transition-colors ${pathname === item.link ? "text-[var(--ed-accent)]" : "text-[var(--ed-text-secondary)] hover:text-[var(--ed-accent)]"}`}
               >
                 {item.name}
               </Link>

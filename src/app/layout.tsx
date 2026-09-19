@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en" className="">
+    <html lang="en" className="" data-scroll-behavior="smooth">
       <body className={`${inter.className} ${poppins.className}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
         <I18nProvider>
