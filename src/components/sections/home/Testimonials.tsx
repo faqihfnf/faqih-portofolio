@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
+import { Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import SectionHeader from "@/components/editorial/SectionHeader";
 import { EditorialButton } from "@/components/editorial/EditorialButton";
@@ -77,16 +78,13 @@ export default function Testimonials() {
               <div className="rounded-lg border border-[var(--ed-border)] bg-[var(--ed-bg-elevated)] px-7 py-9 md:px-10">
                 <AnimatePresence mode="wait">
                   <motion.div key={current} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.35 }}>
-                    <p className="ed-serif min-h-[10rem] text-xl italic leading-relaxed tracking-tight md:text-[1.35rem]">
-                      {/* <span className="text-[var(--ed-accent)]">&ldquo;</span> */}
-                      {data[current].testimonial}
-                      {/* <span className="text-[var(--ed-accent)]">&rdquo;</span> */}
-                    </p>
+                    <p className="min-h-[10rem] text-md italic leading-relaxed tracking-tight ">{data[current].testimonial}</p>
 
                     <div className="mt-7 border-t border-[var(--ed-border)] pt-5">
                       {data[current].linkedinUrl ? (
-                        <a href={data[current].linkedinUrl} target="_blank" rel="noopener noreferrer" className="ed-link text-sm font-medium">
-                          {data[current].name}
+                        <a href={data[current].linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label={`${data[current].name} (LinkedIn)`} className="group inline-flex items-center gap-1.5 text-sm font-medium">
+                          <span className="ed-link">{data[current].name}</span>
+                          <Linkedin className="h-3.5 w-3.5 text-[var(--ed-text-muted)] transition-colors group-hover:text-[var(--ed-accent)]" aria-hidden="true" />
                         </a>
                       ) : (
                         <p className="text-sm font-medium">{data[current].name}</p>
@@ -103,7 +101,7 @@ export default function Testimonials() {
               {/* Navigation */}
               {data.length > 1 && (
                 <div className="mt-6 flex items-center justify-center gap-6">
-                  <button onClick={prev} className="text-xs uppercase tracking-[0.18em] text-[var(--ed-text-muted)] transition-colors hover:text-[var(--ed-accent)]">
+                  <button onClick={prev} className="text-xs uppercase cursor-pointer tracking-[0.18em] text-[var(--ed-text-muted)] transition-colors hover:text-[var(--ed-accent)]">
                     Prev
                   </button>
                   <div className="flex gap-2">
@@ -117,7 +115,7 @@ export default function Testimonials() {
                       />
                     ))}
                   </div>
-                  <button onClick={next} className="text-xs uppercase tracking-[0.18em] text-[var(--ed-text-muted)] transition-colors hover:text-[var(--ed-accent)]">
+                  <button onClick={next} className="text-xs uppercase cursor-pointer tracking-[0.18em] text-[var(--ed-text-muted)] transition-colors hover:text-[var(--ed-accent)]">
                     Next
                   </button>
                 </div>
