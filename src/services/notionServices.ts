@@ -24,6 +24,7 @@ export interface Project {
   technologies: string[];
   githubUrl: string | null;
   liveUrl: string | null;
+  order: number | null;
 }
 
 export interface NotionBlock {
@@ -209,7 +210,22 @@ export async function getProjects(): Promise<Project[]> {
       liveUrl = liveProp.url;
     }
 
-    return { id: page.id, title, slug, cover, description, technologies, githubUrl, liveUrl };
+    let order: number | null = null;
+    const orderProp = page.properties.Order;
+    if (orderProp?.type === "number" && orderProp.number !== null) {
+      order = orderProp.number;
+    }
+
+    return { id: page.id, title, slug, cover, description, technologies, githubUrl, liveUrl, order };
+  });
+
+  // Urut berdasarkan Order (kecil → besar), yang belum diisi Order di paling bawah
+  // dan tetap urutan createdAt dari Notion
+  results.sort((a, b) => {
+    if (a.order === null && b.order === null) return 0;
+    if (a.order === null) return 1;
+    if (b.order === null) return -1;
+    return a.order - b.order;
   });
 
   setCache(cacheKey, results);
