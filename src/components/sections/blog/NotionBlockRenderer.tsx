@@ -274,7 +274,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
       const data = (block as any).quote;
       return (
         <blockquote className="my-6 border-l-2 border-[var(--ed-accent)] pl-5 py-1">
-          <p className="ed-serif text-lg italic leading-relaxed text-[var(--ed-text-secondary)]">
+          <p className="text-lg italic leading-relaxed text-[var(--ed-text-secondary)]">
             <RichTextContent richText={data?.rich_text || []} />
           </p>
           {block.children && (
@@ -354,12 +354,7 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
       const url = data?.url;
       if (!url) return null;
       return (
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="my-4 flex items-center gap-2 p-3 border border-[var(--ed-border)] hover:border-[var(--ed-accent)] transition-colors group"
-        >
+        <a href={url} target="_blank" rel="noopener noreferrer" className="my-4 flex items-center gap-2 p-3 border border-[var(--ed-border)] hover:border-[var(--ed-accent)] transition-colors group">
           <span className="text-[var(--ed-text)] group-hover:text-[var(--ed-accent)] group-hover:underline break-all text-sm">{url}</span>
         </a>
       );

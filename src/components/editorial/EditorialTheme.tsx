@@ -65,7 +65,7 @@ const css = `
 
 .ed-link {
   color: var(--ed-text);
-  text-decoration: underline;
+
   text-decoration-color: transparent;
   text-decoration-thickness: 1px;
   text-underline-offset: 6px;

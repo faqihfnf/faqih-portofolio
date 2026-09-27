@@ -6,6 +6,7 @@ import NotionBlockRenderer from "../../../components/sections/blog/NotionBlockRe
 import { Metadata } from "next";
 import { fraunces } from "@/components/editorial/fonts";
 import EditorialTheme from "@/components/editorial/EditorialTheme";
+import { ArrowLeft } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -85,7 +86,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
       <EditorialTheme />
       <div className="mx-auto w-full max-w-5xl px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
         <Link href="/blog" className="ed-link inline-block text-[11px] uppercase tracking-[0.18em]">
-          &larr; Blog
+          <ArrowLeft className="mr-1 size-4 inline-block" />
+          Blog
         </Link>
 
         {!page ? (
@@ -112,7 +114,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
               {page.tags.length > 0 && <span>{page.tags.slice(0, 3).join(" · ")}</span>}
             </div>
 
-            <div className="mt-8 border-t border-[var(--ed-border)] pt-10">
+            {/* Cover image */}
+            {page.cover && <img src={page.cover} alt={page.title} className="mt-8 aspect-[1200/630] w-full rounded-[2px] border border-[var(--ed-border)] object-cover" />}
+
+            <div className="mt-8  border-[var(--ed-border)] pt-10">
               {/* Mobile TOC Dropdown */}
               {headings.length > 0 && <TableOfContents headings={headings} variant="dropdown" />}
 
