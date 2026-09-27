@@ -162,8 +162,6 @@ export async function getProjects(): Promise<Project[]> {
     // },
     // sorts: [{ property: "CreatedAt", direction: "descending" }],
   });
-  // console.log("Total raw results:", raw.results.length);
-  // console.log("First page properties:", JSON.stringify((raw.results[0] as any)?.properties, null, 2));
 
   const results: Project[] = (raw.results as PageObjectResponse[]).map((page) => {
     let title = "Untitled";
@@ -268,10 +266,4 @@ export async function getPageBlocks(pageId: string): Promise<NotionBlock[]> {
   const blocks = await fetchBlocksRecursive(pageId);
   setCache(cacheKey, blocks);
   return blocks;
-}
-
-export function revalidatePage(pageId: string) {
-  cache.delete(`page-blocks-${pageId}`);
-  cache.delete("blog-list");
-  cache.delete("projects-list");
 }

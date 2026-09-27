@@ -11,14 +11,8 @@ interface ThemeProviderProps {
 export default function ThemeProvider({ children }: ThemeProviderProps) {
   const theme = useSelector((state: RootState) => state.theme.theme);
 
-  // 👇 TAMBAHKAN BARIS INI UNTUK DEBUGGING
-  console.log("Current Redux theme state:", theme);
-
   useEffect(() => {
     const root = window.document.documentElement;
-
-    // 👇 TAMBAHKAN JUGA DI SINI UNTUK MELIHAT APAKAH EFEK BERJALAN
-    console.log("useEffect is running for theme:", theme);
 
     root.classList.remove("dark");
 
