@@ -3,6 +3,7 @@ import TableOfContents from "../../../components/sections/blog/TableOfContents";
 import Link from "next/link";
 import { NotionBlock } from "@/services/notionServices";
 import NotionBlockRenderer from "../../../components/sections/blog/NotionBlockRenderer";
+import RelatedPosts from "../../../components/sections/blog/RelatedPosts";
 import { Metadata } from "next";
 import { fraunces } from "@/components/editorial/fonts";
 import EditorialTheme from "@/components/editorial/EditorialTheme";
@@ -98,7 +99,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
         ) : (
           <>
             {/* Header */}
-            <h1 className="ed-serif mt-8 max-w-3xl text-3xl leading-tight tracking-tight md:text-[2.5rem] md:leading-[1.2]">{page.title}</h1>
+            <h1 className="ed-serif mt-8 text-3xl leading-tight tracking-tight md:text-[2.5rem] md:leading-[1.2]">{page.title}</h1>
 
             {/* Meta: tanggal + kategori kecil */}
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)]">
@@ -137,6 +138,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 )}
               </div>
             </div>
+
+            <RelatedPosts current={page} posts={posts} />
           </>
         )}
       </div>
