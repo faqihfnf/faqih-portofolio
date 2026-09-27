@@ -7,14 +7,12 @@ import { useTranslation } from "react-i18next";
 import SectionHeader from "@/components/editorial/SectionHeader";
 import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 import { fraunces, inter } from "@/components/editorial/fonts";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 export default function ContactPageClient() {
   const { t } = useTranslation();
 
   return (
     <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
-      <EditorialTheme />
       <section className="mx-auto w-full max-w-5xl px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
         <AnimateOnScroll animation="fade-up">
           <SectionHeader tag="Contact" title={t("contact.title")} description={t("contact.description")} />

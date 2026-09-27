@@ -4,12 +4,10 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { EditorialButton } from "@/components/editorial/EditorialButton";
 import { fraunces, inter } from "@/components/editorial/fonts";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 export default function NotFound() {
   return (
     <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
-      <EditorialTheme />
       <div className="mx-auto flex min-h-screen w-full max-w-[920px] items-center justify-center px-6 py-20 md:px-10">
         <div className="text-center">
           {/* 404 — angka serif italic besar */}

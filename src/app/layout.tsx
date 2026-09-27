@@ -1,5 +1,6 @@
 //@ts-ignore
 import "./globals.css";
+import "./editorial.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import Footer from "@/components/layout/Footer";

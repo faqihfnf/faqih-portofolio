@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { fraunces, inter } from "@/components/editorial/fonts";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 const socialLinks = [
   { href: "https://github.com/faqihfnf", label: "GitHub" },
@@ -15,7 +14,6 @@ const socialLinks = [
 export default function Footer() {
   return (
     <div className={`${fraunces.variable} ${inter.variable} editorial`}>
-      <EditorialTheme />
       <footer className="border-t border-[var(--ed-border)] bg-[var(--ed-bg)]">
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10">
           <p className="ed-serif text-base tracking-tight">Faqih Nur Fahmi</p>

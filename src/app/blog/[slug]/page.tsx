@@ -6,7 +6,6 @@ import NotionBlockRenderer from "../../../components/sections/blog/NotionBlockRe
 import RelatedPosts from "../../../components/sections/blog/RelatedPosts";
 import { Metadata } from "next";
 import { fraunces } from "@/components/editorial/fonts";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 import { ArrowLeft } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -84,7 +83,6 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   return (
     <div className={`${fraunces.variable} editorial ed-poppins min-h-screen`}>
-      <EditorialTheme />
       <div className="mx-auto w-full max-w-5xl px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
         <Link href="/blog" className="ed-link inline-block text-[11px] uppercase tracking-[0.18em]">
           <ArrowLeft className="mr-1 size-4 inline-block" />

@@ -2,7 +2,6 @@ import { getProjects, getPageBlocks } from "@/services/notionServices";
 import NotionBlockRenderer from "@/components/sections/blog/NotionBlockRenderer";
 import Link from "next/link";
 import { fraunces, inter } from "@/components/editorial/fonts";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 export const dynamic = "force-dynamic";
 
@@ -19,7 +18,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
-      <EditorialTheme />
       <div className="mx-auto w-full max-w-5xl px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
         {/* Back */}
         <Link href="/projects" className="ed-link inline-block text-[11px] uppercase tracking-[0.18em]">

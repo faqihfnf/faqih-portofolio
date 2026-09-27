@@ -1,4 +1,5 @@
-const css = `
+/* Editorial design system — token warna, tipografi, dan utilitas ed-* */
+
 .editorial {
   --ed-bg: #F4F3EF;
   --ed-bg-elevated: #ECEBE5;
@@ -84,9 +85,4 @@ const css = `
 
 .editorial .react-activity-calendar {
   color: var(--ed-text-secondary) !important;
-}
-`;
-
-export default function EditorialTheme() {
-  return <style>{css}</style>;
 }

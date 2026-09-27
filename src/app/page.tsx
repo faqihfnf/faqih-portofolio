@@ -7,13 +7,11 @@ import HeroSection from "@/components/sections/home/HeroSection";
 import MyServices from "@/components/sections/home/MyServices";
 import TechStack from "@/components/sections/home/TechStack";
 import Testimonials from "@/components/sections/home/Testimonials";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 import { fraunces, inter } from "@/components/editorial/fonts";
 
 export default function Home() {
   return (
     <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
-      <EditorialTheme />
 
       {/* Hero Section */}
       <HeroSection />

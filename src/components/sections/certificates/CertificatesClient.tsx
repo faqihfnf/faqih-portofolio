@@ -6,7 +6,6 @@ import { certificates } from "@/data/certificates";
 import { useTranslation } from "react-i18next";
 import SectionHeader from "@/components/editorial/SectionHeader";
 import { fraunces, inter } from "@/components/editorial/fonts";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 import { EditorialButton } from "@/components/editorial/EditorialButton";
 
 const INITIAL_COUNT = 5;
@@ -22,7 +21,6 @@ export default function CertificatesClient() {
 
   return (
     <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
-      <EditorialTheme />
       <section className="mx-auto w-full max-w-5xl px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
         <SectionHeader tag="Certificates" title={t("certificates.title")} description={t("certificates.description")} />
 

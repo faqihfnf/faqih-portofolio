@@ -6,7 +6,6 @@ import { z } from "zod";
 import { useState } from "react";
 import { EditorialButton } from "@/components/editorial/EditorialButton";
 import { fraunces, inter } from "@/components/editorial/fonts";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -81,7 +80,6 @@ export default function CreateTestimonial() {
 
   return (
     <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
-      <EditorialTheme />
       <div className="mx-auto w-full max-w-[920px] px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
         {success ? (
           /* Ucapan terima kasih */

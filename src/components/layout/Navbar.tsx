@@ -11,7 +11,6 @@ import { AppDispatch, RootState } from "@/app/redux/store";
 import { toggleTheme } from "@/app/redux/features/themeSlices";
 import SwitchTranslation from "@/components/layout/SwitchTranslation";
 import { fraunces, inter } from "@/components/editorial/fonts";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
@@ -46,7 +45,6 @@ export default function Navbar() {
 
   return (
     <div className={`${fraunces.variable} ${inter.variable} editorial`}>
-      <EditorialTheme />
       <header className={`fixed inset-x-0 top-0 z-50 border-b bg-[var(--ed-bg)] transition-colors duration-300 ${isScrolled ? "border-[var(--ed-border)]" : "border-transparent"}`}>
         <nav className="flex h-16 w-full items-center justify-between px-6 sm:px-8 lg:px-12">
           {/* Logo + Name */}

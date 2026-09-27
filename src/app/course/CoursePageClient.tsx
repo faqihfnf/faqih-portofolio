@@ -4,12 +4,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { EditorialButton } from "@/components/editorial/EditorialButton";
 import { fraunces, inter } from "@/components/editorial/fonts";
-import EditorialTheme from "@/components/editorial/EditorialTheme";
 
 export default function CoursePageClient() {
   return (
     <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
-      <EditorialTheme />
       <div className="mx-auto w-full max-w-[920px] px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
         <div className="flex flex-col items-center py-16 text-center md:py-24">
           <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--ed-text-muted)]">Course</p>
