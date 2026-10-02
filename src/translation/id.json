@@ -89,7 +89,11 @@
   "github": {
     "title": "Bagaimana ",
     "title-1": "GitHub Saya?",
-    "description": "Berikut adalah ringkasan kontribusi saya di GitHub selama setahun terakhir."
+    "description": "Berikut adalah ringkasan kontribusi saya di GitHub selama setahun terakhir.",
+    "top-languages": "Bahasa Teratas",
+    "active-repos": "Repo Paling Aktif",
+    "commits": "commit",
+    "private": "Repositori privat"
   },
   "testimonials": {
     "tag": "Testimoni",

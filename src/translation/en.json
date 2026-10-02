@@ -89,7 +89,11 @@
   "github": {
     "title": "How ",
     "title-1": "My GitHub?",
-    "description": "Here is a summary of my contributions on GitHub over the past year."
+    "description": "Here is a summary of my contributions on GitHub over the past year.",
+    "top-languages": "Top Languages",
+    "active-repos": "Most Active Repos",
+    "commits": "commits",
+    "private": "Private repository"
   },
   "testimonials": {
     "tag": "Testimonials",

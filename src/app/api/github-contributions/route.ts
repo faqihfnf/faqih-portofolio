@@ -4,15 +4,38 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_USERNAME = "faqihfnf";
 
 const QUERY = `
-query($login: String!, $from: DateTime!, $to: DateTime!) {
+query($login: String!) {
   user(login: $login) {
-    contributionsCollection(from: $from, to: $to) {
+    contributionsCollection {
       contributionCalendar {
         totalContributions
         weeks {
           contributionDays {
             contributionCount
+            contributionLevel
             date
+          }
+        }
+      }
+      commitContributionsByRepository(maxRepositories: 10) {
+        repository {
+          name
+          url
+          isPrivate
+        }
+        contributions {
+          totalCount
+        }
+      }
+    }
+    repositories(first: 100, ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) {
+      nodes {
+        languages(first: 10, orderBy: { field: SIZE, direction: DESC }) {
+          edges {
+            size
+            node {
+              name
+            }
           }
         }
       }
@@ -23,12 +46,28 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 
 export const revalidate = 3600; // Cache for 1 hour
 
-function getLevel(count: number): 0 | 1 | 2 | 3 | 4 {
-  if (count === 0) return 0;
-  if (count <= 3) return 1;
-  if (count <= 6) return 2;
-  if (count <= 9) return 3;
-  return 4;
+// Use GitHub's own quartile levels so the colors match the profile
+const LEVELS: Record<string, 0 | 1 | 2 | 3 | 4> = {
+  NONE: 0,
+  FIRST_QUARTILE: 1,
+  SECOND_QUARTILE: 2,
+  THIRD_QUARTILE: 3,
+  FOURTH_QUARTILE: 4,
+};
+
+interface ContributionDay {
+  date: string;
+  contributionCount: number;
+  contributionLevel: string;
+}
+
+interface RepoContribution {
+  repository: { name: string; url: string; isPrivate: boolean };
+  contributions: { totalCount: number };
+}
+
+interface RepoNode {
+  languages: { edges: { size: number; node: { name: string } }[] };
 }
 
 export async function GET() {
@@ -39,10 +78,6 @@ export async function GET() {
     );
   }
 
-  const to = new Date();
-  const from = new Date();
-  from.setFullYear(from.getFullYear() - 1);
-
   try {
     const response = await fetch("https://api.github.com/graphql", {
       method: "POST",
@@ -52,11 +87,8 @@ export async function GET() {
       },
       body: JSON.stringify({
         query: QUERY,
-        variables: {
-          login: GITHUB_USERNAME,
-          from: from.toISOString(),
-          to: to.toISOString(),
-        },
+        // No from/to: GitHub returns the same calendar range as the profile page
+        variables: { login: GITHUB_USERNAME },
       }),
     });
 
@@ -70,22 +102,55 @@ export async function GET() {
       throw new Error(data.errors[0]?.message || "GraphQL error");
     }
 
-    const calendar =
-      data.data.user.contributionsCollection.contributionCalendar;
+    const user = data.data.user;
+    const calendar = user.contributionsCollection.contributionCalendar;
 
     // Transform to react-activity-calendar format
     const contributions = calendar.weeks.flatMap(
-      (week: { contributionDays: { date: string; contributionCount: number }[] }) =>
+      (week: { contributionDays: ContributionDay[] }) =>
         week.contributionDays.map((day) => ({
           date: day.date,
           count: day.contributionCount,
-          level: getLevel(day.contributionCount),
+          level: LEVELS[day.contributionLevel] ?? 0,
         }))
     );
+
+    const repos: RepoNode[] = user.repositories.nodes;
+
+    // Aggregate language bytes across all public repos
+    const languageSizes = new Map<string, number>();
+    for (const repo of repos) {
+      for (const { size, node } of repo.languages.edges) {
+        languageSizes.set(node.name, (languageSizes.get(node.name) ?? 0) + size);
+      }
+    }
+    const totalSize = [...languageSizes.values()].reduce((a, b) => a + b, 0);
+    const languages = [...languageSizes.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([name, size]) => ({
+        name,
+        percent: Math.round((size / totalSize) * 1000) / 10,
+      }));
+
+    // Private repos keep their name but drop the URL (visitors would get a 404)
+    const topRepos = (
+      user.contributionsCollection
+        .commitContributionsByRepository as RepoContribution[]
+    )
+      .slice(0, 5)
+      .map((item) => ({
+        name: item.repository.name,
+        url: item.repository.isPrivate ? null : item.repository.url,
+        isPrivate: item.repository.isPrivate,
+        commits: item.contributions.totalCount,
+      }));
 
     return NextResponse.json({
       total: calendar.totalContributions,
       contributions,
+      languages,
+      topRepos,
     });
   } catch (error) {
     console.error("GitHub contributions fetch error:", error);
