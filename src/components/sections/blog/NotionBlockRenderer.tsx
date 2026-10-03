@@ -49,7 +49,7 @@ function RichTextContent({ richText }: { richText: RichText[] }) {
           if (annotations.underline) node = <u key={i}>{node}</u>;
           if (href) {
             node = (
-              <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-[var(--ed-text)] underline decoration-[var(--ed-accent)] underline-offset-4 hover:text-[var(--ed-accent)] transition-colors">
+              <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-[var(--ed-accent)] hover:text-[var(--ed-accent-hover)] transition-colors">
                 {node}
               </a>
             );
