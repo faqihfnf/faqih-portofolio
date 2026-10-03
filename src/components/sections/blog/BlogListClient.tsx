@@ -73,9 +73,9 @@ export default function BlogListClient({ posts }: BlogListClientProps) {
                 {/* Content — kiri */}
                 <div className="flex min-w-0 flex-1 flex-col justify-center">
                   <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)]">
-                    {post.createdAt && (
+                    {post.date && (
                       <span>
-                        {new Date(post.createdAt).toLocaleDateString("id-ID", {
+                        {new Date(post.date).toLocaleDateString("id-ID", {
                           month: "short",
                           day: "numeric",
                           year: "numeric",

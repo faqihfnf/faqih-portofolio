@@ -10,6 +10,8 @@ export interface BlogPost {
   slug: string | null;
   cover: string | null;
   createdAt: string | null;
+  updatedAt: string | null;
+  date: string | null; // UpdatedAt ?? CreatedAt — dipakai untuk urutan & tampilan
   description: string;
   tags: string[];
   featured: boolean;
@@ -106,6 +108,16 @@ export async function getData(): Promise<BlogPost[]> {
       createdAt = (page as any).created_time ?? null;
     }
 
+    let updatedAt: string | null = null;
+    const updatedProp = page.properties.UpdatedAt;
+    if (updatedProp?.type === "last_edited_time") {
+      updatedAt = updatedProp.last_edited_time;
+    } else if (updatedProp?.type === "date" && updatedProp.date?.start) {
+      updatedAt = updatedProp.date.start;
+    }
+
+    const date = updatedAt ?? createdAt;
+
     let description = "";
     const descProp = page.properties.Description;
     if (descProp?.type === "rich_text" && descProp.rich_text.length > 0) {
@@ -123,17 +135,15 @@ export async function getData(): Promise<BlogPost[]> {
       featured = featuredProp.checkbox;
     }
 
-    return { id: page.id, title, slug, cover, description, createdAt, tags, featured };
+    return { id: page.id, title, slug, cover, description, createdAt, updatedAt, date, tags, featured };
   });
 
-  // Featured selalu paling atas, sisanya tetap urutan createdAt dari Notion
-  const sorted = results.sort((a, b) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    return 0;
-  });
+  // Featured selalu paling atas, sisanya urut UpdatedAt ?? CreatedAt terbaru
+  const time = (p: BlogPost) => (p.date ? new Date(p.date).getTime() : 0);
+  results.sort((a, b) => Number(b.featured) - Number(a.featured) || time(b) - time(a));
+
   setCache(cacheKey, results);
-  return sorted;
+  return results;
 }
 
 // ============================================================

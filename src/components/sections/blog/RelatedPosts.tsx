@@ -9,7 +9,7 @@ interface RelatedPostsProps {
 
 // Prioritaskan post dengan tag yang sama, lalu yang paling baru
 function pickRelated(current: BlogPost, posts: BlogPost[], limit: number) {
-  const time = (p: BlogPost) => (p.createdAt ? new Date(p.createdAt).getTime() : 0);
+  const time = (p: BlogPost) => (p.date ? new Date(p.date).getTime() : 0);
 
   return posts
     .filter((p) => p.id !== current.id && p.slug)
@@ -33,9 +33,9 @@ export default function RelatedPosts({ current, posts, limit = 3 }: RelatedPosts
             <Link href={`/blog/${post.slug}`} className="group flex flex-col">
               {post.cover && <img src={post.cover} alt={post.title} className="mb-4 aspect-[1200/630] w-full rounded-[2px] border border-[var(--ed-border)] object-cover" />}
 
-              {post.createdAt && (
+              {post.date && (
                 <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)]">
-                  {new Date(post.createdAt).toLocaleDateString("id-ID", {
+                  {new Date(post.date).toLocaleDateString("id-ID", {
                     month: "short",
                     day: "numeric",
                     year: "numeric",

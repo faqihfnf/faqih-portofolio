@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ...(coverUrl ? { images: [{ url: coverUrl, width: 1200, height: 630, alt: page.title }] } : {}),
       siteName: "Faqih Nur Fahmi",
       publishedTime: page.createdAt || undefined,
+      modifiedTime: page.updatedAt || undefined,
       authors: ["Faqih Nur Fahmi"],
     },
     twitter: {
@@ -101,9 +102,9 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
             {/* Meta: tanggal + kategori kecil */}
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.18em] text-[var(--ed-text-muted)]">
-              {page.createdAt && (
+              {page.date && (
                 <span>
-                  {new Date(page.createdAt).toLocaleDateString("id-ID", {
+                  {new Date(page.date).toLocaleDateString("id-ID", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
