@@ -273,8 +273,8 @@ function BlockRenderer({ block, blocks }: { block: NotionBlock; blocks: NotionBl
     case "quote": {
       const data = (block as any).quote;
       return (
-        <blockquote className="my-6 border-l-2 border-[var(--ed-accent)] pl-5 py-1">
-          <p className="text-lg italic leading-relaxed text-[var(--ed-text-secondary)]">
+        <blockquote className="my-6 border-l-2 border-[var(--ed-accent)] px-4 py-2">
+          <p className="text-lg italic text-justify leading-relaxed text-[var(--ed-text-secondary)]">
             <RichTextContent richText={data?.rich_text || []} />
           </p>
           {block.children && (

@@ -55,9 +55,9 @@
 }
 
 /* Variant: pertahankan font Poppins bawaan body (dipakai halaman blog) */
-.editorial.ed-poppins {
+/* .editorial.ed-poppins {
   font-family: inherit;
-}
+} */
 
 .ed-accent-em {
   font-style: italic;

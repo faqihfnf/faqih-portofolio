@@ -5,7 +5,7 @@ import { NotionBlock } from "@/services/notionServices";
 import NotionBlockRenderer from "../../../components/sections/blog/NotionBlockRenderer";
 import RelatedPosts from "../../../components/sections/blog/RelatedPosts";
 import { Metadata } from "next";
-import { fraunces } from "@/components/editorial/fonts";
+import { fraunces, inter } from "@/components/editorial/fonts";
 import { ArrowLeft } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -83,7 +83,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
   const headings = page ? extractHeadings(blocks) : [];
 
   return (
-    <div className={`${fraunces.variable} editorial ed-poppins min-h-screen`}>
+    <div className={`${fraunces.variable} ${inter.variable} editorial min-h-screen`}>
       <div className="mx-auto w-full max-w-5xl px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
         <Link href="/blog" className="ed-link inline-block text-[11px] uppercase tracking-[0.18em]">
           <ArrowLeft className="mr-1 size-4 inline-block" />
